@@ -161,7 +161,7 @@ add_action( 'after_setup_theme', 'foundation_setup' );
 		function base_extended_editor_mce_buttons($buttons) {
 			// The settings are returned in this array. Customize to suite your needs.
 			return array(
-				'italic', 'charmap', 'removeformat'
+				'bold', 'italic', 'charmap', 'removeformat'
 			);
 			/* WordPress Default
 			return array(
