@@ -393,6 +393,97 @@ function my_theme_register_required_plugins() {
 
 }
 
+//***********************
+//
+// Customizer
+//
+//***********************
 
+function wptuts_theme_customizer( $wp_customize ) {
+/*
+	// Section
+	$wp_customize->add_section( 'wptuts', array(
+        	'title' => 'WPTuts+', // The title of section
+        	'description' => 'Settings of WPTuts section', // The description of section
+	) );
+ 
+	// Setting
+	$wp_customize->add_setting( 'wptuts_welcome_text', array(
+	    	'default' => 'Hello world',
+	    	// Let everything else default
+	) );
+
+	// create a new control which connects the new section and the new setting
+	$wp_customize->add_control( 'wptuts_welcome_text', array(
+    		// wptuts_welcome_text is a id of setting that this control handles
+    		'label' => 'Welcome text',
+    		// 'type' =>, // Default is "text", define the content type of setting rendering.
+		'section' => 'wptuts', // id of section to which the setting belongs
+		// Let everything else default
+	) );
+
+*/
+	$wp_customize->add_section( 'colors', array(
+        	'title' => 'Colors',
+        	'description' => 'Color defaults for all screens',
+	) );
+
+	$wp_customize->add_setting( 'colors[background-color]', array(
+    		'default' => '#ffffff',
+		'sanitize_callback'    => 'sanitize_hex_color_no_hash',
+		'sanitize_js_callback' => 'maybe_hash_hex_color',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[background-color]', array(
+		'label'   => 'Background Color',
+		'section' => 'colors',
+	) ) );
+
+	$wp_customize->add_setting( 'colors[headline-color]', array(
+    		'default' => '#000000',
+		'sanitize_callback'    => 'sanitize_hex_color_no_hash',
+		'sanitize_js_callback' => 'maybe_hash_hex_color',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[headline-color]', array(
+		'label'   => 'Headline Color',
+		'section' => 'colors',
+	) ) );
+
+	$wp_customize->add_setting( 'colors[subhead-color]', array(
+    		'default' => '#000000',
+		'sanitize_callback'    => 'sanitize_hex_color_no_hash',
+		'sanitize_js_callback' => 'maybe_hash_hex_color',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[subhead-color]', array(
+		'label'   => 'Sub-headline Color',
+		'section' => 'colors',
+	) ) );
+
+	$wp_customize->add_setting( 'colors[copy-color]', array(
+    		'default' => '#000000',
+		'sanitize_callback'    => 'sanitize_hex_color_no_hash',
+		'sanitize_js_callback' => 'maybe_hash_hex_color',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[copy-color]', array(
+		'label'   => 'Copy Color',
+		'section' => 'colors',
+	) ) );
+}
+add_action( 'customize_register', 'wptuts_theme_customizer', 11 );
+
+function get_color_option($post_id, $key) {
+	$colors = get_theme_mod( 'colors' );
+	$page_color = get_post_meta($post_id, $key, true);
+	if (!empty($page_color)) {
+		return $page_color;
+	}
+	if (!empty($colors[$key])) {
+		return $colors[$key];
+	}
+	return '';
+}
 
 ?>
