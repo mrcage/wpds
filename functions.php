@@ -357,27 +357,6 @@ function my_theme_register_required_plugins() {
             'force_deactivation' => true, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
             'external_url'       => '', // If set, overrides default API URL and points to an external URL.
         ),
-        array(
-            'name'      => 'Simple expires',
-            'slug'      => 'simple-expires',
-            'required'  => false,
-        ),
-        array(
-            'name'      => 'WordPress Database Backup',
-            'slug'      => 'wp-db-backup',
-            'required'  => false,
-        ),
-        array(
-            'name'      => 'Login LockDown',
-            'slug'      => 'login-lockdown',
-            'required'  => false,
-        ),
-        array(
-            'name'      => 'Wordfence Security',
-            'slug'      => 'wordfence',
-            'required'  => false,
-        ),
-
     );
 
     $config = array(
