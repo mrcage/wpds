@@ -400,29 +400,48 @@ function my_theme_register_required_plugins() {
 //***********************
 
 function wptuts_theme_customizer( $wp_customize ) {
-/*
-	// Section
-	$wp_customize->add_section( 'wptuts', array(
-        	'title' => 'WPTuts+', // The title of section
-        	'description' => 'Settings of WPTuts section', // The description of section
+
+	// Signage section
+	$wp_customize->add_section( 'signage', array(
+        	'title' => __('Signage'),
+        	'description' => __('Digital signage settings'),
 	) );
  
-	// Setting
-	$wp_customize->add_setting( 'wptuts_welcome_text', array(
-	    	'default' => 'Hello world',
-	    	// Let everything else default
+	$wp_customize->add_setting( 'signage[animation]', array(
+	    	'default' => 'slide',
 	) );
 
-	// create a new control which connects the new section and the new setting
-	$wp_customize->add_control( 'wptuts_welcome_text', array(
-    		// wptuts_welcome_text is a id of setting that this control handles
-    		'label' => 'Welcome text',
-    		// 'type' =>, // Default is "text", define the content type of setting rendering.
-		'section' => 'wptuts', // id of section to which the setting belongs
-		// Let everything else default
+	$wp_customize->add_control( 'signage[animation]', array(
+    		'label' => __('Animation'),
+		'section' => 'signage',
+		'type' => 'radio',
+		'choices' => array(
+			'slide'  => __( 'Slide' ),
+			'fade' => __( 'Fade' )
+		),
 	) );
 
-*/
+	$wp_customize->add_setting( 'signage[timer_speed]', array(
+	    	'default' => '10000',
+	) );
+
+	$wp_customize->add_control( 'signage[timer_speed]', array(
+    		'label' => __('Timer speed (ms)'),
+		'section' => 'signage',
+		'type' => 'number',
+	) );
+	
+	$wp_customize->add_setting( 'signage[animation_speed]', array(
+	    	'default' => '500',
+	) );
+
+	$wp_customize->add_control( 'signage[animation_speed]', array(
+    		'label' => __('Animation speed (ms)'),
+		'section' => 'signage',
+		'type' => 'number',
+	) );
+
+	// Colors section
 	$wp_customize->add_section( 'colors', array(
         	'title' => 'Colors',
         	'description' => 'Color defaults for all screens',

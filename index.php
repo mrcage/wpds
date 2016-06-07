@@ -13,8 +13,16 @@ get_header(); ?>
 <div class="row">
     <!-- Main Content -->
     <div class="large-12 columns" role="content">
-			<ul data-orbit>
-	            <?php
+		<?php
+			$options = [];
+			foreach (get_theme_mod( 'signage' ) as $k => $v) {
+				if (!empty($v)) {
+					$val = !is_numeric($v) && !is_bool($v) ? '\'' . $v . '\'' : $v;
+					$options[] = $k . ':'. $val;
+				}
+			}
+			echo '<ul data-orbit' . ( !empty($options) ? ' data-options="' . implode(';', $options) . '"' : '') . '>';
+
 	            $args=array(
 	                'post_type' => 'post',
 	                'post_status' => 'publish',
