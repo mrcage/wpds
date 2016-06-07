@@ -36,6 +36,13 @@
 		  document.write(unescape("%3Cscript src='<?php bloginfo('template_url'); ?>/javascripts/foundation/foundation.orbit.js' type='text/javascript'%3E%3C/script%3E"));
 		}
 	</script>
+	<?php
+		$signage_opts = get_theme_mod( 'signage' );
+		if (!empty($signage_opts['reload_interval']) && is_numeric($signage_opts['reload_interval'])) {
+			echo '<script>var defaultReloadTimeout=1000 * 60 * ' . $signage_opts['reload_interval'] . ';</script>';
+		}
+
+	?>
     <script src="<?php bloginfo('template_url'); ?>/javascripts/vendor/app.js"></script>
     <!-- <script src="<?php bloginfo('template_url'); ?>/javascripts/vendor/twitterFetcher_v10_min.js"></script> -->
 

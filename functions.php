@@ -441,6 +441,16 @@ function wptuts_theme_customizer( $wp_customize ) {
 		'type' => 'number',
 	) );
 
+	$wp_customize->add_setting( 'signage[reload_interval]', array(
+	    	'default' => '5',
+	) );
+
+	$wp_customize->add_control( 'signage[reload_interval]', array(
+    		'label' => __('Reload interval (min)'),
+		'section' => 'signage',
+		'type' => 'number',
+	) );
+
 	// Colors section
 	$wp_customize->add_section( 'colors', array(
         	'title' => 'Colors',
