@@ -33,15 +33,15 @@ get_header(); ?>
 					    if($background_image != '') :
                 echo '<li class="post-box large-12 columns" style="background:url(' . get_post_meta($post->ID, 'background-image', true) . ') 0 0 no-repeat; width:100%; height:100%; background-size:contain;"></li>';
               else :
-                  echo '<li class="post-box large-12 columns" style="background:#' . get_post_meta($post->ID, 'background-color', true) . ';">',
-          						'<h1 style="color:#' . get_post_meta($post->ID, 'headline-color', true) . ';">' . get_the_title() . '</h1>',
-          						'<h2 style="color:#' . get_post_meta($post->ID, 'subhead-color', true) . ';">' . get_post_meta($post->ID, 'subtitle', true) . '</h2>',
+                  echo '<li class="post-box large-12 columns"' . ( !empty($background_color) ? ' style="background:#' . $background_color . ';"' : '' ) . '>',
+          						'<h1' . ( !empty($head_color) ? ' style="color:#' . $head_color . ';"' : '' ) . '>' . get_the_title() . '</h1>',
+          						'<h2' . ( !empty($subhead_color) ? ' style="color:#' . $subhead_color . ';"' : '' ) . '>' . get_post_meta($post->ID, 'subtitle', true) . '</h2>',
           						'<div class="row">',
           						'<a href="' . get_post_meta($post->ID, 'link', true) . '">',
           						get_the_post_thumbnail($post_id, 'large', array('class' => 'large-3 columns feature')),
           						'</a>',
-          						'<p class="large-7 columns copy end" style="color:#' . get_post_meta($post->ID, 'copy-color', true) . ';">' . do_shortcode( get_the_content() ) . '</p>',
-          						'<p class="link"><a  style="color:#' . get_post_meta($post->ID, 'copy-color', true) . ';" href="' . get_post_meta($post->ID, 'link', true) . '">' . get_post_meta($post->ID, 'link', true) . '</a>',
+          						'<p class="large-7 columns copy end"' . ( !empty($copy_color) ? ' style="color:#' . $copy_color . ';"' : '' ) . '>' . do_shortcode( get_the_content() ) . '</p>',
+          						'<p class="link"><a' . ( !empty($copy_color) ? ' style="color:#' . $copy_color . ';"' : '' ) . ' href="' . get_post_meta($post->ID, 'link', true) . '">' . get_post_meta($post->ID, 'link', true) . '</a>',
           						'</div>',
           						'</li>';
               endif;
