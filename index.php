@@ -26,7 +26,8 @@ get_header(); ?>
 	            $args=array(
 	                'post_type' => 'post',
 	                'post_status' => 'publish',
-	                'orderby' => 'rand'
+	                'orderby' => 'modified',
+			'order' => 'ASC'
 	            );
 	            $the_query = new WP_Query($args);
 	            if($the_query->have_posts()) : while ( $the_query->have_posts() ) : $the_query->the_post();
