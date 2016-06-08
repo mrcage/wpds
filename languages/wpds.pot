@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: Wed Jun 08 2016 17:23:05 GMT+0200 (W. Europe Standard "
 "Time)\n"
-"POT-Revision-Date: Wed Jun 08 2016 21:28:54 GMT+0200 (W. Europe Standard "
+"POT-Revision-Date: Wed Jun 08 2016 21:53:27 GMT+0200 (W. Europe Standard "
 "Time)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: nicolas <mail@nicu.ch>\n"
@@ -27,206 +27,54 @@ msgstr ""
 "X-Loco-Target-Locale: de_DE\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#, c-format
-msgid "%1$s installed and activated successfully."
+#: ../sidebar.php:18
+msgid "No widgets found."
 msgstr ""
 
-#, c-format
-msgid "%1$s installed successfully."
-msgstr ""
-
-msgid "Activate"
-msgstr ""
-
-msgid "All installations and activations have been completed."
-msgstr ""
-
-msgid "All installations have been completed."
-msgstr ""
-
-#, c-format
-msgid "All plugins installed and activated successfully. %1$s"
-msgstr ""
-
-#, c-format
-msgid "All plugins installed and activated successfully. %s"
-msgstr ""
-
-#, c-format
-msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
-msgstr ""
-
-msgid "Animation speed (ms)"
-msgstr ""
-
-msgid "Background Color"
-msgstr ""
-
-msgid "Begin activating plugin"
-msgid_plural "Begin activating plugins"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Begin installing plugin"
-msgid_plural "Begin installing plugins"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Colors"
-msgstr ""
-
-msgid "Copy Color"
-msgstr ""
-
-msgid "Digital Signage"
-msgstr ""
-
-msgid "Dismiss this notice"
-msgstr ""
-
-msgid "Dock Background Color"
-msgstr ""
-
-#, c-format
-msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
-msgstr ""
-
-msgid "Full Page Template"
-msgstr ""
-
-msgid "Headline Color"
-msgstr ""
-
-msgid "Hide Details"
-msgstr ""
-
-msgid "Install"
-msgstr ""
-
-msgid "Install Plugins"
-msgstr ""
-
-msgid "Install Required Plugins"
-msgstr ""
-
-msgid "Install package not available."
-msgstr ""
-
-msgid "Installed But Not Activated"
-msgstr ""
-
-#, c-format
-msgid "Installing Plugin %1$s (%2$d/%3$d)"
-msgstr ""
-
-#, c-format
-msgid "Installing Plugin: %s"
-msgstr ""
-
-#, c-format
-msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
-msgstr ""
-
-msgid "Installing the plugin&#8230;"
-msgstr ""
-
-msgid "Invalid sidebar ID"
-msgstr ""
-
-#, c-format
+#: ../sidebar.php:19
+#, php-format
 msgid ""
 "It seems you don't have any widgets in your sidebar! Would you like to %s "
 "now?"
 msgstr ""
 
-msgid "Layout"
+#: ../functions.php:231
+msgid "Invalid sidebar ID"
 msgstr ""
 
-msgid "Nate Jones"
+#: ../functions.php:381 ../lib/tgm/class-tgm-plugin-activation.php:161
+msgid "Install Required Plugins"
 msgstr ""
 
-#, c-format
-msgid ""
-"No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the "
-"Dashboard\">Return to the Dashboard</a>"
+#: ../functions.php:382 ../lib/tgm/class-tgm-plugin-activation.php:162
+msgid "Install Plugins"
 msgstr ""
 
-msgid "No widgets found."
+#: ../functions.php:383 ../lib/tgm/class-tgm-plugin-activation.php:163
+#, php-format
+msgid "Installing Plugin: %s"
 msgstr ""
 
-msgid "Not Installed"
-msgstr ""
-
-msgid "Plugin"
-msgstr ""
-
-msgid "Plugin activated successfully."
-msgstr ""
-
-msgid "Plugin activation failed."
-msgstr ""
-
-msgid "Plugin install failed."
-msgstr ""
-
-msgid "Plugin installed successfully."
-msgstr ""
-
-msgid "Pre-Packaged"
-msgstr ""
-
-msgid "Private Repository"
-msgstr ""
-
-msgid "Recommended"
-msgstr ""
-
-msgid "Reload interval (min)"
-msgstr ""
-
-msgid "Required"
-msgstr ""
-
-msgid "Return to Required Plugins Installer"
-msgstr ""
-
-msgid "Return to the Dashboard"
-msgstr ""
-
-msgid "Return to the dashboard"
-msgstr ""
-
-msgid "Show Details"
-msgstr ""
-
-msgid "Show dock"
-msgstr ""
-
-msgid "Sidebar Left Template"
-msgstr ""
-
-msgid "Slider"
-msgstr ""
-
+#: ../functions.php:384
 msgid "Something went wrong with the plugin API."
 msgstr ""
 
-msgid "Something went wrong."
-msgstr ""
-
-#, c-format
-msgid ""
-"Sorry, but you do not have the correct permissions to activate the %s plugin."
-" Contact the administrator of this site for help on getting the plugin "
-"activated."
-msgid_plural ""
-"Sorry, but you do not have the correct permissions to activate the %s "
-"plugins. Contact the administrator of this site for help on getting the "
-"plugins activated."
+#: ../functions.php:385 ../lib/tgm/class-tgm-plugin-activation.php:165
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#, c-format
+#: ../functions.php:386 ../lib/tgm/class-tgm-plugin-activation.php:166
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../functions.php:387 ../lib/tgm/class-tgm-plugin-activation.php:167
+#, php-format
 msgid ""
 "Sorry, but you do not have the correct permissions to install the %s plugin. "
 "Contact the administrator of this site for help on getting the plugin "
@@ -238,7 +86,46 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#, c-format
+#: ../functions.php:388 ../lib/tgm/class-tgm-plugin-activation.php:168
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../functions.php:389 ../lib/tgm/class-tgm-plugin-activation.php:169
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../functions.php:390 ../lib/tgm/class-tgm-plugin-activation.php:170
+#, php-format
+msgid ""
+"Sorry, but you do not have the correct permissions to activate the %s plugin."
+" Contact the administrator of this site for help on getting the plugin "
+"activated."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to activate the %s "
+"plugins. Contact the administrator of this site for help on getting the "
+"plugins activated."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../functions.php:391 ../lib/tgm/class-tgm-plugin-activation.php:171
+#, php-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../functions.php:392 ../lib/tgm/class-tgm-plugin-activation.php:172
+#, php-format
 msgid ""
 "Sorry, but you do not have the correct permissions to update the %s plugin. "
 "Contact the administrator of this site for help on getting the plugin "
@@ -250,82 +137,274 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "Source"
-msgstr ""
-
-msgid "Status"
-msgstr ""
-
-msgid "Sub-headline Color"
-msgstr ""
-
-#, c-format
-msgid ""
-"The following plugin needs to be updated to its latest version to ensure "
-"maximum compatibility with this theme: %1$s."
-msgid_plural ""
-"The following plugins need to be updated to their latest version to ensure "
-"maximum compatibility with this theme: %1$s."
+#: ../functions.php:393 ../lib/tgm/class-tgm-plugin-activation.php:173
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
 msgstr[0] ""
 msgstr[1] ""
 
+#: ../functions.php:394 ../lib/tgm/class-tgm-plugin-activation.php:174
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../functions.php:395 ../lib/tgm/class-tgm-plugin-activation.php:175
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: ../functions.php:396 ../lib/tgm/class-tgm-plugin-activation.php:177 ..
+#: /lib/tgm/class-tgm-plugin-activation.php:1945
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: ../functions.php:397
+#, php-format
+msgid "All plugins installed and activated successfully. %s"
+msgstr ""
+
+#: ../functions.php:423
+msgid "Slider"
+msgstr ""
+
+#: ../functions.php:448
+msgid "Timer speed (ms)"
+msgstr ""
+
+#: ../functions.php:458
+msgid "Animation speed (ms)"
+msgstr ""
+
+#: ../functions.php:468
+msgid "Reload interval (min)"
+msgstr ""
+
+#: ../functions.php:477
+msgid "Layout"
+msgstr ""
+
+#: ../functions.php:485
+msgid "Show dock"
+msgstr ""
+
+#: ../functions.php:494
+msgid "Colors"
+msgstr ""
+
+#: ../functions.php:504
+msgid "Background Color"
+msgstr ""
+
+#: ../functions.php:515
+msgid "Headline Color"
+msgstr ""
+
+#: ../functions.php:526
+msgid "Sub-headline Color"
+msgstr ""
+
+#: ../functions.php:537
+msgid "Copy Color"
+msgstr ""
+
+#: ../functions.php:548
+msgid "Dock Background Color"
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:164
+msgid "Something went wrong."
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:176
+msgid "Return to the dashboard"
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:178 ../lib/tgm/class-tgm-plugin-
+#: activation.php:1636
 msgid "The following plugin was activated successfully:"
 msgid_plural "The following plugins were activated successfully:"
 msgstr[0] ""
 msgstr[1] ""
 
-#, c-format
-msgid "The following recommended plugin is currently inactive: %1$s."
-msgid_plural "The following recommended plugins are currently inactive: %1$s."
-msgstr[0] ""
-msgstr[1] ""
+#: ../lib/tgm/class-tgm-plugin-activation.php:179
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
 
-#, c-format
-msgid "The following required plugin is currently inactive: %1$s."
-msgid_plural "The following required plugins are currently inactive: %1$s."
-msgstr[0] ""
-msgstr[1] ""
+#: ../lib/tgm/class-tgm-plugin-activation.php:180
+msgid "Dismiss this notice"
+msgstr ""
 
+#: ../lib/tgm/class-tgm-plugin-activation.php:534 ../lib/tgm/class-tgm-plugin-
+#: activation.php:534 ../lib/tgm/class-tgm-plugin-activation.php:2162 ..
+#: /lib/tgm/class-tgm-plugin-activation.php:2162
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:1169
+msgid "Private Repository"
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:1172
+msgid "Pre-Packaged"
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:1177
+msgid "WordPress Repository"
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:1180
+msgid "Required"
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:1180
+msgid "Recommended"
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:1183
+msgid "Not Installed"
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:1185
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:1290 ../lib/tgm/class-tgm-plugin-
+#: activation.php:1290 ../lib/tgm/class-tgm-plugin-activation.php:1398
+msgid "Install"
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:1312 ../lib/tgm/class-tgm-plugin-
+#: activation.php:1312 ../lib/tgm/class-tgm-plugin-activation.php:1399
+msgid "Activate"
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:1361
+#, php-format
+msgid ""
+"No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the "
+"Dashboard\">Return to the Dashboard</a>"
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:1377
+msgid "Plugin"
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:1378
+msgid "Source"
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:1379
+msgid "Type"
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:1380
+msgid "Status"
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:1928
+msgid "Install package not available."
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:1929
+#, php-format
+msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:1930
+msgid "Unpacking the package&#8230;"
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:1931
+msgid "Installing the plugin&#8230;"
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:1932
+msgid "Plugin install failed."
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:1933
+msgid "Plugin installed successfully."
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:1944
+msgid "Plugin activation failed."
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:2058
 msgid ""
 "The installation and activation process is starting. This process may take a "
 "while on some hosts, so please be patient."
 msgstr ""
 
-#, c-format
-msgid "The installation of %1$s failed."
+#: ../lib/tgm/class-tgm-plugin-activation.php:2059
+#, php-format
+msgid "%1$s installed and activated successfully."
 msgstr ""
 
+#: ../lib/tgm/class-tgm-plugin-activation.php:2059 ../lib/tgm/class-tgm-plugin-
+#: activation.php:2068
+msgid "Show Details"
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:2059 ../lib/tgm/class-tgm-plugin-
+#: activation.php:2068
+msgid "Hide Details"
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:2060
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:2061
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: ../lib/tgm/class-tgm-plugin-activation.php:2065
 msgid ""
 "The installation process is starting. This process may take a while on some "
 "hosts, so please be patient."
 msgstr ""
 
-#, c-format
-msgid "This theme recommends the following plugin: %1$s."
-msgid_plural "This theme recommends the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#, c-format
-msgid "This theme requires the following plugin: %1$s."
-msgid_plural "This theme requires the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Timer speed (ms)"
+#: ../lib/tgm/class-tgm-plugin-activation.php:2066
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
 msgstr ""
 
-msgid "Type"
+#: ../lib/tgm/class-tgm-plugin-activation.php:2067
+#, php-format
+msgid "The installation of %1$s failed."
 msgstr ""
 
-msgid "Unpacking the package&#8230;"
+#: ../lib/tgm/class-tgm-plugin-activation.php:2068
+#, php-format
+msgid "%1$s installed successfully."
 msgstr ""
 
-msgid "WordPress Repository"
+#: ../lib/tgm/class-tgm-plugin-activation.php:2069
+msgid "All installations have been completed."
 msgstr ""
 
-msgid "http://pixelydo.com"
+#: ../lib/tgm/class-tgm-plugin-activation.php:2070
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+msgid "Full Page Template"
+msgstr ""
+
+msgid "Sidebar Left Template"
+msgstr ""
+
+msgid "Digital Signage"
 msgstr ""
 
 msgid "http://pixelydo.com/flatscreens"
+msgstr ""
+
+msgid "Nate Jones"
+msgstr ""
+
+msgid "http://pixelydo.com"
 msgstr ""
