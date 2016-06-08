@@ -40,7 +40,7 @@ add_action( 'after_setup_theme', 'foundation_setup' );
 	if (!current_user_can('manage_options')) {
 		add_action( 'admin_menu', 'my_remove_menu_pages' );
 	}
-	function my_remove_menu_pages() {
+function my_remove_menu_pages() {
 	//remove_menu_page( 'edit.php' ); // Posts
 	//remove_menu_page( 'upload.php' ); // Media
 	remove_menu_page( 'link-manager.php' ); // Links
@@ -199,23 +199,21 @@ add_action( 'after_setup_theme', 'foundation_setup' );
 //
 //***********************
 
-function remove_some_wp_widgets () {
-unregister_widget('WP_Widget_Calendar');
-unregister_widget('WP_Widget_Search');
-unregister_widget('WP_Widget_Recent_Comments');
-unregister_widget('WP_Widget_Pages');
-unregister_widget('WP_Widget_Archives');
-unregister_widget('WP_Widget_Links');
-unregister_widget('WP_Widget_Meta');
-unregister_widget('WP_Widget_Categories');
-unregister_widget('WP_Widget_Recent_Posts');
-unregister_widget('WP_Widget_Tag_Cloud');
-unregister_widget('WP_Nav_Menu_Widget');
-
+function wpds_remove_some_wp_widgets () {
+	unregister_widget('WP_Widget_Calendar');
+	unregister_widget('WP_Widget_Search');
+	unregister_widget('WP_Widget_Recent_Comments');
+	unregister_widget('WP_Widget_Pages');
+	unregister_widget('WP_Widget_Archives');
+	unregister_widget('WP_Widget_Links');
+	unregister_widget('WP_Widget_Meta');
+	unregister_widget('WP_Widget_Categories');
+	unregister_widget('WP_Widget_Recent_Posts');
+	unregister_widget('WP_Widget_Tag_Cloud');
+	unregister_widget('WP_Nav_Menu_Widget');
 }
 
-add_action('widgets_init','remove_some_wp_widgets', 1);
-
+add_action('widgets_init','wpds_remove_some_wp_widgets', 1);
 
 
 
@@ -224,6 +222,7 @@ add_action('widgets_init','remove_some_wp_widgets', 1);
 // COUNT THE WIDGETS
 //
 //***********************
+
 function count_sidebar_widgets( $sidebar_id, $echo = true ) {
     $the_sidebars = wp_get_sidebars_widgets();
     if( !isset( $the_sidebars[$sidebar_id] ) )
@@ -234,12 +233,12 @@ function count_sidebar_widgets( $sidebar_id, $echo = true ) {
         return count( $the_sidebars[$sidebar_id] );
 }
 //$widget_count = (int) (12 / count_sidebar_widgets( 'dock', false ));
-	if (count_sidebar_widgets( 'dock', false ) > 0){
-		$widget_count = (int) (12 / count_sidebar_widgets( 'dock', false ));
-	}
-	else {
-		$widget_count = 12;
-	}
+if (count_sidebar_widgets( 'dock', false ) > 0){
+	$widget_count = (int) (12 / count_sidebar_widgets( 'dock', false ));
+}
+else {
+	$widget_count = 12;
+}
 
 
 //***********************
@@ -264,27 +263,25 @@ foreach ($sidebars as $dock) {
 // CUSTOM LOGIN LOGO
 //
 //***********************
-	function my_custom_login_logo() {
-	    echo '<style type="text/css">
-	        h1 a { background-image:url('.get_bloginfo('template_url').'/login_page_logo.png) !important; }
-	    </style>';
-	}
 
-	add_action('login_head', 'my_custom_login_logo');
-
-
-	// Disable the Admin Bar.
-	add_filter( 'show_admin_bar', '__return_false' );
-
-	function remove_admin_bar_links() {
-		global $wp_admin_bar;
-		$wp_admin_bar->remove_menu('wp-logo');
-		$wp_admin_bar->remove_menu('new-content');
-		$wp_admin_bar->remove_menu('comments');
-	}
-	add_action( 'wp_before_admin_bar_render', 'remove_admin_bar_links' );
+function wpds_custom_login_logo() {
+    echo '<style type="text/css">
+        h1 a { background-image:url('.get_bloginfo('template_url').'/login_page_logo.png) !important; }
+    </style>';
+}
+add_action('login_head', 'wpds_custom_login_logo');
 
 
+// Disable the Admin Bar.
+add_filter( 'show_admin_bar', '__return_false' );
+
+function wpds_remove_admin_bar_links() {
+	global $wp_admin_bar;
+	$wp_admin_bar->remove_menu('wp-logo');
+	$wp_admin_bar->remove_menu('new-content');
+	$wp_admin_bar->remove_menu('comments');
+}
+add_action( 'wp_before_admin_bar_render', 'wpds_remove_admin_bar_links' );
 
 
 //***********************
@@ -292,15 +289,16 @@ foreach ($sidebars as $dock) {
 // ENQUEUE SCRIPTS
 //
 //***********************
-    function load_my_scripts() {
+
+function wpds_load_scripts() {
         wp_deregister_script( 'jquery' );
         wp_register_script('jquery', ('//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'), false, '2.2.2');
         wp_enqueue_script('jquery');
         wp_register_script('weather', '//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js');
         wp_enqueue_script('weather');
 
-    }
-add_action('wp_enqueue_scripts', 'load_my_scripts');
+}
+add_action('wp_enqueue_scripts', 'wpds_load_scripts');
 
 
 
@@ -312,12 +310,11 @@ add_action('wp_enqueue_scripts', 'load_my_scripts');
 
 require_once dirname( __FILE__ ) . '/lib/tgm/class-tgm-plugin-activation.php';
 
-add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
-function my_theme_register_required_plugins() {
+add_action( 'tgmpa_register', 'wpds_register_required_plugins' );
+function wpds_register_required_plugins() {
 
     $plugins = array(
 
-        // This is an example of how to include a plugin pre-packaged with a theme.
         array(
             'name'               => 'WPDS Post Details', // The plugin name.
             'slug'               => 'post-details', // The plugin slug (typically the folder name).
@@ -410,7 +407,7 @@ function my_theme_register_required_plugins() {
 //
 //***********************
 
-function wptuts_theme_customizer( $wp_customize ) {
+function wpds_theme_customizer( $wp_customize ) {
 
 	// Remove existing non-required stuff
 	$wp_customize->remove_control('blogdescription');
@@ -492,7 +489,7 @@ function wptuts_theme_customizer( $wp_customize ) {
 	// Colors section
 	//
 	$wp_customize->add_section( 'colors', array(
-        	'title' => 'Colors',
+        	'title' => __('Colors'),
 	) );
 
 	// Background color
@@ -502,7 +499,7 @@ function wptuts_theme_customizer( $wp_customize ) {
 		'sanitize_js_callback' => 'maybe_hash_hex_color',
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[background-color]', array(
-		'label'   => 'Background Color',
+		'label'   => __('Background Color'),
 		'section' => 'colors',
 	) ) );
 
@@ -513,7 +510,7 @@ function wptuts_theme_customizer( $wp_customize ) {
 		'sanitize_js_callback' => 'maybe_hash_hex_color',
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[headline-color]', array(
-		'label'   => 'Headline Color',
+		'label'   => __('Headline Color'),
 		'section' => 'colors',
 	) ) );
 
@@ -524,7 +521,7 @@ function wptuts_theme_customizer( $wp_customize ) {
 		'sanitize_js_callback' => 'maybe_hash_hex_color',
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[subhead-color]', array(
-		'label'   => 'Sub-headline Color',
+		'label'   => __('Sub-headline Color'),
 		'section' => 'colors',
 	) ) );
 
@@ -535,7 +532,7 @@ function wptuts_theme_customizer( $wp_customize ) {
 		'sanitize_js_callback' => 'maybe_hash_hex_color',
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[copy-color]', array(
-		'label'   => 'Copy Color',
+		'label'   => __('Copy Color'),
 		'section' => 'colors',
 	) ) );
 
@@ -546,13 +543,22 @@ function wptuts_theme_customizer( $wp_customize ) {
 		'sanitize_js_callback' => 'maybe_hash_hex_color',
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[dock-background-color]', array(
-		'label'   => 'Dock Background Color',
+		'label'   => __('Dock Background Color'),
 		'section' => 'colors',
 	) ) );
 
 }
-add_action( 'customize_register', 'wptuts_theme_customizer', 11 );
+add_action( 'customize_register', 'wpds_theme_customizer', 11 );
 
+//***********************
+//
+// Theme helper functions
+//
+//***********************
+
+/**
+* Get a color option, either from post meta data or from theme options
+*/
 function get_color_option($post_id, $key) {
 	$colors = get_theme_mod( 'colors', [] );
 	$page_color = get_post_meta($post_id, $key, true);
