@@ -14,7 +14,7 @@ $color_opts = get_theme_mod( 'colors', [] );
 		<div class="content-dock"></div>
             </div> <!-- /.content -->
 
-	<?php if (get_theme_mod( 'layout', [] )['show-dock']): ?>
+	<?php if ( !isset( get_theme_mod( 'layout', [] )['show-dock'] ) || get_theme_mod( 'layout', [] )['show-dock'] ): ?>
 	<div class="row dock"<?php if (!empty($color_opts['dock-background-color'])) echo ' style="background-color:#'.$color_opts['dock-background-color'].';color:red"'; ?>>
 		<?php dynamic_sidebar("Dock"); ?>
 	</div>
