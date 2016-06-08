@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: Wed Jun 08 2016 17:23:05 GMT+0200 (W. Europe Standard "
 "Time)\n"
-"PO-Revision-Date: Wed Jun 08 2016 23:18:42 GMT+0200 (W. Europe Standard "
+"PO-Revision-Date: Wed Jun 08 2016 23:25:32 GMT+0200 (W. Europe Standard "
 "Time)\n"
 "Last-Translator: nicolas <mail@nicu.ch>\n"
 "Language-Team: \n"
@@ -23,6 +23,10 @@ msgstr ""
 "esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
 "X-Loco-Target-Locale: de_DE\n"
 "X-Generator: Loco - https://localise.biz/"
+
+#: ../inc/post-details.php:32
+msgid "Color reference"
+msgstr "Farbreferenz"
 
 #: ../sidebar.php:18
 msgid "No widgets found."

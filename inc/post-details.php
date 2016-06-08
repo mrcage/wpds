@@ -29,7 +29,7 @@ function wpds_meta_callback( $post ) {
 <table class="colors">
 	<tr>
 		<td colspan="3">
-			<p>Color reference</p>
+			<p><?=__('Color reference', 'wpds')?></p>
 		</td>
 	</tr>
 	<tr>

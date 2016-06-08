@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: Wed Jun 08 2016 17:23:05 GMT+0200 (W. Europe Standard "
 "Time)\n"
-"POT-Revision-Date: Wed Jun 08 2016 23:18:38 GMT+0200 (W. Europe Standard "
+"POT-Revision-Date: Wed Jun 08 2016 23:25:21 GMT+0200 (W. Europe Standard "
 "Time)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: nicolas <mail@nicu.ch>\n"
@@ -217,6 +217,10 @@ msgstr ""
 
 #: ../inc/post-details.php:18
 msgid "Details"
+msgstr ""
+
+#: ../inc/post-details.php:32
+msgid "Color reference"
 msgstr ""
 
 #: ../inc/post-details.php:48 ../inc/post-details.php:110 ../inc/post-details.php:
