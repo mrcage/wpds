@@ -27,7 +27,6 @@ get_header(); ?>
 	                'post_type' => 'post',
 	                'post_status' => 'publish',
 	                'orderby' => 'modified',
-			'order' => 'ASC'
 	            );
 	            $the_query = new WP_Query($args);
 	            if($the_query->have_posts()) : while ( $the_query->have_posts() ) : $the_query->the_post();
@@ -43,14 +42,15 @@ get_header(); ?>
 		if($background_image != '') :
                 	echo '<li class="post-box large-12 columns" style="background:url(' . $background_image . ') 0 0 no-repeat; width:100%; height:100%; background-size:contain;"></li>' . "\n";
 		else :
+			$thumb = get_the_post_thumbnail($post_id, 'large', array('class' => 'large-3 columns feature'));
 			echo '<li class="post-box large-12 columns"' . ( !empty($background_color) ? ' style="background:#' . $background_color . ';"' : '' ) . '>',
           						'<h1' . ( !empty($head_color) ? ' style="color:#' . $head_color . ';"' : '' ) . '>' . get_the_title() . '</h1>' . "\n",
           						'<h2' . ( !empty($subhead_color) ? ' style="color:#' . $subhead_color . ';"' : '' ) . '>' . get_post_meta($post->ID, 'subtitle', true) . '</h2>' . "\n",
           						'<div class="row">',
           						!empty($link) ? '<a href="' . get_post_meta($post->ID, 'link', true) . '">' : '',
-          						get_the_post_thumbnail($post_id, 'large', array('class' => 'large-3 columns feature')),
+          						$thumb,
           						!empty($link) ? '</a>' : '',
-          						'<p class="large-7 columns copy end"' . ( !empty($copy_color) ? ' style="color:#' . $copy_color . ';"' : '' ) . '>' . do_shortcode( get_the_content() ) . '</p>',
+          						'<p class="' . ( !empty($thumb) ? 'large-8' : '') . ' columns copy end"' . ( !empty($copy_color) ? ' style="color:#' . $copy_color . ';"' : '' ) . '>' . do_shortcode( nl2br(get_the_content()) ) . '</p>',
           						!empty($link) ? '<p class="link"><a' . ( !empty($copy_color) ? ' style="color:#' . $copy_color . ';"' : '' ) . ' href="' . $link . '">' . $link . '</a>' : '',
           						'</div>',
           						'</li>' ."\n";
