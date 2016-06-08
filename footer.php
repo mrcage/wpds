@@ -8,12 +8,14 @@
  * @subpackage Foundation, for WordPress
  * @since Foundation, for WordPress 1.0
  */
+
+$color_opts = get_theme_mod( 'colors', [] );
 ?>
 		<div class="content-dock"></div>
             </div> <!-- /.content -->
 
 
-	<div class="row dock">
+	<div class="row dock"<?php if (!empty($color_opts['dock-background-color'])) echo ' style="background-color:#'.$color_opts['dock-background-color'].';color:red"'; ?>>
 
 		<?php dynamic_sidebar("Dock"); ?>
 	</div>

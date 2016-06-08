@@ -454,7 +454,6 @@ function wptuts_theme_customizer( $wp_customize ) {
 	// Colors section
 	$wp_customize->add_section( 'colors', array(
         	'title' => 'Colors',
-        	'description' => 'Color defaults for all screens',
 	) );
 
 	$wp_customize->add_setting( 'colors[background-color]', array(
@@ -498,6 +497,17 @@ function wptuts_theme_customizer( $wp_customize ) {
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[copy-color]', array(
 		'label'   => 'Copy Color',
+		'section' => 'colors',
+	) ) );
+
+	$wp_customize->add_setting( 'colors[dock-background-color]', array(
+    		'default' => '#b1b1b1',
+		'sanitize_callback'    => 'sanitize_hex_color_no_hash',
+		'sanitize_js_callback' => 'maybe_hash_hex_color',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[dock-background-color]', array(
+		'label'   => 'Dock Background Color',
 		'section' => 'colors',
 	) ) );
 }
