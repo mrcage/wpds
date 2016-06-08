@@ -27,6 +27,9 @@ function wpds_theme_setup() {
 	// Automatic Feed Links & Post Formats
 	add_theme_support( 'automatic-feed-links' );
 
+	// Load post details extension
+	locate_template( array( 'inc/post-details.php' ), true, true );
+
 }
 add_action( 'after_setup_theme', 'wpds_theme_setup' );
 
@@ -317,16 +320,6 @@ function wpds_register_required_plugins() {
 
     $plugins = array(
 
-        array(
-            'name'               => 'WPDS Post Details', // The plugin name.
-            'slug'               => 'post-details', // The plugin slug (typically the folder name).
-            'source'             => get_stylesheet_directory() . '/lib/post-details.zip', // The plugin source.
-            'required'           => true, // If false, the plugin is only 'recommended' instead of required.
-            'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
-            'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-            'force_deactivation' => true, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-            'external_url'       => '', // If set, overrides default API URL and points to an external URL.
-        ),
         array(
             'name'               => 'The Clock', // The plugin name.
             'slug'               => 'the-clock', // The plugin slug (typically the folder name).
