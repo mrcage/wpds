@@ -50,7 +50,7 @@ get_header(); ?>
           						!empty($link) ? '<a href="' . get_post_meta($post->ID, 'link', true) . '">' : '',
           						$thumb,
           						!empty($link) ? '</a>' : '',
-          						'<p class="' . ( !empty($thumb) ? 'large-8' : '') . ' columns copy end"' . ( !empty($copy_color) ? ' style="color:#' . $copy_color . ';"' : '' ) . '>' . do_shortcode( nl2br(get_the_content()) ) . '</p>',
+          						'<p class="' . ( !empty($thumb) ? 'large-8' : 'large-11') . ' columns copy end"' . ( !empty($copy_color) ? ' style="color:#' . $copy_color . ';"' : '' ) . '>' . do_shortcode( nl2br(get_the_content()) ) . '</p>',
           						!empty($link) ? '<p class="link"><a' . ( !empty($copy_color) ? ' style="color:#' . $copy_color . ';"' : '' ) . ' href="' . $link . '">' . $link . '</a>' : '',
           						'</div>',
           						'</li>' ."\n";
