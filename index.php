@@ -15,7 +15,7 @@ get_header(); ?>
     <div class="large-12 columns" role="content">
 		<?php
 			$options = [];
-			foreach (get_theme_mod( 'signage' ) as $k => $v) {
+			foreach (get_theme_mod( 'signage', [] ) as $k => $v) {
 				if (!empty($v)) {
 					$val = !is_numeric($v) && !is_bool($v) ? '\'' . $v . '\'' : $v;
 					$options[] = $k . ':'. $val;

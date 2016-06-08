@@ -37,7 +37,7 @@
 		}
 	</script>
 	<?php
-		$signage_opts = get_theme_mod( 'signage' );
+		$signage_opts = get_theme_mod( 'signage', [] );
 		if (!empty($signage_opts['reload_interval']) && is_numeric($signage_opts['reload_interval'])) {
 			echo '<script>var defaultReloadTimeout=1000 * 60 * ' . $signage_opts['reload_interval'] . ';</script>';
 		}

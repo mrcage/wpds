@@ -504,7 +504,7 @@ function wptuts_theme_customizer( $wp_customize ) {
 add_action( 'customize_register', 'wptuts_theme_customizer', 11 );
 
 function get_color_option($post_id, $key) {
-	$colors = get_theme_mod( 'colors' );
+	$colors = get_theme_mod( 'colors', [] );
 	$page_color = get_post_meta($post_id, $key, true);
 	if (!empty($page_color)) {
 		return $page_color;
