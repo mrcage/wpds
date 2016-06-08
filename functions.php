@@ -11,10 +11,12 @@
  * Initiate Foundation, for WordPress
  */
 
-function foundation_setup() {
+function wpds_theme_setup() {
 
 	// Language Translations
+	load_theme_textdomain( 'wpds', get_template_directory() . '/languages' );
 	load_theme_textdomain( 'foundation', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'tgmpa', get_template_directory() . '/languages' );
 
 	// Custom Editor Style Support
 	add_editor_style();
@@ -26,7 +28,7 @@ function foundation_setup() {
 	add_theme_support( 'automatic-feed-links' );
 
 }
-add_action( 'after_setup_theme', 'foundation_setup' );
+add_action( 'after_setup_theme', 'wpds_theme_setup' );
 
 
 
@@ -226,7 +228,7 @@ add_action('widgets_init','wpds_remove_some_wp_widgets', 1);
 function count_sidebar_widgets( $sidebar_id, $echo = true ) {
     $the_sidebars = wp_get_sidebars_widgets();
     if( !isset( $the_sidebars[$sidebar_id] ) )
-        return __( 'Invalid sidebar ID' );
+        return __( 'Invalid sidebar ID', 'wpds' );
     if( $echo )
         echo count( $the_sidebars[$sidebar_id] );
     else
@@ -418,7 +420,7 @@ function wpds_theme_customizer( $wp_customize ) {
 	// Slider (Digital Signage) section
 	//
 	$wp_customize->add_section( 'signage', array(
-        	'title' => __('Slider'),
+        	'title' => __('Slider', 'wpds'),
 	) );
  
 	// Animation
@@ -428,12 +430,12 @@ function wpds_theme_customizer( $wp_customize ) {
 	    	'default' => 'slide',
 	) );
 	$wp_customize->add_control( 'signage[animation]', array(
-    		'label' => __('Animation'),
+    		'label' => __('Animation', 'wpds'),
 		'section' => 'signage',
 		'type' => 'radio',
 		'choices' => array(
-			'slide'  => __( 'Slide' ),
-			'fade' => __( 'Fade' )
+			'slide'  => __( 'Slide', 'wpds' ),
+			'fade' => __( 'Fade', 'wpds' )
 		),
 	) );
 	*/
@@ -443,7 +445,7 @@ function wpds_theme_customizer( $wp_customize ) {
 	    	'default' => '10000',
 	) );
 	$wp_customize->add_control( 'signage[timer_speed]', array(
-    		'label' => __('Timer speed (ms)'),
+    		'label' => __('Timer speed (ms)', 'wpds'),
 		'section' => 'signage',
 		'type' => 'number',
 	) );
@@ -453,7 +455,7 @@ function wpds_theme_customizer( $wp_customize ) {
 	    	'default' => '500',
 	) );
 	$wp_customize->add_control( 'signage[animation_speed]', array(
-    		'label' => __('Animation speed (ms)'),
+    		'label' => __('Animation speed (ms)', 'wpds'),
 		'section' => 'signage',
 		'type' => 'number',
 	) );
@@ -463,7 +465,7 @@ function wpds_theme_customizer( $wp_customize ) {
 	    	'default' => '5',
 	) );
 	$wp_customize->add_control( 'signage[reload_interval]', array(
-    		'label' => __('Reload interval (min)'),
+    		'label' => __('Reload interval (min)', 'wpds'),
 		'section' => 'signage',
 		'type' => 'number',
 	) );
@@ -472,7 +474,7 @@ function wpds_theme_customizer( $wp_customize ) {
 	// Layout section
 	//
 	$wp_customize->add_section( 'layout', array(
-        	'title' => __('Layout'),
+        	'title' => __('Layout', 'wpds'),
 	) );
 
 	// Background color
@@ -480,7 +482,7 @@ function wpds_theme_customizer( $wp_customize ) {
     		'default' => true,
 	) );
 	$wp_customize->add_control( 'layout[show-dock]', array(
-		'label'   => __('Show dock'),
+		'label'   => __('Show dock', 'wpds'),
 		'section' => 'layout',
 		'type' => 'checkbox',
 	) );
@@ -489,7 +491,7 @@ function wpds_theme_customizer( $wp_customize ) {
 	// Colors section
 	//
 	$wp_customize->add_section( 'colors', array(
-        	'title' => __('Colors'),
+        	'title' => __('Colors', 'wpds'),
 	) );
 
 	// Background color
@@ -499,7 +501,7 @@ function wpds_theme_customizer( $wp_customize ) {
 		'sanitize_js_callback' => 'maybe_hash_hex_color',
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[background-color]', array(
-		'label'   => __('Background Color'),
+		'label'   => __('Background Color', 'wpds'),
 		'section' => 'colors',
 	) ) );
 
@@ -510,7 +512,7 @@ function wpds_theme_customizer( $wp_customize ) {
 		'sanitize_js_callback' => 'maybe_hash_hex_color',
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[headline-color]', array(
-		'label'   => __('Headline Color'),
+		'label'   => __('Headline Color', 'wpds'),
 		'section' => 'colors',
 	) ) );
 
@@ -521,7 +523,7 @@ function wpds_theme_customizer( $wp_customize ) {
 		'sanitize_js_callback' => 'maybe_hash_hex_color',
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[subhead-color]', array(
-		'label'   => __('Sub-headline Color'),
+		'label'   => __('Sub-headline Color', 'wpds'),
 		'section' => 'colors',
 	) ) );
 
@@ -532,7 +534,7 @@ function wpds_theme_customizer( $wp_customize ) {
 		'sanitize_js_callback' => 'maybe_hash_hex_color',
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[copy-color]', array(
-		'label'   => __('Copy Color'),
+		'label'   => __('Copy Color', 'wpds'),
 		'section' => 'colors',
 	) ) );
 
@@ -543,7 +545,7 @@ function wpds_theme_customizer( $wp_customize ) {
 		'sanitize_js_callback' => 'maybe_hash_hex_color',
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[dock-background-color]', array(
-		'label'   => __('Dock Background Color'),
+		'label'   => __('Dock Background Color', 'wpds'),
 		'section' => 'colors',
 	) ) );
 

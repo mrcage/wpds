@@ -1,0 +1,360 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Digital Signage\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: Wed Jun 08 2016 17:23:05 GMT+0200 (W. Europe Standard "
+"Time)\n"
+"PO-Revision-Date: Wed Jun 08 2016 21:29:32 GMT+0200 (W. Europe Standard "
+"Time)\n"
+"Last-Translator: nicolas <mail@nicu.ch>\n"
+"Language-Team: \n"
+"Language: German\n"
+"Plural-Forms: nplurals=2; plural=n != 1\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Loco-Target-Locale: de_DE\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#, c-format
+msgid "%1$s installed and activated successfully."
+msgstr "%1$s korrekt installert und aktiviert."
+
+#, c-format
+msgid "%1$s installed successfully."
+msgstr "%1$s wurde erfolgreich installiert."
+
+msgid "Activate"
+msgstr "Aktivieren"
+
+msgid "All installations and activations have been completed."
+msgstr "Alle Installationen und Aktivierungen wurde abgeschlossen."
+
+msgid "All installations have been completed."
+msgstr "Alle Installationen wurden abgeschlossen."
+
+#, c-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr "Alle Plugins wurden erfolgreich installiert und aktiviert. %1$s"
+
+#, c-format
+msgid "All plugins installed and activated successfully. %s"
+msgstr "Alle Plugins wurden erfolgreich installiert und aktiviert. %s"
+
+#, c-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+"Ein Fehler ist währen der Installtion von %1$s aufgetreten: "
+"<strong>%2$s</strong>."
+
+msgid "Animation speed (ms)"
+msgstr "Animationsgeschwindigkeit (ms)"
+
+msgid "Background Color"
+msgstr "Hintergrundfarbe"
+
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] "Beginne das Plugin zu aktivieren"
+msgstr[1] "Beginne die Plugins zu aktivieren"
+
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] "Beginne das Plugin zu installieren"
+msgstr[1] "Beginne die Plugins zu installieren"
+
+msgid "Colors"
+msgstr "Farben"
+
+msgid "Copy Color"
+msgstr "Textfarbe"
+
+msgid "Digital Signage"
+msgstr "Digital Signage"
+
+msgid "Dismiss this notice"
+msgstr "Diesen Hinweis nicht mehr anzeigen"
+
+msgid "Dock Background Color"
+msgstr "Hintergrundfarbe des Docks"
+
+#, c-format
+msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
+msgstr "Lade Installationspaket von <span class=\"code\">%s</span>&#8230; herunter..."
+
+msgid "Full Page Template"
+msgstr "Ganzseitiges Template"
+
+msgid "Headline Color"
+msgstr "Farbe der Überschrift"
+
+msgid "Hide Details"
+msgstr "Details verbergen"
+
+msgid "Install"
+msgstr "Installieren"
+
+msgid "Install Plugins"
+msgstr "Plugins installieren"
+
+msgid "Install Required Plugins"
+msgstr "Notwendige Plugins installieren"
+
+msgid "Install package not available."
+msgstr "Installationspaket nicht verfügbar."
+
+msgid "Installed But Not Activated"
+msgstr "Installiert aber nicht aktiviert"
+
+#, c-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr "Installiere Plugin %1$s (%2$d/%3$d)"
+
+#, c-format
+msgid "Installing Plugin: %s"
+msgstr "Installiere Plugin: %s"
+
+#, c-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr "Installiere und aktivieren Plugin %1$s (%2$d/%3$d)"
+
+msgid "Installing the plugin&#8230;"
+msgstr "Installiere das Plugin..."
+
+msgid "Invalid sidebar ID"
+msgstr "Ungültige Seitenleisten-ID"
+
+#, c-format
+msgid ""
+"It seems you don't have any widgets in your sidebar! Would you like to %s "
+"now?"
+msgstr ""
+"Es scheint dass Sie keine Widgets in der Seitenleiste haben. Möchten Sie "
+"jetzt %s?"
+
+msgid "Layout"
+msgstr "Layout"
+
+msgid "Nate Jones"
+msgstr "Nate Jones"
+
+#, c-format
+msgid ""
+"No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the "
+"Dashboard\">Return to the Dashboard</a>"
+msgstr ""
+"Keine Plugins zu installieren oder aktivieren. <a href=\"%1$s\" title=\"Kehre "
+"zum Dashboard zurück\">Kehre zum Dashboard zurück</a>"
+
+msgid "No widgets found."
+msgstr "Keine Widgets gefunden."
+
+msgid "Not Installed"
+msgstr "Nicht installiert"
+
+msgid "Plugin"
+msgstr "Plugin"
+
+msgid "Plugin activated successfully."
+msgstr "Das Plugin wurde erfolgreich aktiviert."
+
+msgid "Plugin activation failed."
+msgstr "Die Plugin-Aktivierung ist fehlgeschlagen."
+
+msgid "Plugin install failed."
+msgstr "Die Plugin-Intallation ist fehlgeschlagen."
+
+msgid "Plugin installed successfully."
+msgstr "Das Plugin wurde erfolgreich installiert."
+
+msgid "Pre-Packaged"
+msgstr "Vorverpackt"
+
+msgid "Private Repository"
+msgstr "Privates Repository"
+
+msgid "Recommended"
+msgstr "Empfohlen"
+
+msgid "Reload interval (min)"
+msgstr "Aktualisierungs-Intervall (min)"
+
+msgid "Required"
+msgstr "Notwendig"
+
+msgid "Return to Required Plugins Installer"
+msgstr "Kehre zum Installer der notwendigen Plugins zurück"
+
+msgid "Return to the Dashboard"
+msgstr "Kehre zum Dashboard zurück"
+
+msgid "Return to the dashboard"
+msgstr "Zum Dashboard zurückkehren"
+
+msgid "Show Details"
+msgstr "Details anzeigen"
+
+msgid "Show dock"
+msgstr "Dock anzeigen"
+
+msgid "Sidebar Left Template"
+msgstr "Linke Seitenleiste Template"
+
+msgid "Slider"
+msgstr "Slider"
+
+msgid "Something went wrong with the plugin API."
+msgstr "Etwas ist mit der Plugin API schiefgelaufen."
+
+msgid "Something went wrong."
+msgstr "Etwas ist schiefgegangen."
+
+#, c-format
+msgid ""
+"Sorry, but you do not have the correct permissions to activate the %s plugin."
+" Contact the administrator of this site for help on getting the plugin "
+"activated."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to activate the %s "
+"plugins. Contact the administrator of this site for help on getting the "
+"plugins activated."
+msgstr[0] ""
+"Entschuldigung, Sie haben nicht die notwendigen Berechtigungen um das Plugin "
+"%s zu aktivieren. Kontaktieren Sie den Administrator dieser Seite für "
+"Unterstützung zur Aktivierung dieses Plugins."
+msgstr[1] ""
+"Entschuldigung, Sie haben nicht die notwendigen Berechtigungen um die "
+"Plugins %s zu aktivieren. Kontaktieren Sie den Administrator dieser Seite "
+"für Unterstützung zur Aktivierung dieser Plugins."
+
+#, c-format
+msgid ""
+"Sorry, but you do not have the correct permissions to install the %s plugin. "
+"Contact the administrator of this site for help on getting the plugin "
+"installed."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to install the %s plugins."
+" Contact the administrator of this site for help on getting the plugins "
+"installed."
+msgstr[0] ""
+"Entschuldigung, Sie haben nicht die notwendigen Berechtigungen um das Plugin "
+"%s zu installieren. Kontaktieren Sie den Administrator dieser Seite für "
+"Unterstützung zur Installation dieses Plugins."
+msgstr[1] ""
+"Entschuldigung, Sie haben nicht die notwendigen Berechtigungen um die "
+"Plugins %s zu installieren. Kontaktieren Sie den Administrator dieser Seite "
+"für Unterstützung zur Installation dieser Plugins."
+
+#, c-format
+msgid ""
+"Sorry, but you do not have the correct permissions to update the %s plugin. "
+"Contact the administrator of this site for help on getting the plugin "
+"updated."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to update the %s plugins. "
+"Contact the administrator of this site for help on getting the plugins "
+"updated."
+msgstr[0] ""
+"Entschuldigung, Sie haben nicht die notwendigen Berechtigungen um das Plugin "
+"%s zu aktualisieren. Kontaktieren Sie den Administrator dieser Seite für "
+"Unterstützung zur Aktualisierung dieses Plugins."
+msgstr[1] ""
+"Entschuldigung, Sie haben nicht die notwendigen Berechtigungen um die "
+"Plugins %s zu aktualisieren. Kontaktieren Sie den Administrator dieser Seite "
+"für Unterstützung zur Aktualisierung dieser Plugins."
+
+msgid "Source"
+msgstr "Quelle"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Sub-headline Color"
+msgstr "Farbe des Untertitels"
+
+#, c-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+"Das folgende Plugin muss auf seine neuste Version aktualisiert werden um die "
+"maximale Kompatibilität mit diesem Theme sicherzustellen: %1$s."
+msgstr[1] ""
+"Die folgenden Plugins müssen auf ihre neuste Version aktualisiert werden um "
+"die maximale Kompatibilität mit diesem Theme sicherzustellen: %1$s."
+
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] "Das folgende Plugin wurde erfolgreich aktiviert:"
+msgstr[1] "Die folgenden Plugins wurden erfolgreich aktiviert:"
+
+#, c-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] "Das folgende empfohlene Plugin ist momentan inaktiv: %1$s."
+msgstr[1] "Die folgenden empfohlenen Plugins sind momentan inaktiv: %1$s."
+
+#, c-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] "Das folgende notwendige Plugin ist momentan inaktiv: %1$s."
+msgstr[1] "Die folgenden notwendigen Plugins sind momentan inaktiv: %1$s."
+
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+"Der Installations- und Aktivierungsprozess startet. Dieser Prozess kann auf "
+"gewissen Systemen eine Weile dauern, seien Sie daher bitte geduldig."
+
+#, c-format
+msgid "The installation of %1$s failed."
+msgstr "Die Installation von %1$s ist fehlgeschlagen."
+
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+"Der Installationsprozess startet. Dieser Prozess kann auf gewissen Systemen "
+"eine Weile dauern, seien Sie daher bitte geduldig."
+
+#, c-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] "Dieses Theme empfiehlt das folgende Plugin: %1$s."
+msgstr[1] "Dieses Theme empfiehlt die folgenden Plugins: %1$s."
+
+#, c-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] "Diese Theme benötigt das folgende Plugin: %1$s."
+msgstr[1] "Dieses Theme benötigt die folgenden Plugins: %1$s."
+
+msgid "Timer speed (ms)"
+msgstr "Anzeigedauer (ms)"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "Unpacking the package&#8230;"
+msgstr "Entpacke das Paket..."
+
+msgid "WordPress Repository"
+msgstr "WordPress Repository"
+
+msgid "http://pixelydo.com"
+msgstr "http://pixelydo.com"
+
+msgid "http://pixelydo.com/flatscreens"
+msgstr "http://pixelydo.com/flatscreens"

@@ -1,0 +1,331 @@
+# Loco Gettext template
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Digital Signage\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: Wed Jun 08 2016 17:23:05 GMT+0200 (W. Europe Standard "
+"Time)\n"
+"POT-Revision-Date: Wed Jun 08 2016 21:28:54 GMT+0200 (W. Europe Standard "
+"Time)\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: nicolas <mail@nicu.ch>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Loco-Target-Locale: de_DE\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#, c-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#, c-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+msgid "Activate"
+msgstr ""
+
+msgid "All installations and activations have been completed."
+msgstr ""
+
+msgid "All installations have been completed."
+msgstr ""
+
+#, c-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#, c-format
+msgid "All plugins installed and activated successfully. %s"
+msgstr ""
+
+#, c-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+msgid "Animation speed (ms)"
+msgstr ""
+
+msgid "Background Color"
+msgstr ""
+
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Colors"
+msgstr ""
+
+msgid "Copy Color"
+msgstr ""
+
+msgid "Digital Signage"
+msgstr ""
+
+msgid "Dismiss this notice"
+msgstr ""
+
+msgid "Dock Background Color"
+msgstr ""
+
+#, c-format
+msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
+msgstr ""
+
+msgid "Full Page Template"
+msgstr ""
+
+msgid "Headline Color"
+msgstr ""
+
+msgid "Hide Details"
+msgstr ""
+
+msgid "Install"
+msgstr ""
+
+msgid "Install Plugins"
+msgstr ""
+
+msgid "Install Required Plugins"
+msgstr ""
+
+msgid "Install package not available."
+msgstr ""
+
+msgid "Installed But Not Activated"
+msgstr ""
+
+#, c-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#, c-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#, c-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+msgid "Installing the plugin&#8230;"
+msgstr ""
+
+msgid "Invalid sidebar ID"
+msgstr ""
+
+#, c-format
+msgid ""
+"It seems you don't have any widgets in your sidebar! Would you like to %s "
+"now?"
+msgstr ""
+
+msgid "Layout"
+msgstr ""
+
+msgid "Nate Jones"
+msgstr ""
+
+#, c-format
+msgid ""
+"No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the "
+"Dashboard\">Return to the Dashboard</a>"
+msgstr ""
+
+msgid "No widgets found."
+msgstr ""
+
+msgid "Not Installed"
+msgstr ""
+
+msgid "Plugin"
+msgstr ""
+
+msgid "Plugin activated successfully."
+msgstr ""
+
+msgid "Plugin activation failed."
+msgstr ""
+
+msgid "Plugin install failed."
+msgstr ""
+
+msgid "Plugin installed successfully."
+msgstr ""
+
+msgid "Pre-Packaged"
+msgstr ""
+
+msgid "Private Repository"
+msgstr ""
+
+msgid "Recommended"
+msgstr ""
+
+msgid "Reload interval (min)"
+msgstr ""
+
+msgid "Required"
+msgstr ""
+
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+msgid "Return to the Dashboard"
+msgstr ""
+
+msgid "Return to the dashboard"
+msgstr ""
+
+msgid "Show Details"
+msgstr ""
+
+msgid "Show dock"
+msgstr ""
+
+msgid "Sidebar Left Template"
+msgstr ""
+
+msgid "Slider"
+msgstr ""
+
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+msgid "Something went wrong."
+msgstr ""
+
+#, c-format
+msgid ""
+"Sorry, but you do not have the correct permissions to activate the %s plugin."
+" Contact the administrator of this site for help on getting the plugin "
+"activated."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to activate the %s "
+"plugins. Contact the administrator of this site for help on getting the "
+"plugins activated."
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid ""
+"Sorry, but you do not have the correct permissions to install the %s plugin. "
+"Contact the administrator of this site for help on getting the plugin "
+"installed."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to install the %s plugins."
+" Contact the administrator of this site for help on getting the plugins "
+"installed."
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid ""
+"Sorry, but you do not have the correct permissions to update the %s plugin. "
+"Contact the administrator of this site for help on getting the plugin "
+"updated."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to update the %s plugins. "
+"Contact the administrator of this site for help on getting the plugins "
+"updated."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Source"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Sub-headline Color"
+msgstr ""
+
+#, c-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+
+#, c-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+
+#, c-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#, c-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Timer speed (ms)"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Unpacking the package&#8230;"
+msgstr ""
+
+msgid "WordPress Repository"
+msgstr ""
+
+msgid "http://pixelydo.com"
+msgstr ""
+
+msgid "http://pixelydo.com/flatscreens"
+msgstr ""
