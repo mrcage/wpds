@@ -99,10 +99,6 @@ function wpds_meta_callback( $post ) {
 		</td>
 	</tr>
 </table>
-<p>
-	<label for="link" class="wpds-row-title"><?php _e( 'Link for mobile viewers', 'wpds' )?></label>
-	<input type="text" name="link" id="link" value="<?php if ( isset ( $wpds_stored_meta['link'] ) ) echo $wpds_stored_meta['link'][0]; ?>" />
-</p>
 	<p>
 		<label for="background-color" class="wpds-row-title"><?php _e( 'Background Color', 'wpds' )?></label>
 		<select name="background-color" id="background-color">
@@ -197,9 +193,6 @@ function wpds_meta_save( $post_id ) {
 	// Checks for input and sanitizes/saves if needed
 	if( isset( $_POST[ 'subtitle' ] ) ) {
 		update_post_meta( $post_id, 'subtitle', sanitize_text_field( $_POST[ 'subtitle' ] ) );
-	}
-	if( isset( $_POST[ 'link' ] ) ) {
-		update_post_meta( $post_id, 'link', sanitize_text_field( $_POST[ 'link' ] ) );
 	}
 
 	// Checks for input and saves if needed

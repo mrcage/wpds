@@ -37,7 +37,6 @@ get_header(); ?>
 		$head_color = get_color_option($post->ID, 'headline-color');
 		$subhead_color = get_color_option($post->ID, 'subhead-color');
 		$copy_color = get_color_option($post->ID, 'copy-color');
-		$link = get_post_meta($post->ID, 'link', true);
 
 		if($background_image != '') :
                 	echo '<li class="post-box large-12 columns" style="background:url(' . $background_image . ') 0 0 no-repeat; width:100%; height:100%; background-size:contain;"></li>' . "\n";
@@ -47,11 +46,8 @@ get_header(); ?>
           						'<h1' . ( !empty($head_color) ? ' style="color:#' . $head_color . ';"' : '' ) . '>' . get_the_title() . '</h1>' . "\n",
           						'<h2' . ( !empty($subhead_color) ? ' style="color:#' . $subhead_color . ';"' : '' ) . '>' . get_post_meta($post->ID, 'subtitle', true) . '</h2>' . "\n",
           						'<div class="row">',
-          						!empty($link) ? '<a href="' . get_post_meta($post->ID, 'link', true) . '">' : '',
           						$thumb,
-          						!empty($link) ? '</a>' : '',
           						'<p class="' . ( !empty($thumb) ? 'large-8' : 'large-11') . ' columns copy end"' . ( !empty($copy_color) ? ' style="color:#' . $copy_color . ';"' : '' ) . '>' . do_shortcode( nl2br(get_the_content()) ) . '</p>',
-          						!empty($link) ? '<p class="link"><a' . ( !empty($copy_color) ? ' style="color:#' . $copy_color . ';"' : '' ) . ' href="' . $link . '">' . $link . '</a>' : '',
           						'</div>',
           						'</li>' ."\n";
               endif;
