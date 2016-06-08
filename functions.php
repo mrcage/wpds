@@ -59,6 +59,7 @@ add_action( 'after_setup_theme', 'foundation_setup' );
 	//remove_submenu_page ( 'index.php', 'update-core.php' );    //Dashboard->Updates
 	//remove_submenu_page ( 'themes.php', 'themes.php' ); // Appearance-->Themes
 	//remove_submenu_page ( 'themes.php', 'widgets.php' ); // Appearance-->Widgets
+	remove_submenu_page ( 'themes.php', 'nav-menus.php' ); // Appearance-->Menus
 	//remove_submenu_page ( 'themes.php', 'theme-editor.php' ); // Appearance-->Editor
 	//remove_submenu_page ( 'options-general.php', 'options-general.php' ); // Settings->General
 	//remove_submenu_page ( 'options-general.php', 'options-writing.php' ); // Settings->writing
@@ -401,16 +402,24 @@ function my_theme_register_required_plugins() {
 
 function wptuts_theme_customizer( $wp_customize ) {
 
-	// Signage section
+	// Remove existing non-required stuff
+	$wp_customize->remove_control('blogdescription');
+	$wp_customize->remove_section('static_front_page');
+	$wp_customize->remove_panel('nav_menus');
+
+	//
+	// Slider (Digital Signage) section
+	//
 	$wp_customize->add_section( 'signage', array(
-        	'title' => __('Signage'),
-        	'description' => __('Digital signage settings'),
+        	'title' => __('Slider'),
 	) );
  
+	// Animation
+	// Currently not supported by Foundation 4 orbit library
+	/*
 	$wp_customize->add_setting( 'signage[animation]', array(
 	    	'default' => 'slide',
 	) );
-
 	$wp_customize->add_control( 'signage[animation]', array(
     		'label' => __('Animation'),
 		'section' => 'signage',
@@ -420,96 +429,100 @@ function wptuts_theme_customizer( $wp_customize ) {
 			'fade' => __( 'Fade' )
 		),
 	) );
+	*/
 
+	// Timer speed
 	$wp_customize->add_setting( 'signage[timer_speed]', array(
 	    	'default' => '10000',
 	) );
-
 	$wp_customize->add_control( 'signage[timer_speed]', array(
     		'label' => __('Timer speed (ms)'),
 		'section' => 'signage',
 		'type' => 'number',
 	) );
 	
+	// Animation speed
 	$wp_customize->add_setting( 'signage[animation_speed]', array(
 	    	'default' => '500',
 	) );
-
 	$wp_customize->add_control( 'signage[animation_speed]', array(
     		'label' => __('Animation speed (ms)'),
 		'section' => 'signage',
 		'type' => 'number',
 	) );
 
+	// Page reload interval
 	$wp_customize->add_setting( 'signage[reload_interval]', array(
 	    	'default' => '5',
 	) );
-
 	$wp_customize->add_control( 'signage[reload_interval]', array(
     		'label' => __('Reload interval (min)'),
 		'section' => 'signage',
 		'type' => 'number',
 	) );
 
+	//
 	// Colors section
+	//
 	$wp_customize->add_section( 'colors', array(
         	'title' => 'Colors',
 	) );
 
+	// Background color
 	$wp_customize->add_setting( 'colors[background-color]', array(
     		'default' => '#ffffff',
 		'sanitize_callback'    => 'sanitize_hex_color_no_hash',
 		'sanitize_js_callback' => 'maybe_hash_hex_color',
 	) );
-
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[background-color]', array(
 		'label'   => 'Background Color',
 		'section' => 'colors',
 	) ) );
 
+	// Headline color
 	$wp_customize->add_setting( 'colors[headline-color]', array(
     		'default' => '#000000',
 		'sanitize_callback'    => 'sanitize_hex_color_no_hash',
 		'sanitize_js_callback' => 'maybe_hash_hex_color',
 	) );
-
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[headline-color]', array(
 		'label'   => 'Headline Color',
 		'section' => 'colors',
 	) ) );
 
+	// Subhead color
 	$wp_customize->add_setting( 'colors[subhead-color]', array(
     		'default' => '#000000',
 		'sanitize_callback'    => 'sanitize_hex_color_no_hash',
 		'sanitize_js_callback' => 'maybe_hash_hex_color',
 	) );
-
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[subhead-color]', array(
 		'label'   => 'Sub-headline Color',
 		'section' => 'colors',
 	) ) );
 
+	// Copy color
 	$wp_customize->add_setting( 'colors[copy-color]', array(
     		'default' => '#000000',
 		'sanitize_callback'    => 'sanitize_hex_color_no_hash',
 		'sanitize_js_callback' => 'maybe_hash_hex_color',
 	) );
-
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[copy-color]', array(
 		'label'   => 'Copy Color',
 		'section' => 'colors',
 	) ) );
 
+	// Dock background color
 	$wp_customize->add_setting( 'colors[dock-background-color]', array(
     		'default' => '#b1b1b1',
 		'sanitize_callback'    => 'sanitize_hex_color_no_hash',
 		'sanitize_js_callback' => 'maybe_hash_hex_color',
 	) );
-
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[dock-background-color]', array(
 		'label'   => 'Dock Background Color',
 		'section' => 'colors',
 	) ) );
+
 }
 add_action( 'customize_register', 'wptuts_theme_customizer', 11 );
 
