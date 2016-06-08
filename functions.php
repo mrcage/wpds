@@ -358,6 +358,16 @@ function my_theme_register_required_plugins() {
             'force_deactivation' => true, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
             'external_url'       => '', // If set, overrides default API URL and points to an external URL.
         ),
+        array(
+            'name'      => 'Image Widget',
+            'slug'      => 'image-widget',
+            'required'  => false,
+        ),
+        array(
+            'name'      => 'Post Expirator',
+            'slug'      => 'post-expirator',
+            'required'  => false,
+        ),
     );
 
     $config = array(
