@@ -472,6 +472,23 @@ function wptuts_theme_customizer( $wp_customize ) {
 	) );
 
 	//
+	// Layout section
+	//
+	$wp_customize->add_section( 'layout', array(
+        	'title' => __('Layout'),
+	) );
+
+	// Background color
+	$wp_customize->add_setting( 'layout[show-dock]', array(
+    		'default' => true,
+	) );
+	$wp_customize->add_control( 'layout[show-dock]', array(
+		'label'   => __('Show dock'),
+		'section' => 'layout',
+		'type' => 'checkbox',
+	) );
+
+	//
 	// Colors section
 	//
 	$wp_customize->add_section( 'colors', array(
