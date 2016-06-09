@@ -291,23 +291,6 @@ add_action( 'wp_before_admin_bar_render', 'wpds_remove_admin_bar_links' );
 
 //***********************
 //
-// ENQUEUE SCRIPTS
-//
-//***********************
-
-function wpds_load_scripts() {
-        wp_deregister_script( 'jquery' );
-        wp_register_script('jquery', ('//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'), false, '2.2.2');
-        wp_enqueue_script('jquery');
-        wp_register_script('weather', '//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js');
-        wp_enqueue_script('weather');
-}
-add_action('wp_enqueue_scripts', 'wpds_load_scripts');
-
-
-
-//***********************
-//
 // REQUIRE PLUGINS
 //
 //***********************
