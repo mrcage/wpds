@@ -192,8 +192,8 @@ function my_remove_menu_pages() {
 
 
 	// customize backend footer
-	function remove_footer_admin () {
-	echo 'Powered by <a href="http://www.wordpress.org" target="_blank">WordPress</a> &nbsp;&#x272D;&nbsp; Built by <a href="http://pixelydo.com/">Nate Jones</a></p>';
+	function remove_footer_admin ($text) {
+		return $text . ' &#x272D;&nbsp; ' . sprintf(__('Maintained by <a href="%s">%s</a> based on work by <a href="%s">%s</a>.', 'wpds'), 'https://nicu.ch', 'Nicolas Perrenoud', 'http://pixelydo.com/', 'Nate Jones');
 	}
 	add_filter('admin_footer_text', 'remove_footer_admin');
 
