@@ -301,7 +301,6 @@ function wpds_load_scripts() {
         wp_enqueue_script('jquery');
         wp_register_script('weather', '//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js');
         wp_enqueue_script('weather');
-
 }
 add_action('wp_enqueue_scripts', 'wpds_load_scripts');
 
@@ -321,9 +320,9 @@ function wpds_register_required_plugins() {
     $plugins = array(
 
         array(
-            'name'               => 'The Clock', // The plugin name.
-            'slug'               => 'the-clock', // The plugin slug (typically the folder name).
-            'source'             => get_stylesheet_directory() . '/lib/the-clock.zip', // The plugin source.
+            'name'               => 'WPDS Clock Widget', // The plugin name.
+            'slug'               => 'wpds-clock', // The plugin slug (typically the folder name).
+            'source'             => get_stylesheet_directory() . '/lib/wpds-clock.zip', // The plugin source.
             'required'           => true, // If false, the plugin is only 'recommended' instead of required.
             'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
             'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
@@ -331,9 +330,9 @@ function wpds_register_required_plugins() {
             'external_url'       => '', // If set, overrides default API URL and points to an external URL.
         ),
         array(
-            'name'               => 'The Tweets', // The plugin name.
-            'slug'               => 'the-tweets', // The plugin slug (typically the folder name).
-            'source'             => get_stylesheet_directory() . '/lib/the-tweets.zip', // The plugin source.
+            'name'               => 'WPDS Tweets Widget', // The plugin name.
+            'slug'               => 'wpds-tweets', // The plugin slug (typically the folder name).
+            'source'             => get_stylesheet_directory() . '/lib/wpds-tweets.zip', // The plugin source.
             'required'           => true, // If false, the plugin is only 'recommended' instead of required.
             'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
             'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
@@ -341,9 +340,9 @@ function wpds_register_required_plugins() {
             'external_url'       => '', // If set, overrides default API URL and points to an external URL.
         ),
         array(
-            'name'               => 'The Weather', // The plugin name.
-            'slug'               => 'the-weather', // The plugin slug (typically the folder name).
-            'source'             => get_stylesheet_directory() . '/lib/the-weather.zip', // The plugin source.
+            'name'               => 'WPDS Weather Widget', // The plugin name.
+            'slug'               => 'wpds-weather', // The plugin slug (typically the folder name).
+            'source'             => get_stylesheet_directory() . '/lib/wpds-weather.zip', // The plugin source.
             'required'           => true, // If false, the plugin is only 'recommended' instead of required.
             'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
             'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
