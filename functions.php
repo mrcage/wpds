@@ -469,7 +469,7 @@ function wpds_theme_customizer( $wp_customize ) {
         	'title' => __('Layout', 'wpds'),
 	) );
 
-	// Background color
+	// Show dock
 	$wp_customize->add_setting( 'layout[show-dock]', array(
     		'default' => true,
 	) );
@@ -538,6 +538,17 @@ function wpds_theme_customizer( $wp_customize ) {
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[dock-background-color]', array(
 		'label'   => __('Dock Background Color', 'wpds'),
+		'section' => 'colors',
+	) ) );
+
+	// Dock foreground color
+	$wp_customize->add_setting( 'colors[dock-foreground-color]', array(
+    		'default' => '#ffffff',
+		'sanitize_callback'    => 'sanitize_hex_color_no_hash',
+		'sanitize_js_callback' => 'maybe_hash_hex_color',
+	) );
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[dock-foreground-color]', array(
+		'label'   => __('Dock Foreground Color', 'wpds'),
 		'section' => 'colors',
 	) ) );
 

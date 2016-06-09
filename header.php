@@ -31,6 +31,14 @@
 
         <?php wp_head(); ?>
 
+	<?php $color_opts = get_theme_mod( 'colors', [] ); ?>
+	<?php if (!empty($color_opts['dock-foreground-color'])): ?>
+	<style>
+		.dock .columns {
+			color: #<?=$color_opts['dock-foreground-color']?>;
+		}
+	</style>
+	<?php endif; ?>
 </head>
 
 <body <?php body_class(); ?>>
