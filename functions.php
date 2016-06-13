@@ -549,6 +549,9 @@ function wpds_load_scripts()
 	wp_register_script( 'foundation', get_template_directory_uri() . '/javascripts/foundation/foundation.js' );
 	wp_enqueue_script( 'foundation', false, array('jquery'), false, true );
 
+	wp_register_script( 'foundation-orbit', get_template_directory_uri() . '/javascripts/foundation/foundation.orbit.js' );
+	wp_enqueue_script( 'foundation-orbit', false, array('foundation'), false, true );
+
 	wp_register_script( 'app-js', get_template_directory_uri() . '/javascripts/app.js' );
 	wp_enqueue_script( 'app-js', false, array('jquery'), false, true );
 }
