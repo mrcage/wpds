@@ -19,7 +19,7 @@
 				$dock_style['color'] = '#' . $color_opts['dock-foreground-color'];
 			}
 			if (!empty($color_opts['dock-background-color'])) {
-				$dock_style['background-color'] = '#' . $color_opts['dock-background-color'];
+				$dock_style['background-color'] = $color_opts['dock-background-color'];
 			}
 			$layout_opts = get_theme_mod( 'layout', [] ); 
 			if (!empty($layout_opts['dock-height']) && intval($layout_opts['dock-height']) > 0) {
