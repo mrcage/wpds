@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: Wed Jun 08 2016 17:23:05 GMT+0200 (W. Europe Standard "
 "Time)\n"
-"PO-Revision-Date: Thu Jun 09 2016 11:06:32 GMT+0200 (W. Europe Standard "
+"PO-Revision-Date: Mon Jun 13 2016 12:47:27 GMT+0200 (W. Europe Standard "
 "Time)\n"
 "Last-Translator: nicolas <mail@nicu.ch>\n"
 "Language-Team: \n"
@@ -24,25 +24,20 @@ msgstr ""
 "X-Loco-Target-Locale: de_DE\n"
 "X-Generator: Loco - https://localise.biz/"
 
+#: ../functions.php:460
+msgid "Horizontal padding"
+msgstr "Vertikaler Randabstand"
+
+#: ../functions.php:480
+msgid "Dock height"
+msgstr "Höhe des Docks"
+
 #: ../functions.php:196
 #, php-format
 msgid "Maintained by <a href=\"%s\">%s</a> based on work by <a href=\"%s\">%s</a>."
 msgstr ""
 "Gepflegt von <a href=\"%s\">%s</a> basierend auf Arbeiten von <a "
 "href=\"%s\">%s</a>."
-
-#: ../sidebar.php:18
-msgid "No widgets found."
-msgstr "Keine Widgets gefunden."
-
-#: ../sidebar.php:19
-#, php-format
-msgid ""
-"It seems you don't have any widgets in your sidebar! Would you like to %s "
-"now?"
-msgstr ""
-"Es scheint dass Sie keine Widgets in der Seitenleiste haben. Möchten Sie "
-"jetzt %s?"
 
 #: ../functions.php:234
 msgid "Invalid sidebar ID"
@@ -211,37 +206,50 @@ msgstr "Aktualisierungs-Intervall (min)"
 msgid "Layout"
 msgstr "Layout"
 
-#: ../functions.php:460
+#: ../functions.php:470
 msgid "Show dock"
 msgstr "Dock anzeigen"
 
-#: ../functions.php:469
+#: ../functions.php:489
 msgid "Colors"
 msgstr "Farben"
 
-#: ../functions.php:479 ../inc/post-details.php:103
+#: ../functions.php:499 ../inc/post-details.php:103
 msgid "Background Color"
 msgstr "Hintergrundfarbe"
 
-#: ../functions.php:490 ../inc/post-details.php:118
+#: ../functions.php:510 ../inc/post-details.php:118
 msgid "Headline Color"
 msgstr "Farbe der Überschrift"
 
-#: ../functions.php:501 ../inc/post-details.php:133
+#: ../functions.php:521 ../inc/post-details.php:133
 msgid "Sub-headline Color"
 msgstr "Farbe des Untertitels"
 
-#: ../functions.php:512 ../inc/post-details.php:148
+#: ../functions.php:532 ../inc/post-details.php:148
 msgid "Copy Color"
 msgstr "Textfarbe"
 
-#: ../functions.php:523
+#: ../functions.php:543
 msgid "Dock Background Color"
 msgstr "Hintergrundfarbe des Docks"
 
-#: ../functions.php:534
+#: ../functions.php:554
 msgid "Dock Foreground Color"
 msgstr "Vordergrundfarbe des Docks"
+
+#: ../sidebar.php:18
+msgid "No widgets found."
+msgstr "Keine Widgets gefunden."
+
+#: ../sidebar.php:19
+#, php-format
+msgid ""
+"It seems you don't have any widgets in your sidebar! Would you like to %s "
+"now?"
+msgstr ""
+"Es scheint dass Sie keine Widgets in der Seitenleiste haben. Möchten Sie "
+"jetzt %s?"
 
 #: ../inc/post-details.php:10
 msgid "Subtitle"

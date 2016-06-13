@@ -11,47 +11,74 @@ Text Domain: wpds
 */
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
-@import url('stylesheets/app.css');
+@import url('stylesheets/bootstrap.min.css');
 
-.alignleft {
-	display: inline;
-	float: left;
+body {
+	font-family: 'Roboto', sans-serif;
 }
 
-.alignright {
-	display: inline;
-	float: right;
+/**
+* Article background
+*/
+article {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
 }
 
-.aligncenter {
-	display: block;
-	margin-right: auto;
-	margin-left: auto;
+article h1 {
+	font-size: 11em;
+	font-weight: 900;
 }
 
-blockquote.alignleft,
-.wp-caption.alignleft,
-img.alignleft {
-	margin: 0.4em 1.6em 1.6em 0;
+article h2 {
+	font-size: 4em;
+	font-weight: 400;
+	text-transform: uppercase;
 }
 
-blockquote.alignright,
-.wp-caption.alignright,
-img.alignright {
-	margin: 0.4em 0 1.6em 1.6em;
+article img.wp-post-image {
+	margin-top: 1em;
 }
 
-blockquote.aligncenter,
-.wp-caption.aligncenter,
-img.aligncenter {
-	clear: both;
-	margin-top: 0.4em;
-	margin-bottom: 1.6em;
+article > .row {
+	margin-top: 4em;
 }
 
-.wp-caption.alignleft,
-.wp-caption.alignright,
-.wp-caption.aligncenter {
-	margin-bottom: 1.2em;
+article .copy {
+	font-weight: 100;
+	font-size: 3em;
 }
 
+article .copy strong, article .copy b {
+	font-weight: 900;
+}
+
+/**
+* Fixed footer
+*/
+footer {
+	position: fixed;
+	height: 200px;
+	bottom: 0;
+	width: 100%;
+	background-color: rgba(79, 75, 75, 0.43);
+	color: #fff;
+}
+
+footer > div {
+	height: 100%;
+}
+
+footer > div > .row {
+	height: 100%;
+}
+
+footer > div > .row > div {
+	height: 100%;
+	border-right: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+footer > div > .row > div:last-child {
+	border-right: none;
+}

@@ -255,10 +255,10 @@ $sidebars = array('Dock');
 foreach ($sidebars as $dock) {
 	register_sidebar(array('name'=> $dock,
 		'id' => 'dock',
-		'before_widget' => '<div class="large-' . $widget_count . ' columns">',
-		'after_widget' => '</div>',
-		'before_title' => '<h6>',
-		'after_title' => '</h6>'
+		'before_widget' => '<div class="col-md-' . $widget_count . ' col-sm-' . $widget_count . '">',
+		'after_widget' => '</div>'."\n",
+		'before_title' => '<h3>',
+		'after_title' => '</h3>'
 	));
 }
 
@@ -417,7 +417,7 @@ function wpds_theme_customizer( $wp_customize ) {
 
 	// Timer speed
 	$wp_customize->add_setting( 'signage[timer_speed]', array(
-	    	'default' => '10000',
+	    	'default' => '3000',
 	) );
 	$wp_customize->add_control( 'signage[timer_speed]', array(
     		'label' => __('Timer speed (ms)', 'wpds'),
@@ -427,7 +427,7 @@ function wpds_theme_customizer( $wp_customize ) {
 	
 	// Animation speed
 	$wp_customize->add_setting( 'signage[animation_speed]', array(
-	    	'default' => '500',
+	    	'default' => '300',
 	) );
 	$wp_customize->add_control( 'signage[animation_speed]', array(
     		'label' => __('Animation speed (ms)', 'wpds'),
@@ -451,6 +451,16 @@ function wpds_theme_customizer( $wp_customize ) {
 	$wp_customize->add_section( 'layout', array(
         	'title' => __('Layout', 'wpds'),
 	) );
+	
+	// Horizontal padding
+	$wp_customize->add_setting( 'layout[horizontal-padding]', array(
+    		'default' => 15,
+	) );
+	$wp_customize->add_control( 'layout[horizontal-padding]', array(
+		'label'   => __('Horizontal padding', 'wpds'),
+		'section' => 'layout',
+		'type' => 'number',
+	) );
 
 	// Show dock
 	$wp_customize->add_setting( 'layout[show-dock]', array(
@@ -460,6 +470,16 @@ function wpds_theme_customizer( $wp_customize ) {
 		'label'   => __('Show dock', 'wpds'),
 		'section' => 'layout',
 		'type' => 'checkbox',
+	) );
+	
+	// Dock height
+	$wp_customize->add_setting( 'layout[dock-height]', array(
+    		'default' => 200,
+	) );
+	$wp_customize->add_control( 'layout[dock-height]', array(
+		'label'   => __('Dock height', 'wpds'),
+		'section' => 'layout',
+		'type' => 'number',
 	) );
 
 	//
@@ -541,16 +561,18 @@ add_action( 'customize_register', 'wpds_theme_customizer', 11 );
 /**
 * Load scripts
 */
-function wpds_load_scripts()
-{
+function wpds_load_scripts() {
+	wp_register_style( 'slick-css', get_template_directory_uri() . '/slick/slick.css' );
+	wp_enqueue_style( 'slick-css' );
+
 	wp_register_script( 'modernizr', get_template_directory_uri() . '/javascripts/vendor/custom.modernizr.js' );
 	wp_enqueue_script( 'modernizr' );
+	
+	wp_register_script( 'bootstrap', get_template_directory_uri() . '/javascripts/vendor/bootstrap.min.js' );
+	wp_enqueue_script( 'bootstrap', false, array('jquery'), false, true );
 
-	wp_register_script( 'foundation', get_template_directory_uri() . '/javascripts/foundation/foundation.js' );
-	wp_enqueue_script( 'foundation', false, array('jquery'), false, true );
-
-	wp_register_script( 'foundation-orbit', get_template_directory_uri() . '/javascripts/foundation/foundation.orbit.js' );
-	wp_enqueue_script( 'foundation-orbit', false, array('foundation'), false, true );
+	wp_register_script( 'slick-js', get_template_directory_uri() . '/slick/slick.min.js' );
+	wp_enqueue_script( 'slick-js', false, array('jquery'), false, true );
 
 	wp_register_script( 'app-js', get_template_directory_uri() . '/javascripts/app.js' );
 	wp_enqueue_script( 'app-js', false, array('jquery'), false, true );
@@ -574,6 +596,17 @@ function get_color_option($post_id, $key) {
 	}
 	if (!empty($colors[$key])) {
 		return $colors[$key];
+	}
+	return '';
+}
+
+function print_style($args) {
+	if (count($args) > 0) {
+		$style = [];
+		foreach ($args as $k => $v) {
+			$style[] = $k . ':' . $v;
+		}
+		return ' style="' . implode(';', $style) . '"';
 	}
 	return '';
 }

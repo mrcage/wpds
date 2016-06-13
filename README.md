@@ -1,4 +1,4 @@
-##Digital Signage Wordpress Theme using Zurb's Foundation 4.
+##Digital Signage Wordpress Theme.
 
 This work is licensed under a [GNU General Public License v3.0](http://www.gnu.org/licenses/gpl-3.0.txt).
 

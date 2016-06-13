@@ -10,9 +10,8 @@
  */
 
 get_header(); ?>
-<div class="row">
+
     <!-- Main Content -->
-    <div class="large-12 columns" role="content">
 		<?php
 			$args=array(
 				'post_type' => 'post',
@@ -21,18 +20,17 @@ get_header(); ?>
 			);
 			$the_query = new WP_Query($args);
 
-			if ($the_query->post_count > 1) {
-				$options = [];
-				foreach (get_theme_mod( 'signage', [] ) as $k => $v) {
-					if (!empty($v)) {
-						$val = !is_numeric($v) && !is_bool($v) ? '\'' . $v . '\'' : $v;
-						$options[] = $k . ':'. $val;
-					}
-				}
-				echo '<ul data-orbit' . ( !empty($options) ? ' data-options="' . implode(';', $options) . '"' : '') . '>' . "\n";
-			} else {
-				echo '<ul>';
+			$options = [];
+			$signage_opts = get_theme_mod( 'signage', [] );
+			if (!empty($signage_opts['timer_speed']) && intval($signage_opts['timer_speed']) > 0) {
+				$options['autoplaySpeed'] = intval($signage_opts['timer_speed']);
 			}
+			if (!empty($signage_opts['animation_speed']) && intval($signage_opts['animation_speed']) > 0) {
+				$options['speed'] = intval($signage_opts['animation_speed']);
+			}
+			echo '<div id="slider"' . ( !empty($options) ? ' data-slick=\'' . json_encode($options) . '\'' : '') . '>' . "\n";
+
+			$layout_opts = get_theme_mod( 'layout', [] );
 
 			if ($the_query->have_posts()) : while ( $the_query->have_posts() ) : $the_query->the_post();
 
@@ -43,26 +41,30 @@ get_header(); ?>
 				$subhead_color = get_color_option($post->ID, 'subhead-color');
 				$copy_color = get_color_option($post->ID, 'copy-color');
 
-				if($background_image != '') :
-                			echo '<li class="post-box large-12 columns" style="background:url(' . $background_image . ') 0 0 no-repeat; width:100%; height:100%; background-size:contain;"></li>' . "\n";
-				else :
-					$thumb = get_the_post_thumbnail($post_id, 'large', array('class' => 'large-3 columns feature'));
-					echo '<li class="post-box large-12 columns"' . ( !empty($background_color) ? ' style="background:#' . $background_color . ';"' : '' ) . '>',
-          						'<h1' . ( !empty($head_color) ? ' style="color:#' . $head_color . ';"' : '' ) . '>' . get_the_title() . '</h1>' . "\n",
-          						'<h2' . ( !empty($subhead_color) ? ' style="color:#' . $subhead_color . ';"' : '' ) . '>' . get_post_meta($post->ID, 'subtitle', true) . '</h2>' . "\n",
-          						'<div class="row">',
-          						$thumb,
-          						'<p class="' . ( !empty($thumb) ? 'large-8' : 'large-11') . ' columns copy end"' . ( !empty($copy_color) ? ' style="color:#' . $copy_color . ';"' : '' ) . '>' . do_shortcode( nl2br(get_the_content()) ) . '</p>',
-          						'</div>',
-          						'</li>' ."\n";
-		              endif;
-	            endwhile;
-			endif;
+				$thumb = get_the_post_thumbnail($post_id, 'large', array('class' => 'img-responsive'));
+				$article_style = [];
+				if (!empty($background_color)) {
+					$article_style['background-color'] = '#' . $background_color;
+				}
+				if (!empty($background_image)) {
+					$article_style['background-image'] = 'url(' . $background_image . ')';
+				}
+				if (!empty($layout_opts['horizontal-padding']) && intval($layout_opts['horizontal-padding']) >= 0) {
+					$article_style['padding-left'] = intval($layout_opts['horizontal-padding']) . 'px';
+					$article_style['padding-right'] = intval($layout_opts['horizontal-padding']) . 'px';
+				}
+				echo '<article class="container-fluid"' . print_style($article_style) . '>',
+          					'<h1' . ( !empty($head_color) ? ' style="color:#' . $head_color . ';"' : '' ) . '>' . get_the_title() . '</h1>' . "\n",
+          					'<h2' . ( !empty($subhead_color) ? ' style="color:#' . $subhead_color . ';"' : '' ) . '>' . get_post_meta($post->ID, 'subtitle', true) . '</h2>' . "\n",
+          					'<div class="row">',
+          					!empty($thumb) ? '<div class="col-md-4 col-sm-4">' . $thumb . '</div>' : '',
+          					'<p class="' . ( !empty($thumb) ? 'col-md-8 col-sm-8' : 'col-md-12 col-sm-12') . ' copy"' . ( !empty($copy_color) ? ' style="color:#' . $copy_color . ';"' : '' ) . '>' . do_shortcode( nl2br(get_the_content()) ) . '</p>',
+          					'</div>',
+          					'</article>' ."\n";
+			endwhile; endif;
 			wp_reset_query();
 		?>
-		</ul>
-	</div>
-</div>
+		</div>
     <!-- End Main Content -->
 
 <?php get_footer(); ?>

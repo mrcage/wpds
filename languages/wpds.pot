@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: Wed Jun 08 2016 17:23:05 GMT+0200 (W. Europe Standard "
 "Time)\n"
-"POT-Revision-Date: Thu Jun 09 2016 11:05:48 GMT+0200 (W. Europe Standard "
+"POT-Revision-Date: Mon Jun 13 2016 12:47:11 GMT+0200 (W. Europe Standard "
 "Time)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: nicolas <mail@nicu.ch>\n"
@@ -26,17 +26,6 @@ msgstr ""
 "esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
 "X-Loco-Target-Locale: de_DE\n"
 "X-Generator: Loco - https://localise.biz/"
-
-#: ../sidebar.php:18
-msgid "No widgets found."
-msgstr ""
-
-#: ../sidebar.php:19
-#, php-format
-msgid ""
-"It seems you don't have any widgets in your sidebar! Would you like to %s "
-"now?"
-msgstr ""
 
 #: ../functions.php:196
 #, php-format
@@ -189,35 +178,54 @@ msgid "Layout"
 msgstr ""
 
 #: ../functions.php:460
+msgid "Horizontal padding"
+msgstr ""
+
+#: ../functions.php:470
 msgid "Show dock"
 msgstr ""
 
-#: ../functions.php:469
+#: ../functions.php:480
+msgid "Dock height"
+msgstr ""
+
+#: ../functions.php:489
 msgid "Colors"
 msgstr ""
 
-#: ../functions.php:479 ../inc/post-details.php:103
+#: ../functions.php:499 ../inc/post-details.php:103
 msgid "Background Color"
 msgstr ""
 
-#: ../functions.php:490 ../inc/post-details.php:118
+#: ../functions.php:510 ../inc/post-details.php:118
 msgid "Headline Color"
 msgstr ""
 
-#: ../functions.php:501 ../inc/post-details.php:133
+#: ../functions.php:521 ../inc/post-details.php:133
 msgid "Sub-headline Color"
 msgstr ""
 
-#: ../functions.php:512 ../inc/post-details.php:148
+#: ../functions.php:532 ../inc/post-details.php:148
 msgid "Copy Color"
 msgstr ""
 
-#: ../functions.php:523
+#: ../functions.php:543
 msgid "Dock Background Color"
 msgstr ""
 
-#: ../functions.php:534
+#: ../functions.php:554
 msgid "Dock Foreground Color"
+msgstr ""
+
+#: ../sidebar.php:18
+msgid "No widgets found."
+msgstr ""
+
+#: ../sidebar.php:19
+#, php-format
+msgid ""
+"It seems you don't have any widgets in your sidebar! Would you like to %s "
+"now?"
 msgstr ""
 
 #: ../inc/post-details.php:10

@@ -1,6 +1,15 @@
-// Load foundation
-jQuery(function() {
-	jQuery(document).foundation();
+jQuery(document).ready(function ($) {
+	$('#slider').slick({
+		autoplay: true,
+		arrows: false,
+		fade: true,
+		pauseOnFocus: false,
+		pauseOnHover: false
+	});
+	$('#slider article').height($(window).height());
+	$(window).resize(function(){
+		$('#slider article').height($(window).height());
+	});
 });
 
 // Page reload
