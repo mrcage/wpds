@@ -27,6 +27,13 @@ article {
 	background-position: center center;
 }
 
+article.container-fluid, footer > div.container-fluid {
+	padding-right: 40px;
+	padding-right: 2.1vw;
+	padding-left: 40px;
+	padding-left: 2.1vw;
+}
+
 article h1 {
 	font-size: 150px;
 	font-size: 7.8vw;
@@ -61,6 +68,7 @@ article .lead {
 footer {
 	position: fixed;
 	height: 200px;
+	height: 10.42vw;
 	bottom: 0;
 	width: 100%;
 	background-color: rgba(79, 75, 75, 0.43);
@@ -101,9 +109,11 @@ footer div > h3:first-child {
 }
 
 footer h3 {
-	font-size: 2em;
+	font-size: 28px;
+	font-size: 1.5vw;
 }
 
 footer .textwidget {
-	font-size: 1.5em;
+	font-size: 21px;
+	font-size: 1.1vw;
 }

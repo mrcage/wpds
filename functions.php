@@ -450,14 +450,16 @@ function wpds_theme_customizer( $wp_customize ) {
 	) );
 	
 	// Horizontal padding
+	/*
 	$wp_customize->add_setting( 'layout[horizontal-padding]', array(
-    		'default' => 15,
+    		'default' => 40,
 	) );
 	$wp_customize->add_control( 'layout[horizontal-padding]', array(
 		'label'   => __('Horizontal padding', 'wpds'),
 		'section' => 'layout',
 		'type' => 'number',
 	) );
+	*/
 
 	// Show dock
 	$wp_customize->add_setting( 'layout[show-dock]', array(
@@ -470,6 +472,7 @@ function wpds_theme_customizer( $wp_customize ) {
 	) );
 	
 	// Dock height
+	/*
 	$wp_customize->add_setting( 'layout[dock-height]', array(
     		'default' => 200,
 	) );
@@ -478,6 +481,7 @@ function wpds_theme_customizer( $wp_customize ) {
 		'section' => 'layout',
 		'type' => 'number',
 	) );
+	*/
 
 	//
 	// Colors section
