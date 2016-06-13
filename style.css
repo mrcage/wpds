@@ -28,26 +28,31 @@ article {
 }
 
 article h1 {
-	font-size: 11em;
+	font-size: 150px;
+	font-size: 7.8vw;
 	font-weight: 900;
 }
 
 article h2 {
-	font-size: 4em;
+	font-size: 64px;
+	font-size: 3.35vw;
 	font-weight: 100;
 	text-transform: uppercase;
 }
 
 article img.wp-post-image {
-	margin-top: 1em;
+	margin-top: 14px;
+	margin-top: 0.7vw;
 }
 
 article > .row {
-	margin-top: 4em;
+	margin-top: 56px;
+	margin-top: 2.9vw;
 }
 
 article .lead {
-	font-size: 3em;
+	font-size: 42px;
+	font-size: 2.2vw;
 }
 
 /**
