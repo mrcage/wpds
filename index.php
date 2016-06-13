@@ -57,8 +57,8 @@ get_header(); ?>
           					'<h1' . ( !empty($head_color) ? ' style="color:#' . $head_color . ';"' : '' ) . '>' . get_the_title() . '</h1>' . "\n",
           					'<h2' . ( !empty($subhead_color) ? ' style="color:#' . $subhead_color . ';"' : '' ) . '>' . get_post_meta($post->ID, 'subtitle', true) . '</h2>' . "\n",
           					'<div class="row">',
-          					!empty($thumb) ? '<div class="col-md-4 col-sm-4">' . $thumb . '</div>' : '',
-          					'<p class="' . ( !empty($thumb) ? 'col-md-8 col-sm-8' : 'col-md-12 col-sm-12') . ' copy"' . ( !empty($copy_color) ? ' style="color:#' . $copy_color . ';"' : '' ) . '>' . do_shortcode( nl2br(get_the_content()) ) . '</p>',
+						!empty($thumb) ? '<div class="col-md-4 col-sm-4 col-xs-4">' . $thumb . '</div>' : '',
+						'<p class="' . ( !empty($thumb) ? 'col-md-8 col-sm-8 col-xs-8' : 'col-md-12 col-sm-12 col-xs-12') . ' lead"' . ( !empty($copy_color) ? ' style="color:#' . $copy_color . ';"' : '' ) . '>' . do_shortcode( nl2br(get_the_content()) ) . '</p>',
           					'</div>',
           					'</article>' ."\n";
 			endwhile; endif;

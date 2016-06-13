@@ -34,7 +34,7 @@ article h1 {
 
 article h2 {
 	font-size: 4em;
-	font-weight: 400;
+	font-weight: 100;
 	text-transform: uppercase;
 }
 
@@ -46,12 +46,8 @@ article > .row {
 	margin-top: 4em;
 }
 
-article .copy {
+article .lead {
 	font-size: 3em;
-}
-
-article .copy strong, article .copy b {
-	font-weight: 900;
 }
 
 /**

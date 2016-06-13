@@ -255,7 +255,7 @@ $sidebars = array('Dock');
 foreach ($sidebars as $dock) {
 	register_sidebar(array('name'=> $dock,
 		'id' => 'dock',
-		'before_widget' => '<div class="col-md-' . $widget_count . ' col-sm-' . $widget_count . ' vertical-align"><div>',
+		'before_widget' => '<div class="col-md-' . $widget_count . ' col-sm-' . $widget_count . ' col-xs-' . $widget_count . '  vertical-align"><div>',
 		'after_widget' => '</div></div>'."\n",
 		'before_title' => '<h3>',
 		'after_title' => '</h3>'
