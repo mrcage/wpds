@@ -1,3 +1,9 @@
+// Load foundation
+jQuery(function() {
+	jQuery(document).foundation();
+});
+
+// Page reload
 jQuery(document).ready(function ($) {
 	var reloadTimeout = typeof defaultReloadTimeout !== 'undefined' ? defaultReloadTimeout : 5 * 60 * 1000;
 	doReloadPage(reloadTimeout);

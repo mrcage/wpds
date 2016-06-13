@@ -22,7 +22,6 @@ $color_opts = get_theme_mod( 'colors', [] );
 
 	<?php wp_footer(); ?>
 
-	<script src="<?php bloginfo('template_url'); ?>/javascripts/foundation/foundation.js"></script>
 	<?php
 		$args = array(
 			'post_type' => 'post',
@@ -46,11 +45,5 @@ $color_opts = get_theme_mod( 'colors', [] );
 			echo '<script>var defaultReloadTimeout=1000 * 60 * ' . $signage_opts['reload_interval'] . ';</script>';
 		}
 	?>
-	<script src="<?php bloginfo('template_url'); ?>/javascripts/vendor/app.js"></script>
-	<script>
-		jQuery(function() {
-			jQuery(document).foundation();
-		});
-	</script>
- </body>
+	</body>
 </html>

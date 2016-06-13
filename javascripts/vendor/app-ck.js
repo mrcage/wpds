@@ -1,1 +1,0 @@
-jQuery(document).ready(function(e){window.setTimeout("location.reload(true)",3e5)});
