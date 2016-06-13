@@ -538,6 +538,16 @@ function wpds_theme_customizer( $wp_customize ) {
 }
 add_action( 'customize_register', 'wpds_theme_customizer', 11 );
 
+/**
+* Load scripts
+*/
+function wpds_load_scripts()
+{
+    wp_register_script( 'modernizr', get_template_directory_uri() . '/javascripts/vendor/custom.modernizr.js' );
+    wp_enqueue_script( 'modernizr' );
+}
+add_action( 'wp_enqueue_scripts', 'wpds_load_scripts' );
+
 //***********************
 //
 // Theme helper functions

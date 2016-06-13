@@ -10,11 +10,8 @@ Tags: signage, digital signage, kiosk, carousel, slider, foundation, responsive
 Text Domain: wpds
 */
 
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
 @import url('stylesheets/app.css');
-
-/**
- * 8.0 Alignments
- */
 
 .alignleft {
 	display: inline;
