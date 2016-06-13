@@ -554,6 +554,14 @@ function wpds_theme_customizer( $wp_customize ) {
 add_action( 'customize_register', 'wpds_theme_customizer', 11 );
 
 /**
+* Load style
+*/
+function wpds_theme_enqueue_styles() {
+    wp_enqueue_style( 'wpds-style', get_template_directory_uri() . '/style.css' );
+}
+add_action( 'wp_enqueue_scripts', 'wpds_theme_enqueue_styles' );
+
+/**
 * Load scripts
 */
 function wpds_load_scripts() {
