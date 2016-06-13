@@ -391,6 +391,8 @@ function wpds_register_required_plugins() {
 
 function wpds_theme_customizer( $wp_customize ) {
 
+	require_once( dirname( __FILE__ ) . '/admin/customizer/alpha-color-picker/alpha-color-picker.php' );
+
 	// Remove existing non-required stuff
 	$wp_customize->remove_control('blogdescription');
 	$wp_customize->remove_section('static_front_page');
@@ -540,11 +542,9 @@ function wpds_theme_customizer( $wp_customize ) {
 
 	// Dock background color
 	$wp_customize->add_setting( 'colors[dock-background-color]', array(
-    		'default' => '#b1b1b1',
-		'sanitize_callback'    => 'sanitize_hex_color_no_hash',
-		'sanitize_js_callback' => 'maybe_hash_hex_color',
+		'default' => 'rgba(79, 75, 75, 0.43)',
 	) );
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[dock-background-color]', array(
+	$wp_customize->add_control( new Customize_Alpha_Color_Control( $wp_customize, 'colors[dock-background-color]', array(
 		'label'   => __('Dock Background Color', 'wpds'),
 		'section' => 'colors',
 	) ) );
