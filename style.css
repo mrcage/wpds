@@ -87,3 +87,18 @@ footer > div > .row > div:last-child {
 .vertical-align > div {
 	width: 100%;
 }
+
+/**
+* Text widget
+*/
+footer div > h3:first-child {
+	margin-top: 0;
+}
+
+footer h3 {
+	font-size: 2em;
+}
+
+footer .textwidget {
+	font-size: 1.5em;
+}
