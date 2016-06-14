@@ -422,18 +422,6 @@ function wpds_theme_customizer( $wp_customize ) {
         	'title' => __('Layout', 'wpds'),
 	) );
 	
-	// Horizontal padding
-	/*
-	$wp_customize->add_setting( 'layout[horizontal-padding]', array(
-    		'default' => 40,
-	) );
-	$wp_customize->add_control( 'layout[horizontal-padding]', array(
-		'label'   => __('Horizontal padding', 'wpds'),
-		'section' => 'layout',
-		'type' => 'number',
-	) );
-	*/
-
 	// Show dock
 	$wp_customize->add_setting( 'layout[show-dock]', array(
     		'default' => true,
