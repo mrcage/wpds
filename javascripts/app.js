@@ -22,7 +22,7 @@ function doReloadPage(reloadTimeout) {
 	if (reloadTimeout > 0) {
 		window.setTimeout(function() {
 			console.log('Trying to reload...');
-			$.ajax({
+			jQuery.ajax({
 				url  : "/",
 				type : "HEAD"
 			})
