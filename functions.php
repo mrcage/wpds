@@ -217,7 +217,7 @@ add_action('widgets_init','wpds_remove_some_wp_widgets', 1);
 //
 //***********************
 
-function count_sidebar_widgets( $sidebar_id, $echo = true ) {
+function count_sidebar_widgets( $sidebar_id) {
     $the_sidebars = wp_get_sidebars_widgets();
     if( !isset( $the_sidebars[$sidebar_id] ) )
         return __( 'Invalid sidebar ID', 'wpds' );
@@ -226,12 +226,14 @@ function count_sidebar_widgets( $sidebar_id, $echo = true ) {
     else
         return count( $the_sidebars[$sidebar_id] );
 }
-//$widget_count = (int) (12 / count_sidebar_widgets( 'dock', false ));
-if (count_sidebar_widgets( 'dock', false ) > 0){
-	$widget_count = (int) (12 / count_sidebar_widgets( 'dock', false ));
-}
-else {
-	$widget_count = 12;
+
+function get_grid_number_from_widgets( $sidebar_id ) {
+	if (count_sidebar_widgets( $sidebar_id ) > 0){
+		return (int) (12 / count_sidebar_widgets( $sidebar_id ));
+	}
+	else {
+		return 12;
+	}
 }
 
 
@@ -241,6 +243,7 @@ else {
 //
 //***********************
 function wpds_widgets_init() {
+	$widget_count = get_grid_number_from_widgets( 'dock' );
 	register_sidebar(array(
 		'id' => 'dock',
 		'name'=> __('Dock', 'wpds'),

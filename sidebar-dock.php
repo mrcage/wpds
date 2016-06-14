@@ -16,7 +16,7 @@
 		?>
 		<footer class="footer"<?php echo print_style($dock_style);?>>
 			<div class="container-fluid">
-				<?php if ( is_active_sidebar( 'dosck' ) ) : ?>
+				<?php if ( is_active_sidebar( 'dock' ) ) : ?>
 				<div class="row">
 					<?php dynamic_sidebar("dock"); ?>
 				</div>
