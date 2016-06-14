@@ -181,6 +181,28 @@ add_action('wp_dashboard_setup', function() {
 
 });
 
+// Channels dashboard widget
+// wp_dashboard_setup is the action hook
+add_action('wp_dashboard_setup', function() {
+	// add dashboard widget
+    wp_add_dashboard_widget('channels_widget', __('Channels', 'wpds'), function() {
+		$args = array(
+			'public' => true ,
+			'_builtin' => false );
+		$output = 'object';
+		$operator = 'and';
+		echo '<ul>';
+		$terms = get_terms( 'channel', array(
+			'hide_empty' => true,
+		) );
+		foreach ($terms as $term) {
+			echo '<li><a href="' . get_term_link( $term ) . '" target="_blank">' . $term->name . '</a></li>';
+		}
+		echo '</ul>';
+	});
+
+});
+
 //***********************
 //
 // SIMPLIFY UI
