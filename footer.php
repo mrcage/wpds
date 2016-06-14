@@ -5,8 +5,6 @@
  * Displays content shown in the footer section
  *
  * @package WordPress
- * @subpackage Foundation, for WordPress
- * @since Foundation, for WordPress 1.0
  */
 ?>
 	</div>
@@ -15,9 +13,10 @@
 
 	<?php
 		$signage_opts = get_theme_mod( 'signage', [] );
-		if (!empty($signage_opts['reload_interval']) && is_numeric($signage_opts['reload_interval'])) {
+		if (isset($signage_opts['reload_interval']) && is_numeric($signage_opts['reload_interval'])) {
 			echo '<script>var defaultReloadTimeout=1000 * 60 * ' . $signage_opts['reload_interval'] . ';</script>';
 		}
+		echo '<script>var postModified=\'' . get_post_status_hash() . '\';</script>';
 	?>
 
 	<?php wp_footer(); ?>

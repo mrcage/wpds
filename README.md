@@ -17,6 +17,7 @@ Additions/changes to the original project include:
 * Font- and layout sizes based on viewport size
 * Improved layout in post editor
 * Post preview
+* Added mechanism to check periodically for content change
 * German translation
 
 ##Widgets

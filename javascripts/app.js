@@ -12,10 +12,11 @@ jQuery(document).ready(function ($) {
 	});
 });
 
-// Page reload
+// Page reload (disabled by default)
 jQuery(document).ready(function ($) {
-	var reloadTimeout = typeof defaultReloadTimeout !== 'undefined' ? defaultReloadTimeout : 5 * 60 * 1000;
+	var reloadTimeout = typeof defaultReloadTimeout !== 'undefined' ? defaultReloadTimeout : 0 * 60 * 1000;
 	doReloadPage(reloadTimeout);
+	wpdsCheckModifiedContent();
 });
 
 function doReloadPage(reloadTimeout) {
@@ -35,4 +36,35 @@ function doReloadPage(reloadTimeout) {
 			});
 		}, reloadTimeout);
 	}
+}
+
+function wpdsCheckModifiedContent() {
+	var modifiedContentCheckInterval = 10 * 1000;
+	window.setTimeout(function(){
+		console.log('Checking for content change...');
+		jQuery.get({
+			url  : "/wpds-status"
+		})
+		.done(function(data) {
+			if (data != postModified) {
+				console.log('Content has changed, reloading page...');
+				jQuery.ajax({
+					url  : "/",
+					type : "HEAD"
+				})
+				.done(function() {
+					location.reload();
+				})
+				.fail(function( jqXHR, textStatus, errorThrown ) {
+					console.log('Unable to reload: ' + textStatus + ', trying again in ' + modifiedContentCheckInterval + " ms");
+					wpdsCheckModifiedContent();
+				});
+			} else {
+				wpdsCheckModifiedContent()
+			}
+		})
+		.fail(function( jqXHR, textStatus, errorThrown ) {
+			wpdsCheckModifiedContent()
+		});
+	}, modifiedContentCheckInterval);
 }

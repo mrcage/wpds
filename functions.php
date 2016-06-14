@@ -407,7 +407,7 @@ function wpds_theme_customizer( $wp_customize ) {
 
 	// Page reload interval
 	$wp_customize->add_setting( 'signage[reload_interval]', array(
-	    	'default' => '5',
+	    	'default' => '0',
 	) );
 	$wp_customize->add_control( 'signage[reload_interval]', array(
     		'label' => __('Reload interval (min)', 'wpds'),
@@ -605,4 +605,31 @@ function get_slider_args_html() {
 	return ( !empty($options) ? ' data-slick=\'' . json_encode($options) . '\'' : '');
 }
 
+// WPDS status page
+add_action('init', function() {
+	$url_path = trim(parse_url(add_query_arg(array()), PHP_URL_PATH), '/');
+	if ( $url_path === 'wpds-status' ) {
+		// load the file if exists
+		$load = locate_template('status.php', true);
+		if ($load) {
+			exit(); // just exit if template was found and loaded
+		}
+	}
+});
+
+function get_post_status_hash() {
+	global $post;
+	$data = [];
+	$args = array(
+		'post_type' => 'post',
+		'post_status' => 'publish',
+		'orderby' => 'modified',
+	);
+	$the_query = new WP_Query($args);
+	if ($the_query->have_posts()) : while ( $the_query->have_posts() ) : $the_query->the_post();
+		$data[] = $post->ID.":".$post->post_modified;
+	endwhile; endif;
+	wp_reset_query();
+	return md5(implode(";", $data));
+}
 ?>
