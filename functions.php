@@ -414,6 +414,16 @@ function wpds_theme_customizer( $wp_customize ) {
 		'section' => 'signage',
 		'type' => 'number',
 	) );
+	
+	// Content change check interval
+	$wp_customize->add_setting( 'signage[content_change_check_interval]', array(
+	    	'default' => '10',
+	) );
+	$wp_customize->add_control( 'signage[content_change_check_interval]', array(
+    		'label' => __('Content change check interval (s)', 'wpds'),
+		'section' => 'signage',
+		'type' => 'number',
+	) );
 
 	//
 	// Layout section
