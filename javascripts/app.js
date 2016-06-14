@@ -30,8 +30,8 @@ function doReloadPage(reloadTimeout) {
 				location.reload();
 			})
 			.fail(function( jqXHR, textStatus, errorThrown ) {
-				console.log('Unable to reload: ' + textStatus);
-				window.setTimeout(function(){ doReloadPage(reloadTimeout) }, 5000);
+				console.log('Unable to reload: ' + textStatus + ', trying again in ' + reloadTimeout + " ms");
+				doReloadPage(reloadTimeout);
 			});
 		}, reloadTimeout);
 	}
