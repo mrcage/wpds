@@ -431,18 +431,6 @@ function wpds_theme_customizer( $wp_customize ) {
 		'section' => 'layout',
 		'type' => 'checkbox',
 	) );
-	
-	// Dock height
-	/*
-	$wp_customize->add_setting( 'layout[dock-height]', array(
-    		'default' => 200,
-	) );
-	$wp_customize->add_control( 'layout[dock-height]', array(
-		'label'   => __('Dock height', 'wpds'),
-		'section' => 'layout',
-		'type' => 'number',
-	) );
-	*/
 
 	//
 	// Colors section
