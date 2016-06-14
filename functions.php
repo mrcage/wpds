@@ -15,7 +15,6 @@ function wpds_theme_setup() {
 
 	// Language Translations
 	load_theme_textdomain( 'wpds', get_template_directory() . '/languages' );
-	load_theme_textdomain( 'foundation', get_template_directory() . '/languages' );
 	load_theme_textdomain( 'tgmpa', get_template_directory() . '/languages' );
 
 	// Custom Editor Style Support
@@ -135,27 +134,17 @@ function my_remove_menu_pages() {
 	add_action('admin_menu', 'disable_default_dashboard_widgets');
 
 	// create custom dashboard widget
+	/*
 	function custom_dashboard_widget() {
 			echo "<p>Please keep the title to no more than 22 characters.</p>",
 				"<p>Please keep the body copy to no more than 27-30 words.</p>",
 				"<p>If using a background image, a 16:9 ratio will do best to fill the screen (for example, 1920px wide x 1080px high). Remember that the information dock will cover approximately 200px of the bottom of the image.";
-
-		/*if (current_user_can('manage_options')) {
-			echo "<p>Please keep the title to no more than 22 characters.</p>",
-				"<p>Please keep the body copy to no more than 27-30 words.</p>",
-				"<p>If using a background image, a 16:9 ratio will do best to fill the screen (for example, 1920px wide x 1080px high). Remember that the information dock will cover approximately 200px of the bottom of the image.";
-
-		}
-		else {
-		}*/
 	}
 	function add_custom_dashboard_widget() {
 		wp_add_dashboard_widget('custom_dashboard_widget', 'Content Guidelines', 'custom_dashboard_widget');
 	}
 	add_action('wp_dashboard_setup', 'add_custom_dashboard_widget');
-
-
-
+	*/
 
 
 //***********************
@@ -193,7 +182,7 @@ function my_remove_menu_pages() {
 
 	// customize backend footer
 	function remove_footer_admin ($text) {
-		return $text . ' &#x272D;&nbsp; ' . sprintf(__('Maintained by <a href="%s">%s</a> based on work by <a href="%s">%s</a>.', 'wpds'), 'https://nicu.ch', 'Nicolas Perrenoud', 'http://pixelydo.com/', 'Nate Jones');
+		return $text . ' &#x272D;&nbsp; ' . sprintf(__('Developed by <a href="%s">%s</a> based on work by <a href="%s">%s</a>.', 'wpds'), 'https://nicu.ch', 'Nicolas Perrenoud', 'http://pixelydo.com/', 'Nate Jones');
 	}
 	add_filter('admin_footer_text', 'remove_footer_admin');
 
