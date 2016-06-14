@@ -18,6 +18,7 @@ Additions/changes to the original project include:
 * Improved layout in post editor
 * Post preview
 * Added mechanism to check periodically for content change
+* Support for channels
 * German translation
 
 ##Widgets
