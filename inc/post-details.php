@@ -15,7 +15,7 @@ function myprefix_edit_form_after_title($post) {
  * Adds a meta box to the post editing screen
  */
 function wpds_custom_meta() {
-	add_meta_box( 'wpds', __( 'Details', 'wpds' ), 'wpds_meta_callback', 'post' );
+	add_meta_box( 'wpds', __( 'Details', 'wpds' ), 'wpds_meta_callback', 'slide' );
 }
 add_action( 'add_meta_boxes', 'wpds_custom_meta' );
 
@@ -223,7 +223,7 @@ add_action( 'save_post', 'wpds_meta_save' );
  */
 function wpds_admin_styles(){
 	global $typenow;
-	if( $typenow == 'post' ) {
+	if( $typenow == 'slide' ) {
 		wp_enqueue_style( 'wpds_meta_box_styles', get_template_directory_uri() . '/stylesheets/admin/meta-box-styles.css' );
 	}
 }
@@ -235,7 +235,7 @@ add_action( 'admin_print_styles', 'wpds_admin_styles' );
  */
 function wpds_image_enqueue() {
 	global $typenow;
-	if( $typenow == 'post' ) {
+	if( $typenow == 'slide' ) {
 		wp_enqueue_media();
 
 		// Registers and enqueues the required javascript.

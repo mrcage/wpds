@@ -29,6 +29,114 @@ function wpds_theme_setup() {
 add_action( 'after_setup_theme', 'wpds_theme_setup' );
 
 
+/*
+* Creating a function to create our CPT
+*/
+add_action( 'init', function() {
+
+// Set UI labels for Custom Post Type
+	$labels = array(
+		'name'                => _x( 'Slides', 'Post Type General Name', 'wpds' ),
+		'singular_name'       => _x( 'Slide', 'Post Type Singular Name', 'wpds' ),
+		'menu_name'           => __( 'Slides', 'wpds' ),
+		'parent_item_colon'   => __( 'Parent Slide', 'wpds' ),
+		'all_items'           => __( 'All Slides', 'wpds' ),
+		'view_item'           => __( 'View Slide', 'wpds' ),
+		'add_new_item'        => __( 'Add New Slide', 'wpds' ),
+		'add_new'             => __( 'Add New', 'wpds' ),
+		'edit_item'           => __( 'Edit Slide', 'wpds' ),
+		'update_item'         => __( 'Update Slide', 'wpds' ),
+		'search_items'        => __( 'Search Slide', 'wpds' ),
+		'not_found'           => __( 'Not Found', 'wpds' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'wpds' ),
+	);
+	
+// Set other options for Custom Post Type
+	
+	$args = array(
+		'label'               => __( 'Slides', 'wpds' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'revisions' ),
+		'taxonomies'          => array( 'channel' ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 5,
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'post',
+	);
+	
+	// Registering your Custom Post Type
+	register_post_type( 'slide', $args );
+
+});
+
+add_action( 'init', function(){
+	$labels = array(
+		'name'                           => __( 'Channels', 'wpds' ),
+		'singular_name'                  => __( 'Channel', 'wpds' ),
+		'search_items'                   => __( 'Search Channels', 'wpds' ),
+		'all_items'                      => __( 'All Channels', 'wpds' ),
+		'edit_item'                      => __( 'Edit Channel', 'wpds' ),
+		'update_item'                    => __( 'Update Channel', 'wpds' ),
+		'add_new_item'                   => __( 'Add new Channel', 'wpds' ),
+		'new_item_name'                  => __( 'New Channel name', 'wpds' ),
+		'menu_name'                      => __( 'Channels', 'wpds' ),
+		'view_item'                      => __( 'View Channel', 'wpds' ),
+		'popular_items'                  => __( 'Popular Channels', 'wpds' ),
+		'separate_items_with_commas'     => __( 'Separate Channels with commas', 'wpds' ),
+		'add_or_remove_items'            => __( 'Add or remove Channels', 'wpds' ),
+		'choose_from_most_used'          => __( 'Choose from the most used Channels', 'wpds' ),
+		'not_found'                      => __( 'No Channels found', 'wpds' )
+	);
+
+	register_taxonomy(
+		'channel',
+		'slide',
+		array(
+			'label' => __( 'Channel', 'wpds' ),
+			'hierarchical' => true,
+			'labels' => $labels,
+			'public' => true,
+			'show_in_nav_menus' => false,
+			'show_tagcloud' => false,
+			'show_admin_column' => true,
+			'rewrite' => array(
+				'slug' => 'channels'
+			)
+		)
+	);
+});
+
+//Add the support for your cpt in the Widget Activity of the Admin Dashboard
+if ( is_admin() ) {
+	add_filter( 'dashboard_recent_posts_query_args', 'add_page_to_dashboard_activity' );
+	function add_page_to_dashboard_activity( $query_args ) {
+		if ( is_array( $query_args[ 'post_type' ] ) ) {
+			//Set yout post type
+			$query_args[ 'post_type' ][] = 'slide';
+		} else {
+			$temp = array( $query_args[ 'post_type' ], 'slide' );
+			$query_args[ 'post_type' ] = $temp;
+		}
+		return $query_args;
+	}
+}
+
+// Alter the loop such that posts are sorted by modified
+add_action( 'pre_get_posts', function($query) {
+	if ( $query->is_main_query() && ( $query->is_home() || $query->is_search() || $query->is_archive() )  )
+	{
+		$query->set( 'orderby', 'modified' );
+		$query->set( 'order', 'desc' );
+	}
+});
 
 //***********************
 //
@@ -45,6 +153,7 @@ function my_remove_menu_pages() {
 	//remove_menu_page( 'upload.php' ); // Media
 	remove_menu_page( 'link-manager.php' ); // Links
 	remove_menu_page( 'edit-comments.php' ); // Comments
+	remove_menu_page( 'edit.php' ); // Posts
 	remove_menu_page( 'edit.php?post_type=page' ); // Pages
     remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=category');
     remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=post_tag');
@@ -90,6 +199,8 @@ function my_remove_menu_pages() {
 		remove_meta_box('formatdiv', 'post', 'normal'); // removes formats metabox
 		remove_meta_box('tagsdiv-post_tag', 'post', 'normal'); // removes tags metabox
 		remove_meta_box('pageparentdiv', 'post', 'normal'); // removes attributes metabox
+		
+		remove_meta_box('authordiv', 'slide', 'normal'); // removes author metabox
 	}
 	add_action( 'admin_menu' , 'remove_post_custom_fields' );
 
@@ -141,7 +252,6 @@ function my_remove_menu_pages() {
 	}
 	add_action('wp_dashboard_setup', 'add_custom_dashboard_widget');
 	*/
-
 
 //***********************
 //
@@ -631,7 +741,7 @@ function get_post_status_hash() {
 	global $post;
 	$data = [];
 	$args = array(
-		'post_type' => 'post',
+		'post_type' => 'slide',
 		'post_status' => 'publish',
 		'orderby' => 'modified',
 	);

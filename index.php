@@ -1,7 +1,5 @@
 <?php
 /**
- * Index
- *
  * Standard loop for the front-page
  *
  * @package WordPress
@@ -13,7 +11,7 @@ get_header(); ?>
 		<div id="slider"<?=get_slider_args_html()?>>
 			<?php
 				$args = array(
-					'post_type' => 'post',
+					'post_type' => 'slide',
 					'post_status' => 'publish',
 					'orderby' => 'modified',
 				);

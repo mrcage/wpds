@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: Wed Jun 08 2016 17:23:05 GMT+0200 (W. Europe Standard "
 "Time)\n"
-"POT-Revision-Date: Tue Jun 14 2016 11:20:52 GMT+0200 (W. Europe Standard "
+"POT-Revision-Date: Wed Jun 15 2016 00:36:42 GMT+0200 (W. Europe Standard "
 "Time)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: nicolas <mail@nicu.ch>\n"
@@ -31,57 +31,167 @@ msgstr ""
 msgid "Please add some widgets to the dock, or disable the dock in the customizer."
 msgstr ""
 
-#: ../functions.php:181
+#: ../functions.php:39
+msgctxt "Post Type General Name"
+msgid "Slides"
+msgstr ""
+
+#: ../functions.php:40
+msgctxt "Post Type Singular Name"
+msgid "Slide"
+msgstr ""
+
+#: ../functions.php:41 ../functions.php:57
+msgid "Slides"
+msgstr ""
+
+#: ../functions.php:42
+msgid "Parent Slide"
+msgstr ""
+
+#: ../functions.php:43
+msgid "All Slides"
+msgstr ""
+
+#: ../functions.php:44
+msgid "View Slide"
+msgstr ""
+
+#: ../functions.php:45
+msgid "Add New Slide"
+msgstr ""
+
+#: ../functions.php:46
+msgid "Add New"
+msgstr ""
+
+#: ../functions.php:47
+msgid "Edit Slide"
+msgstr ""
+
+#: ../functions.php:48
+msgid "Update Slide"
+msgstr ""
+
+#: ../functions.php:49
+msgid "Search Slide"
+msgstr ""
+
+#: ../functions.php:50
+msgid "Not Found"
+msgstr ""
+
+#: ../functions.php:51
+msgid "Not found in Trash"
+msgstr ""
+
+#: ../functions.php:82 ../functions.php:90
+msgid "Channels"
+msgstr ""
+
+#: ../functions.php:83 ../functions.php:103
+msgid "Channel"
+msgstr ""
+
+#: ../functions.php:84
+msgid "Search Channels"
+msgstr ""
+
+#: ../functions.php:85
+msgid "All Channels"
+msgstr ""
+
+#: ../functions.php:86
+msgid "Edit Channel"
+msgstr ""
+
+#: ../functions.php:87
+msgid "Update Channel"
+msgstr ""
+
+#: ../functions.php:88
+msgid "Add new Channel"
+msgstr ""
+
+#: ../functions.php:89
+msgid "New Channel name"
+msgstr ""
+
+#: ../functions.php:91
+msgid "View Channel"
+msgstr ""
+
+#: ../functions.php:92
+msgid "Popular Channels"
+msgstr ""
+
+#: ../functions.php:93
+msgid "Separate Channels with commas"
+msgstr ""
+
+#: ../functions.php:94
+msgid "Add or remove Channels"
+msgstr ""
+
+#: ../functions.php:95
+msgid "Choose from the most used Channels"
+msgstr ""
+
+#: ../functions.php:96
+msgid "No Channels found"
+msgstr ""
+
+#: ../functions.php:292
 #, php-format
 msgid ""
 "Developed by <a href=\"%s\" target=\"_blank\">%s</a> based on work by <a "
 "href=\"%s\" target=\"_blank\">%s</a>."
 msgstr ""
 
-#: ../functions.php:219
+#: ../functions.php:330
 msgid "Invalid sidebar ID"
 msgstr ""
 
-#: ../functions.php:245
+#: ../functions.php:356
 msgid "Dock"
 msgstr ""
 
-#: ../functions.php:246
+#: ../functions.php:357
 msgid "Widget area at the bottom of the page."
 msgstr ""
 
-#: ../functions.php:341 ../lib/tgm/class-tgm-plugin-activation.php:161
+#: ../functions.php:452 ../lib/tgm/class-tgm-plugin-activation.php:161
 msgid "Install Required Plugins"
 msgstr ""
 
-#: ../functions.php:342 ../lib/tgm/class-tgm-plugin-activation.php:162
+#: ../functions.php:453 ../lib/tgm/class-tgm-plugin-activation.php:162
 msgid "Install Plugins"
 msgstr ""
 
-#: ../functions.php:343 ../lib/tgm/class-tgm-plugin-activation.php:163
+#: ../functions.php:454 ../lib/tgm/class-tgm-plugin-activation.php:163
 #, php-format
 msgid "Installing Plugin: %s"
 msgstr ""
 
-#: ../functions.php:344
+#: ../functions.php:455
 msgid "Something went wrong with the plugin API."
 msgstr ""
 
-#: ../functions.php:345 ../lib/tgm/class-tgm-plugin-activation.php:165
+#: ../functions.php:456 ../lib/tgm/class-tgm-plugin-activation.php:165
 #, php-format
 msgid "This theme requires the following plugin: %1$s."
 msgid_plural "This theme requires the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../functions.php:346 ../lib/tgm/class-tgm-plugin-activation.php:166
+#: ../functions.php:457 ../lib/tgm/class-tgm-plugin-activation.php:166
 #, php-format
 msgid "This theme recommends the following plugin: %1$s."
 msgid_plural "This theme recommends the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../functions.php:347 ../lib/tgm/class-tgm-plugin-activation.php:167
+#: ../functions.php:458 ../lib/tgm/class-tgm-plugin-activation.php:167
 #, php-format
 msgid ""
 "Sorry, but you do not have the correct permissions to install the %s plugin. "
@@ -94,21 +204,21 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../functions.php:348 ../lib/tgm/class-tgm-plugin-activation.php:168
+#: ../functions.php:459 ../lib/tgm/class-tgm-plugin-activation.php:168
 #, php-format
 msgid "The following required plugin is currently inactive: %1$s."
 msgid_plural "The following required plugins are currently inactive: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../functions.php:349 ../lib/tgm/class-tgm-plugin-activation.php:169
+#: ../functions.php:460 ../lib/tgm/class-tgm-plugin-activation.php:169
 #, php-format
 msgid "The following recommended plugin is currently inactive: %1$s."
 msgid_plural "The following recommended plugins are currently inactive: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../functions.php:350 ../lib/tgm/class-tgm-plugin-activation.php:170
+#: ../functions.php:461 ../lib/tgm/class-tgm-plugin-activation.php:170
 #, php-format
 msgid ""
 "Sorry, but you do not have the correct permissions to activate the %s plugin."
@@ -121,7 +231,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../functions.php:351 ../lib/tgm/class-tgm-plugin-activation.php:171
+#: ../functions.php:462 ../lib/tgm/class-tgm-plugin-activation.php:171
 #, php-format
 msgid ""
 "The following plugin needs to be updated to its latest version to ensure "
@@ -132,7 +242,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../functions.php:352 ../lib/tgm/class-tgm-plugin-activation.php:172
+#: ../functions.php:463 ../lib/tgm/class-tgm-plugin-activation.php:172
 #, php-format
 msgid ""
 "Sorry, but you do not have the correct permissions to update the %s plugin. "
@@ -145,85 +255,85 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../functions.php:353 ../lib/tgm/class-tgm-plugin-activation.php:173
+#: ../functions.php:464 ../lib/tgm/class-tgm-plugin-activation.php:173
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../functions.php:354 ../lib/tgm/class-tgm-plugin-activation.php:174
+#: ../functions.php:465 ../lib/tgm/class-tgm-plugin-activation.php:174
 msgid "Begin activating plugin"
 msgid_plural "Begin activating plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../functions.php:355 ../lib/tgm/class-tgm-plugin-activation.php:175
+#: ../functions.php:466 ../lib/tgm/class-tgm-plugin-activation.php:175
 msgid "Return to Required Plugins Installer"
 msgstr ""
 
-#: ../functions.php:356 ../lib/tgm/class-tgm-plugin-activation.php:177 ..
+#: ../functions.php:467 ../lib/tgm/class-tgm-plugin-activation.php:177 ..
 #: /lib/tgm/class-tgm-plugin-activation.php:1945
 msgid "Plugin activated successfully."
 msgstr ""
 
-#: ../functions.php:357
+#: ../functions.php:468
 #, php-format
 msgid "All plugins installed and activated successfully. %s"
 msgstr ""
 
-#: ../functions.php:385
+#: ../functions.php:496
 msgid "Slider"
 msgstr ""
 
-#: ../functions.php:393
+#: ../functions.php:504
 msgid "Timer speed (ms)"
 msgstr ""
 
-#: ../functions.php:403
+#: ../functions.php:514
 msgid "Animation speed (ms)"
 msgstr ""
 
-#: ../functions.php:413
+#: ../functions.php:524
 msgid "Reload interval (min)"
 msgstr ""
 
-#: ../functions.php:423
+#: ../functions.php:534
 msgid "Content change check interval (s)"
 msgstr ""
 
-#: ../functions.php:432
+#: ../functions.php:543
 msgid "Layout"
 msgstr ""
 
-#: ../functions.php:440
+#: ../functions.php:551
 msgid "Show dock"
 msgstr ""
 
-#: ../functions.php:449
+#: ../functions.php:560
 msgid "Colors"
 msgstr ""
 
-#: ../functions.php:459 ../inc/post-details.php:103
+#: ../functions.php:570 ../inc/post-details.php:103
 msgid "Background Color"
 msgstr ""
 
-#: ../functions.php:470 ../inc/post-details.php:118
+#: ../functions.php:581 ../inc/post-details.php:118
 msgid "Headline Color"
 msgstr ""
 
-#: ../functions.php:481 ../inc/post-details.php:133
+#: ../functions.php:592 ../inc/post-details.php:133
 msgid "Sub-headline Color"
 msgstr ""
 
-#: ../functions.php:492 ../inc/post-details.php:148
+#: ../functions.php:603 ../inc/post-details.php:148
 msgid "Copy Color"
 msgstr ""
 
-#: ../functions.php:501
+#: ../functions.php:612
 msgid "Dock Background Color"
 msgstr ""
 
-#: ../functions.php:512
+#: ../functions.php:623
 msgid "Dock Foreground Color"
 msgstr ""
 
