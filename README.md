@@ -16,6 +16,7 @@ Additions/changes to the original project include:
 * Allow multiple instances of the weather widget
 * Font- and layout sizes based on viewport size
 * Improved layout in post editor
+* Post preview
 * German translation
 
 ##Widgets
