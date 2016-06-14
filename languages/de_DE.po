@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: Wed Jun 08 2016 17:23:05 GMT+0200 (W. Europe Standard "
 "Time)\n"
-"PO-Revision-Date: Wed Jun 15 2016 00:36:47 GMT+0200 (W. Europe Standard "
+"PO-Revision-Date: Wed Jun 15 2016 00:58:34 GMT+0200 (W. Europe Standard "
 "Time)\n"
 "Last-Translator: nicolas <mail@nicu.ch>\n"
 "Language-Team: \n"
@@ -23,6 +23,10 @@ msgstr ""
 "esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
 "X-Loco-Target-Locale: de_DE\n"
 "X-Generator: Loco - https://localise.biz/"
+
+#: ../functions.php:145
+msgid "Statistics"
+msgstr "Statistik"
 
 #: ../sidebar-dock.php:20
 msgid "Please add some widgets to the dock, or disable the dock in the customizer."
@@ -140,7 +144,7 @@ msgstr "Wählen Sie aus den meistbenutzten Kanälen"
 msgid "No Channels found"
 msgstr "Keine Kanäle gefunden"
 
-#: ../functions.php:292
+#: ../functions.php:334
 #, php-format
 msgid ""
 "Developed by <a href=\"%s\" target=\"_blank\">%s</a> based on work by <a "
@@ -149,50 +153,50 @@ msgstr ""
 "Entwickelt von <a href=\"%s\" target=\"_blank\">%s</a> basierend auf Arbeiten "
 "von <a href=\"%s\" target=\"_blank\">%s</a>."
 
-#: ../functions.php:330
+#: ../functions.php:372
 msgid "Invalid sidebar ID"
 msgstr "Ungültige Seitenleisten-ID"
 
-#: ../functions.php:356
+#: ../functions.php:398
 msgid "Dock"
 msgstr "Dock"
 
-#: ../functions.php:357
+#: ../functions.php:399
 msgid "Widget area at the bottom of the page."
 msgstr "Widget-Bereich unten auf der Seite."
 
-#: ../functions.php:452 ../lib/tgm/class-tgm-plugin-activation.php:161
+#: ../functions.php:494 ../lib/tgm/class-tgm-plugin-activation.php:161
 msgid "Install Required Plugins"
 msgstr "Notwendige Plugins installieren"
 
-#: ../functions.php:453 ../lib/tgm/class-tgm-plugin-activation.php:162
+#: ../functions.php:495 ../lib/tgm/class-tgm-plugin-activation.php:162
 msgid "Install Plugins"
 msgstr "Plugins installieren"
 
-#: ../functions.php:454 ../lib/tgm/class-tgm-plugin-activation.php:163
+#: ../functions.php:496 ../lib/tgm/class-tgm-plugin-activation.php:163
 #, php-format
 msgid "Installing Plugin: %s"
 msgstr "Installiere Plugin: %s"
 
-#: ../functions.php:455
+#: ../functions.php:497
 msgid "Something went wrong with the plugin API."
 msgstr "Etwas ist mit der Plugin API schiefgelaufen."
 
-#: ../functions.php:456 ../lib/tgm/class-tgm-plugin-activation.php:165
+#: ../functions.php:498 ../lib/tgm/class-tgm-plugin-activation.php:165
 #, php-format
 msgid "This theme requires the following plugin: %1$s."
 msgid_plural "This theme requires the following plugins: %1$s."
 msgstr[0] "Diese Theme benötigt das folgende Plugin: %1$s."
 msgstr[1] "Dieses Theme benötigt die folgenden Plugins: %1$s."
 
-#: ../functions.php:457 ../lib/tgm/class-tgm-plugin-activation.php:166
+#: ../functions.php:499 ../lib/tgm/class-tgm-plugin-activation.php:166
 #, php-format
 msgid "This theme recommends the following plugin: %1$s."
 msgid_plural "This theme recommends the following plugins: %1$s."
 msgstr[0] "Dieses Theme empfiehlt das folgende Plugin: %1$s."
 msgstr[1] "Dieses Theme empfiehlt die folgenden Plugins: %1$s."
 
-#: ../functions.php:458 ../lib/tgm/class-tgm-plugin-activation.php:167
+#: ../functions.php:500 ../lib/tgm/class-tgm-plugin-activation.php:167
 #, php-format
 msgid ""
 "Sorry, but you do not have the correct permissions to install the %s plugin. "
@@ -211,21 +215,21 @@ msgstr[1] ""
 "Plugins %s zu installieren. Kontaktieren Sie den Administrator dieser Seite "
 "für Unterstützung zur Installation dieser Plugins."
 
-#: ../functions.php:459 ../lib/tgm/class-tgm-plugin-activation.php:168
+#: ../functions.php:501 ../lib/tgm/class-tgm-plugin-activation.php:168
 #, php-format
 msgid "The following required plugin is currently inactive: %1$s."
 msgid_plural "The following required plugins are currently inactive: %1$s."
 msgstr[0] "Das folgende notwendige Plugin ist momentan inaktiv: %1$s."
 msgstr[1] "Die folgenden notwendigen Plugins sind momentan inaktiv: %1$s."
 
-#: ../functions.php:460 ../lib/tgm/class-tgm-plugin-activation.php:169
+#: ../functions.php:502 ../lib/tgm/class-tgm-plugin-activation.php:169
 #, php-format
 msgid "The following recommended plugin is currently inactive: %1$s."
 msgid_plural "The following recommended plugins are currently inactive: %1$s."
 msgstr[0] "Das folgende empfohlene Plugin ist momentan inaktiv: %1$s."
 msgstr[1] "Die folgenden empfohlenen Plugins sind momentan inaktiv: %1$s."
 
-#: ../functions.php:461 ../lib/tgm/class-tgm-plugin-activation.php:170
+#: ../functions.php:503 ../lib/tgm/class-tgm-plugin-activation.php:170
 #, php-format
 msgid ""
 "Sorry, but you do not have the correct permissions to activate the %s plugin."
@@ -244,7 +248,7 @@ msgstr[1] ""
 "Plugins %s zu aktivieren. Kontaktieren Sie den Administrator dieser Seite "
 "für Unterstützung zur Aktivierung dieser Plugins."
 
-#: ../functions.php:462 ../lib/tgm/class-tgm-plugin-activation.php:171
+#: ../functions.php:504 ../lib/tgm/class-tgm-plugin-activation.php:171
 #, php-format
 msgid ""
 "The following plugin needs to be updated to its latest version to ensure "
@@ -259,7 +263,7 @@ msgstr[1] ""
 "Die folgenden Plugins müssen auf ihre neuste Version aktualisiert werden um "
 "die maximale Kompatibilität mit diesem Theme sicherzustellen: %1$s."
 
-#: ../functions.php:463 ../lib/tgm/class-tgm-plugin-activation.php:172
+#: ../functions.php:505 ../lib/tgm/class-tgm-plugin-activation.php:172
 #, php-format
 msgid ""
 "Sorry, but you do not have the correct permissions to update the %s plugin. "
@@ -278,85 +282,85 @@ msgstr[1] ""
 "Plugins %s zu aktualisieren. Kontaktieren Sie den Administrator dieser Seite "
 "für Unterstützung zur Aktualisierung dieser Plugins."
 
-#: ../functions.php:464 ../lib/tgm/class-tgm-plugin-activation.php:173
+#: ../functions.php:506 ../lib/tgm/class-tgm-plugin-activation.php:173
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
 msgstr[0] "Beginne das Plugin zu installieren"
 msgstr[1] "Beginne die Plugins zu installieren"
 
-#: ../functions.php:465 ../lib/tgm/class-tgm-plugin-activation.php:174
+#: ../functions.php:507 ../lib/tgm/class-tgm-plugin-activation.php:174
 msgid "Begin activating plugin"
 msgid_plural "Begin activating plugins"
 msgstr[0] "Beginne das Plugin zu aktivieren"
 msgstr[1] "Beginne die Plugins zu aktivieren"
 
-#: ../functions.php:466 ../lib/tgm/class-tgm-plugin-activation.php:175
+#: ../functions.php:508 ../lib/tgm/class-tgm-plugin-activation.php:175
 msgid "Return to Required Plugins Installer"
 msgstr "Kehre zum Installer der notwendigen Plugins zurück"
 
-#: ../functions.php:467 ../lib/tgm/class-tgm-plugin-activation.php:177 ..
+#: ../functions.php:509 ../lib/tgm/class-tgm-plugin-activation.php:177 ..
 #: lib/tgm/class-tgm-plugin-activation.php:1945
 msgid "Plugin activated successfully."
 msgstr "Das Plugin wurde erfolgreich aktiviert."
 
-#: ../functions.php:468
+#: ../functions.php:510
 #, php-format
 msgid "All plugins installed and activated successfully. %s"
 msgstr "Alle Plugins wurden erfolgreich installiert und aktiviert. %s"
 
-#: ../functions.php:496
+#: ../functions.php:538
 msgid "Slider"
 msgstr "Slider"
 
-#: ../functions.php:504
+#: ../functions.php:546
 msgid "Timer speed (ms)"
 msgstr "Anzeigedauer (ms)"
 
-#: ../functions.php:514
+#: ../functions.php:556
 msgid "Animation speed (ms)"
 msgstr "Animationsgeschwindigkeit (ms)"
 
-#: ../functions.php:524
+#: ../functions.php:566
 msgid "Reload interval (min)"
 msgstr "Aktualisierungs-Intervall (min)"
 
-#: ../functions.php:534
+#: ../functions.php:576
 msgid "Content change check interval (s)"
 msgstr "Interval zur Überprüfung auf neuen Inhalt (s)"
 
-#: ../functions.php:543
+#: ../functions.php:585
 msgid "Layout"
 msgstr "Layout"
 
-#: ../functions.php:551
+#: ../functions.php:593
 msgid "Show dock"
 msgstr "Dock anzeigen"
 
-#: ../functions.php:560
+#: ../functions.php:602
 msgid "Colors"
 msgstr "Farben"
 
-#: ../functions.php:570 ../inc/post-details.php:103
+#: ../functions.php:612 ../inc/post-details.php:103
 msgid "Background Color"
 msgstr "Hintergrundfarbe"
 
-#: ../functions.php:581 ../inc/post-details.php:118
+#: ../functions.php:623 ../inc/post-details.php:118
 msgid "Headline Color"
 msgstr "Farbe der Überschrift"
 
-#: ../functions.php:592 ../inc/post-details.php:133
+#: ../functions.php:634 ../inc/post-details.php:133
 msgid "Sub-headline Color"
 msgstr "Farbe des Untertitels"
 
-#: ../functions.php:603 ../inc/post-details.php:148
+#: ../functions.php:645 ../inc/post-details.php:148
 msgid "Copy Color"
 msgstr "Textfarbe"
 
-#: ../functions.php:612
+#: ../functions.php:654
 msgid "Dock Background Color"
 msgstr "Hintergrundfarbe des Docks"
 
-#: ../functions.php:623
+#: ../functions.php:665
 msgid "Dock Foreground Color"
 msgstr "Vordergrundfarbe des Docks"
 

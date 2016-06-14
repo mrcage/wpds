@@ -138,6 +138,49 @@ add_action( 'pre_get_posts', function($query) {
 	}
 });
 
+// Statistics dashboard widget
+// wp_dashboard_setup is the action hook
+add_action('wp_dashboard_setup', function() { 
+	// add dashboard widget
+    wp_add_dashboard_widget('custom_stats_widget', __('Statistics', 'wpds'), function() {
+		$args = array(
+			'public' => true ,
+			'_builtin' => false );
+		$output = 'object';
+		$operator = 'and';
+		echo '<table>';
+		//loop over all custom post types
+		$post_types = get_post_types( $args , $output , $operator );
+		foreach( $post_types as $post_type ) {
+			$num_posts = wp_count_posts( $post_type->name );
+			$num = number_format_i18n( $num_posts->publish );
+			$text = _n( $post_type->labels->singular_name, $post_type->labels->name , intval( $num_posts->publish ) );
+			if ( current_user_can( 'edit_posts' ) ) {
+				$num = "<a href='edit.php?post_type=$post_type->name'>$num</a>";
+				$text = "<a href='edit.php?post_type=$post_type->name'>$text</a>";
+			}
+			echo '<tr><td class="first b b-' . $post_type->name . '">' . $num . '</td>';
+			echo '<td class="t ' . $post_type->name . '">' . $text . '</td></tr>';
+		}
+
+		//loop over all taxonomies
+		$taxonomies = get_taxonomies( $args , $output , $operator ); 
+		foreach( $taxonomies as $taxonomy ) {
+			$num_terms  = wp_count_terms( $taxonomy->name );
+			$num = number_format_i18n( $num_terms );
+			$text = _n( $taxonomy->labels->singular_name, $taxonomy->labels->name , intval( $num_terms ));
+			if ( current_user_can( 'manage_categories' ) ) {
+				$num = "<a href='edit-tags.php?taxonomy=$taxonomy->name'>$num</a>";
+				$text = "<a href='edit-tags.php?taxonomy=$taxonomy->name'>$text</a>";
+			}
+			echo '<tr><td class="first b b-' . $taxonomy->name . '">' . $num . '</td>';
+			echo '<td class="t ' . $taxonomy->name . '">' . $text . '</td></tr>';
+		}
+		echo '</table>';
+	});
+
+});
+
 //***********************
 //
 // SIMPLIFY UI
