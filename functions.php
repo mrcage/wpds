@@ -7,10 +7,6 @@
  *
  */
 
-/**
- * Initiate Foundation, for WordPress
- */
-
 function wpds_theme_setup() {
 
 	// Language Translations
@@ -388,23 +384,6 @@ function wpds_theme_customizer( $wp_customize ) {
 	$wp_customize->add_section( 'signage', array(
         	'title' => __('Slider', 'wpds'),
 	) );
- 
-	// Animation
-	// Currently not supported by Foundation 4 orbit library
-	/*
-	$wp_customize->add_setting( 'signage[animation]', array(
-	    	'default' => 'slide',
-	) );
-	$wp_customize->add_control( 'signage[animation]', array(
-    		'label' => __('Animation', 'wpds'),
-		'section' => 'signage',
-		'type' => 'radio',
-		'choices' => array(
-			'slide'  => __( 'Slide', 'wpds' ),
-			'fade' => __( 'Fade', 'wpds' )
-		),
-	) );
-	*/
 
 	// Timer speed
 	$wp_customize->add_setting( 'signage[timer_speed]', array(
