@@ -182,7 +182,7 @@ function my_remove_menu_pages() {
 
 	// customize backend footer
 	function remove_footer_admin ($text) {
-		return $text . ' &#x272D;&nbsp; ' . sprintf(__('Developed by <a href="%s">%s</a> based on work by <a href="%s">%s</a>.', 'wpds'), 'https://nicu.ch', 'Nicolas Perrenoud', 'http://pixelydo.com/', 'Nate Jones');
+		return $text . ' &#x272D;&nbsp; ' . sprintf(__('Developed by <a href="%s" target="_blank">%s</a> based on work by <a href="%s" target="_blank">%s</a>.', 'wpds'), 'https://nicu.ch', 'Nicolas Perrenoud', 'http://pixelydo.com/', 'Nate Jones');
 	}
 	add_filter('admin_footer_text', 'remove_footer_admin');
 

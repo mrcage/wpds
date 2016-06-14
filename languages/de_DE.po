@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: Wed Jun 08 2016 17:23:05 GMT+0200 (W. Europe Standard "
 "Time)\n"
-"PO-Revision-Date: Tue Jun 14 2016 08:21:12 GMT+0200 (W. Europe Standard "
+"PO-Revision-Date: Tue Jun 14 2016 08:23:02 GMT+0200 (W. Europe Standard "
 "Time)\n"
 "Last-Translator: nicolas <mail@nicu.ch>\n"
 "Language-Team: \n"
@@ -26,10 +26,12 @@ msgstr ""
 
 #: ../functions.php:185
 #, php-format
-msgid "Developed by <a href=\"%s\">%s</a> based on work by <a href=\"%s\">%s</a>."
+msgid ""
+"Developed by <a href=\"%s\" target=\"_blank\">%s</a> based on work by <a "
+"href=\"%s\" target=\"_blank\">%s</a>."
 msgstr ""
-"Entwickelt von <a href=\"%s\">%s</a> basierend auf Arbeiten von <a "
-"href=\"%s\">%s</a>."
+"Entwickelt von <a href=\"%s\" target=\"_blank\">%s</a> basierend auf Arbeiten "
+"von <a href=\"%s\" target=\"_blank\">%s</a>."
 
 #: ../functions.php:223
 msgid "Invalid sidebar ID"
