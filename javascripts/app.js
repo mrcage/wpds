@@ -72,3 +72,8 @@ function wpdsCheckModifiedContent(modifiedContentCheckInterval) {
 		});
 	}, modifiedContentCheckInterval);
 }
+
+// Message for watchdog page (optional)
+try {
+    window.top.postMessage('tyrp', '*');
+} catch(e){}
