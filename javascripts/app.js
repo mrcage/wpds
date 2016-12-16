@@ -57,20 +57,30 @@ function wpdsCheckModifiedContent(modifiedContentCheckInterval) {
 					type : "HEAD"
 				})
 				.done(function() {
+                    setStatusText('Update required');
 					location.reload();
 				})
 				.fail(function( jqXHR, textStatus, errorThrown ) {
+                    setStatusText('HEAD check failed: ' + textStatus);
 					console.log('Unable to reload: ' + textStatus + ', trying again in ' + modifiedContentCheckInterval + " ms");
 					wpdsCheckModifiedContent(modifiedContentCheckInterval);
 				});
 			} else {
+                setStatusText('No update required');
 				wpdsCheckModifiedContent(modifiedContentCheckInterval)
 			}
 		})
 		.fail(function( jqXHR, textStatus, errorThrown ) {
+            setStatusText('Status check failed: ' + textStatus);
 			wpdsCheckModifiedContent(modifiedContentCheckInterval)
 		});
 	}, modifiedContentCheckInterval);
+}
+
+function setStatusText(messageText, type) {
+    var d = new Date();
+    var datestring = d.getFullYear() + "-" + d.getDate() + "-" + (d.getMonth()+1) + " " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+    jQuery('.net-status-infobox').html(messageText + ' [' + datestring + ']');
 }
 
 // Message for watchdog page (optional)

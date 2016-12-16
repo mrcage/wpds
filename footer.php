@@ -11,6 +11,8 @@
 
 	<?php get_sidebar( 'dock' ); ?>
 
+    <div class="net-status-infobox"></div>
+    
 	<?php
 		$signage_opts = get_theme_mod( 'signage', [] );
 		if (isset($signage_opts['reload_interval']) && is_numeric($signage_opts['reload_interval'])) {

@@ -10,12 +10,12 @@ Tags: signage, digital signage, kiosk, carousel, slider, responsive
 Text Domain: wpds
 */
 
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,900);
 @import url('stylesheets/bootstrap.min.css');
 
 body {
 	font-family: 'Roboto', sans-serif;
-	font-weight: 100;
+	font-weight: 300;
 }
 
 /**
@@ -43,7 +43,7 @@ article h1 {
 article h2 {
 	font-size: 64px;
 	font-size: 3.35vw;
-	font-weight: 100;
+	font-weight: 300;
 	text-transform: uppercase;
 }
 
@@ -116,4 +116,15 @@ footer h3 {
 footer .textwidget {
 	font-size: 21px;
 	font-size: 1.1vw;
+}
+
+/**
+* Net status infobox
+*/
+.net-status-infobox {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    z-index: 100;
+    color: #777;
 }
