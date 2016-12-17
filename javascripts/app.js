@@ -41,6 +41,7 @@ function doReloadPage(reloadTimeout) {
 jQuery(document).ready(function ($) {
 	var contentChangeCheckInterval = typeof defaultContentChangeCheckInterval !== 'undefined' ? defaultContentChangeCheckInterval : 10 * 1000;
 	wpdsCheckModifiedContent(contentChangeCheckInterval);
+	setStatusText('OK');
 });
 
 function wpdsCheckModifiedContent(modifiedContentCheckInterval) {
@@ -57,21 +58,21 @@ function wpdsCheckModifiedContent(modifiedContentCheckInterval) {
 					type : "HEAD"
 				})
 				.done(function() {
-                    setStatusText('Update required');
+					setStatusText('Reloading');
 					location.reload();
 				})
 				.fail(function( jqXHR, textStatus, errorThrown ) {
-                    setStatusText('HEAD check failed: ' + textStatus);
+					setStatusText('HEAD check failed: ' + textStatus);
 					console.log('Unable to reload: ' + textStatus + ', trying again in ' + modifiedContentCheckInterval + " ms");
 					wpdsCheckModifiedContent(modifiedContentCheckInterval);
 				});
 			} else {
-                setStatusText('No update required');
+				setStatusText('OK');
 				wpdsCheckModifiedContent(modifiedContentCheckInterval)
 			}
 		})
 		.fail(function( jqXHR, textStatus, errorThrown ) {
-            setStatusText('Status check failed: ' + textStatus);
+			setStatusText('Status check failed: ' + textStatus);
 			wpdsCheckModifiedContent(modifiedContentCheckInterval)
 		});
 	}, modifiedContentCheckInterval);

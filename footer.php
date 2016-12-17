@@ -11,7 +11,9 @@
 
 	<?php get_sidebar( 'dock' ); ?>
 
-    <div class="net-status-infobox"></div>
+	<?php if ( !isset( get_theme_mod( 'layout', [] )['show-net-status-infobox'] ) || get_theme_mod( 'layout', [] )['show-net-status-infobox'] ): ?>
+		<div class="net-status-infobox"></div>
+	<?php endif; ?>
     
 	<?php
 		$signage_opts = get_theme_mod( 'signage', [] );

@@ -166,7 +166,7 @@ add_action('wp_dashboard_setup', function() {
 		//loop over all taxonomies
 		$taxonomies = get_taxonomies( $args , $output , $operator ); 
 		foreach( $taxonomies as $taxonomy ) {
-			$num_terms  = wp_count_terms( $taxonomy->name );
+			$num_terms  = wp_counT_terms( $taxonomy->name );
 			$num = number_format_i18n( $num_terms );
 			$text = _n( $taxonomy->labels->singular_name, $taxonomy->labels->name , intval( $num_terms ));
 			if ( current_user_can( 'manage_categories' ) ) {
@@ -613,6 +613,16 @@ function wpds_theme_customizer( $wp_customize ) {
 	) );
 	$wp_customize->add_control( 'layout[show-dock]', array(
 		'label'   => __('Show dock', 'wpds'),
+		'section' => 'layout',
+		'type' => 'checkbox',
+	) );
+
+	// Show network status box
+	$wp_customize->add_setting( 'layout[show-net-status-infobox]', array(
+    		'default' => true,
+	) );
+	$wp_customize->add_control( 'layout[show-net-status-infobox]', array(
+		'label'   => __('Show network status infobox', 'wpds'),
 		'section' => 'layout',
 		'type' => 'checkbox',
 	) );
