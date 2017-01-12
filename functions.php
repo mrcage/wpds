@@ -114,6 +114,62 @@ add_action( 'init', function(){
 	);
 });
 
+function get_localized_days() {
+    $timestamp = strtotime('next Sunday');
+    $days = array();
+    for ($i = 1; $i < 8; $i++) {
+        $timestamp = strtotime('+1 day', $timestamp);
+        $days[$i] = date_i18n('l', $timestamp);
+    }
+    return $days;
+}
+
+function show_post_today( $post_id ) {
+    $time_range_days = get_post_meta( $post_id, 'time_range_day' );
+    if ( count( $time_range_days ) > 0 ) {
+        foreach ($time_range_days as $d) {
+            $today_day = date('w');
+            if ($today_day == $d) {
+                return true;
+            }
+        }
+    } else {
+       return true;
+    }
+    return false;
+}
+
+// Register Modified Date Column for both posts & pages
+function modified_column_register( $columns ) {
+	$columns['time_range_days'] = __( 'Show', 'wpds' );
+	return $columns;
+}
+add_filter( 'manage_posts_columns', 'modified_column_register' );
+
+function modified_column_display( $column_name, $post_id ) {
+	switch ( $column_name ) {
+        case 'time_range_days':
+            $today_day = date('w');
+            $time_range_days = get_post_meta( $post_id, 'time_range_day' );
+            if ( count( $time_range_days ) > 0 ) {
+                $get_localized_days = get_localized_days();
+                $days = array();
+                foreach ($time_range_days as $d) {
+                    $day_name = $get_localized_days[$d];
+                    if ($today_day == $d) {
+                        $day_name = '<strong>' .$day_name . '</strong>';
+                    }
+                    $days[] = $day_name;
+                }
+                echo implode(', ', $days);
+            } else {
+                echo '<strong>' . __('Everyday', 'wpds') . '</strong>';
+            }        
+            break;
+	}
+}
+add_action( 'manage_posts_custom_column', 'modified_column_display', 10, 2 );
+
 //Add the support for your cpt in the Widget Activity of the Admin Dashboard
 if ( is_admin() ) {
 	add_filter( 'dashboard_recent_posts_query_args', 'add_page_to_dashboard_activity' );

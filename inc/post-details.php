@@ -16,6 +16,7 @@ function myprefix_edit_form_after_title($post) {
  */
 function wpds_custom_meta() {
 	add_meta_box( 'wpds', __( 'Details', 'wpds' ), 'wpds_meta_callback', 'slide' );
+    add_meta_box( 'wpds_time_range', __( 'Display settings', 'wpds' ), 'wpds_meta_callback_time_range', 'slide', 'side', 'high' );
 }
 add_action( 'add_meta_boxes', 'wpds_custom_meta' );
 
@@ -173,7 +174,21 @@ function wpds_meta_callback( $post ) {
 	<?php
 }
 
-
+function wpds_meta_callback_time_range( $post ) {
+    $wpds_stored_meta = get_post_meta( $post->ID );
+    ?>
+    <p><?=__('Only show on certain days', 'wpds')?>:
+        <?php
+            $selected_days = isset( $wpds_stored_meta['time_range_day'] ) && is_array( $wpds_stored_meta['time_range_day'] ) ? $wpds_stored_meta['time_range_day'] : [];
+            foreach (get_localized_days() as $k => $day) {
+              ?>
+                <br/><label><input type="checkbox" name="time_range_day[]" value="<?=($k % 7)?>" <?php if ( in_array( $k % 7, $selected_days ) ) { echo ' checked="checked"'; } ?>/> <?=$day?></label>
+              <?php
+            }
+        ?>
+    </p>
+    <?php
+}
 
 /**
  * Saves the custom meta input
@@ -214,6 +229,13 @@ function wpds_meta_save( $post_id ) {
 		update_post_meta( $post_id, 'background-image', $_POST[ 'background-image' ] );
 	}
 
+    // Time range
+    delete_post_meta( $post_id, 'time_range_day' );
+    if ( isset( $_POST[ 'time_range_day' ] ) && count( $_POST[ 'time_range_day' ] ) > 0 ) {
+        foreach ($_POST[ 'time_range_day' ] as $day) {
+            add_post_meta( $post_id, 'time_range_day', $day );
+        }
+    }
 }
 add_action( 'save_post', 'wpds_meta_save' );
 
