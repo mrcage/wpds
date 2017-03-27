@@ -277,7 +277,25 @@ add_action('wp_dashboard_setup', function() {
 			'hide_empty' => true,
 		) );
 		foreach ($terms as $term) {
-			echo '<li><a href="' . get_term_link( $term ) . '" target="_blank">' . $term->name . '</a></li>';
+			$slides = get_posts(array(
+			  'post_type' => 'slide',
+			  'numberposts' => -1,
+			  'tax_query' => array(
+				array(
+				  'taxonomy' => 'channel',
+				  'field' => 'id',
+				  'terms' => $term->term_taxonomy_id, // Where term_id of Term 1 is "1".
+				  'include_children' => false
+				)
+			  )
+			));
+			$active_slides = 0;
+			foreach ($slides as $slide) {
+				if ( show_post_today( $slide->ID ) && get_post_status ( $slide->ID ) == 'publish' ) {
+					$active_slides++;
+				}
+			}
+			echo '<li><a href="' . get_term_link( $term ) . '" target="_blank">' . $term->name . '</a> (' . $active_slides . '/' . count($slides) . ' ' . __('Slides', 'wpds') . ')</li>';
 		}
 		echo '</ul>';
 	});
@@ -906,7 +924,7 @@ function get_post_status_hash() {
 	);
 	$the_query = new WP_Query($args);
 	if ($the_query->have_posts()) : while ( $the_query->have_posts() ) : $the_query->the_post();
-		if (show_post_today( $post->ID )) {
+		if ( show_post_today( $post->ID ) ) {
 			$data[] = $post->ID.":".$post->post_modified;
 		}
 	endwhile; endif;
