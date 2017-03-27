@@ -10,6 +10,12 @@ jQuery(document).ready(function ($) {
 	$(window).resize(function(){
 		$('#slider article').height($(window).height());
 	});
+	$('#slider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+	  console.log(new Date().toLocaleTimeString() + ": change to next slide: " + nextSlide);
+	});
+	$('#slider').on('afterChange', function(event, slick, currentSlide){
+	  console.log(new Date().toLocaleTimeString() + ": shown slide: " + currentSlide);
+	});
 });
 
 // Periodic page reload (disabled by default)

@@ -6,6 +6,9 @@
  * Core functionality and initial theme setup
  *
  */
+ 
+define('WPDS_DEFAULT_TIMER_SPEED', 3);
+define('WPDS_DEFAULT_ANIMATION_SPEED', 300);
 
 function wpds_theme_setup() {
 
@@ -633,20 +636,20 @@ function wpds_theme_customizer( $wp_customize ) {
 
 	// Timer speed
 	$wp_customize->add_setting( 'signage[timer_speed]', array(
-	    	'default' => '3000',
+	    	'default' => WPDS_DEFAULT_TIMER_SPEED,
 	) );
 	$wp_customize->add_control( 'signage[timer_speed]', array(
-    		'label' => __('Timer speed (ms)', 'wpds'),
+		'label' => __('Timer speed (s)', 'wpds'),
 		'section' => 'signage',
 		'type' => 'number',
 	) );
 	
 	// Animation speed
 	$wp_customize->add_setting( 'signage[animation_speed]', array(
-	    	'default' => '300',
+	    	'default' => WPDS_DEFAULT_ANIMATION_SPEED,
 	) );
 	$wp_customize->add_control( 'signage[animation_speed]', array(
-    		'label' => __('Animation speed (ms)', 'wpds'),
+		'label' => __('Animation speed (ms)', 'wpds'),
 		'section' => 'signage',
 		'type' => 'number',
 	) );
@@ -849,7 +852,7 @@ function print_post_html($post) {
 	if (!empty($background_image)) {
 		$article_style['background-image'] = 'url(' . $background_image . ')';
 	}
-	echo '<article class="container-fluid"' . print_style($article_style) . '>',
+	echo "\n" . '<article class="container-fluid"' . print_style($article_style) . '>',
 				'<h1' . ( !empty($head_color) ? ' style="color:#' . $head_color . ';"' : '' ) . '>' . get_the_title() . '</h1>' . "\n",
 				'<h2' . ( !empty($subhead_color) ? ' style="color:#' . $subhead_color . ';"' : '' ) . '>' . get_post_meta($post->ID, 'subtitle', true) . '</h2>' . "\n",
 				'<div class="row">',
@@ -862,12 +865,15 @@ function print_post_html($post) {
 function get_slider_args_html() {
 	$options = [];
 	$signage_opts = get_theme_mod( 'signage', [] );
-	if (!empty($signage_opts['timer_speed']) && intval($signage_opts['timer_speed']) > 0) {
-		$options['autoplaySpeed'] = intval($signage_opts['timer_speed']);
-	}
-	if (!empty($signage_opts['animation_speed']) && intval($signage_opts['animation_speed']) > 0) {
-		$options['speed'] = intval($signage_opts['animation_speed']);
-	}
+	$options['autoplaySpeed'] = 1000 * (
+		(!empty($signage_opts['timer_speed']) && intval($signage_opts['timer_speed']) > 0)
+			? intval($signage_opts['timer_speed']) 
+			: WPDS_DEFAULT_TIMER_SPEED
+	);
+	$options['speed'] = 
+		(!empty($signage_opts['animation_speed']) && intval($signage_opts['animation_speed']) > 0) 
+			? intval($signage_opts['animation_speed'])
+			: WPDS_DEFAULT_ANIMATION_SPEED;
 	return ( !empty($options) ? ' data-slick=\'' . json_encode($options) . '\'' : '');
 }
 
