@@ -115,9 +115,9 @@ add_action( 'init', function(){
 });
 
 function get_localized_days() {
-    $timestamp = strtotime('next Sunday');
+    $timestamp = strtotime('next Saturday');
     $days = array();
-    for ($i = 1; $i < 8; $i++) {
+    for ($i = 0; $i < 7; $i++) {
         $timestamp = strtotime('+1 day', $timestamp);
         $days[$i] = date_i18n('l', $timestamp);
     }
@@ -142,6 +142,7 @@ function show_post_today( $post_id ) {
 // Register Modified Date Column for both posts & pages
 function modified_column_register( $columns ) {
 	$columns['time_range_days'] = __( 'Show', 'wpds' );
+	$columns['active_now'] = __('Active now', 'wpds');
 	return $columns;
 }
 add_filter( 'manage_posts_columns', 'modified_column_register' );
@@ -166,6 +167,20 @@ function modified_column_display( $column_name, $post_id ) {
                 echo '<strong>' . __('Everyday', 'wpds') . '</strong>';
             }        
             break;
+		case 'active_now':
+			if ( show_post_today( $post_id ) && get_post_status ( $ID ) == 'publish' ) {
+				echo '<span class="dashicons dashicons-yes" style="color:ForestGreen;"></span>';
+			} else {
+                if ( get_post_status ( $ID ) != 'publish' ) {
+                    $reason = __( 'Not published', 'wpds' );
+                } else if ( ! show_post_today( $post_id ) ) {
+                    $reason = __( 'Not shown today', 'wpds' );
+                } else {
+                    $reason = 'Unknown';
+                }
+				echo '<span class="dashicons dashicons-no" style="color:lightgray;" title="' . $reason . '"></span>';
+			}
+			break;
 	}
 }
 add_action( 'manage_posts_custom_column', 'modified_column_display', 10, 2 );

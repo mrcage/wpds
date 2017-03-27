@@ -180,7 +180,9 @@ function wpds_meta_callback_time_range( $post ) {
     <p><?=__('Only show on certain days', 'wpds')?>:
         <?php
             $selected_days = isset( $wpds_stored_meta['time_range_day'] ) && is_array( $wpds_stored_meta['time_range_day'] ) ? $wpds_stored_meta['time_range_day'] : [];
-            foreach (get_localized_days() as $k => $day) {
+            $localizes_days = get_localized_days();
+            for ($k = 1; $k < 8; $k++) {
+              $day = $localizes_days[$k % 7];
               ?>
                 <br/><label><input type="checkbox" name="time_range_day[]" value="<?=($k % 7)?>" <?php if ( in_array( $k % 7, $selected_days ) ) { echo ' checked="checked"'; } ?>/> <?=$day?></label>
               <?php
