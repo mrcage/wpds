@@ -172,7 +172,14 @@ function modified_column_display( $column_name, $post_id ) {
             break;
 		case 'active_now':
 			if ( show_post_today( $post_id ) && get_post_status ( $ID ) == 'publish' ) {
-				echo '<span class="dashicons dashicons-yes" style="color:ForestGreen;"></span>';
+				$term_list = wp_get_post_terms( $post_id, 'channel');
+				if ( count( $term_list ) > 0) {
+					$reason = __( 'Active', 'wpds' );
+					echo '<span class="dashicons dashicons-yes" style="color:#46b450;" title="' . $reason . '"></span>';
+				} else {
+					$reason = __( 'Published, but not assigned to any channel', 'wpds' );
+					echo '<span class="dashicons dashicons-no" style="color:orange;" title="' . $reason . '"></span>';
+				}
 			} else {
                 if ( get_post_status ( $ID ) != 'publish' ) {
                     $reason = __( 'Not published', 'wpds' );
