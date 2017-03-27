@@ -265,8 +265,10 @@ function wpds_meta_save( $post_id ) {
 		if ( isset( $_POST['time_range_minute_to'] ) && is_numeric( $_POST['time_range_minute_to'] ) && $_POST['time_range_minute_to']  >= 0 && $_POST['time_range_minute_to']  < 60 ) {
 			$time_range_minute_to = intval($_POST['time_range_minute_to']);
 		}
-		if ( isset( $time_range_hour_from ) && !isset( $time_range_minute_from ) && isset( $time_range_hour_to ) && !isset( $time_range_minute_to ) ) {
+		if ( isset( $time_range_hour_from ) && !isset( $time_range_minute_from ) ) {
 			$time_range_minute_from = 0;
+		}
+		if ( isset( $time_range_hour_to ) && !isset( $time_range_minute_to ) ) {
 			$time_range_minute_to = 0;			
 		}		
 		if ( ( isset( $time_range_hour_from ) && isset( $time_range_minute_from ) && isset( $time_range_hour_to ) && isset( $time_range_minute_to ) ) && 
