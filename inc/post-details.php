@@ -188,7 +188,7 @@ function wpds_meta_callback_time_range( $post ) {
               <?php
             }
         ?>
-    </p>
+    <input type="hidden" name="time_range_day_option_showed" value="1"/></p>
     <?php
 }
 
@@ -232,12 +232,15 @@ function wpds_meta_save( $post_id ) {
 	}
 
     // Time range
-    delete_post_meta( $post_id, 'time_range_day' );
-    if ( isset( $_POST[ 'time_range_day' ] ) && count( $_POST[ 'time_range_day' ] ) > 0 ) {
-        foreach ($_POST[ 'time_range_day' ] as $day) {
-            add_post_meta( $post_id, 'time_range_day', $day );
-        }
-    }
+	if ( isset( $_POST['time_range_day_option_showed'] ) ) { // solves iussue with quick-edit
+		delete_post_meta( $post_id, 'time_range_day' );
+		if ( isset( $_POST[ 'time_range_day' ] ) && count( $_POST[ 'time_range_day' ] ) > 0 ) {
+			foreach ($_POST[ 'time_range_day' ] as $day) {
+				add_post_meta( $post_id, 'time_range_day', $day );
+			}
+		}
+	}
+
 }
 add_action( 'save_post', 'wpds_meta_save' );
 
