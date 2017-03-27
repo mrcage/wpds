@@ -177,6 +177,7 @@ function wpds_meta_callback( $post ) {
 function wpds_meta_callback_time_range( $post ) {
     $wpds_stored_meta = get_post_meta( $post->ID );
     ?>
+	<input type="hidden" name="time_range_day_option_showed" value="1"/>
     <p><?=__('Only show on certain days', 'wpds')?>:
         <?php
             $selected_days = isset( $wpds_stored_meta['time_range_day'] ) && is_array( $wpds_stored_meta['time_range_day'] ) ? $wpds_stored_meta['time_range_day'] : [];
@@ -188,7 +189,18 @@ function wpds_meta_callback_time_range( $post ) {
               <?php
             }
         ?>
-    <input type="hidden" name="time_range_day_option_showed" value="1"/></p>
+    </p>
+    <p><?=__('Only show on certain time', 'wpds')?>:<br/>
+		<?php
+			$time_range_hour_from = isset( $wpds_stored_meta['time_range_hour_from'] ) ? intval($wpds_stored_meta['time_range_hour_from'][0]) : '';
+			$time_range_minute_from = isset( $wpds_stored_meta['time_range_minute_from'] ) ? intval($wpds_stored_meta['time_range_minute_from'][0]) : '';
+			$time_range_hour_to = isset( $wpds_stored_meta['time_range_hour_to'] ) ? intval($wpds_stored_meta['time_range_hour_to'][0]) : '';
+			$time_range_minute_to = isset( $wpds_stored_meta['time_range_minute_to'] ) ? intval($wpds_stored_meta['time_range_minute_to'][0]) : '';
+		?>
+			<input type="number" name="time_range_hour_from" value="<?=$time_range_hour_from?>" min="0" max="23" style="width: 50px;" /> : <input type="number" name="time_range_minute_from" value="<?=$time_range_minute_from?>" min="0" max="59" size="2"  style="width: 50px;" /> - 
+			<input type="number" name="time_range_hour_to" value="<?=$time_range_hour_to?>" min="0" max="23" style="width: 50px;" /> : <input type="number" name="time_range_minute_to" value="<?=$time_range_minute_to?>" min="0" max="59" size="2"  style="width: 50px;" /><br/>
+		
+	</p>
     <?php
 }
 
@@ -239,8 +251,39 @@ function wpds_meta_save( $post_id ) {
 				add_post_meta( $post_id, 'time_range_day', $day );
 			}
 		}
-	}
+		
+		
+		if ( isset( $_POST['time_range_hour_from'] ) && is_numeric( $_POST['time_range_hour_from'] ) && $_POST['time_range_hour_from']  >= 0 && $_POST['time_range_hour_from']  < 24 ) {
+			$time_range_hour_from = intval($_POST['time_range_hour_from']);
+		}
+		if ( isset( $_POST['time_range_minute_from'] ) && is_numeric( $_POST['time_range_minute_from'] ) && $_POST['time_range_minute_from']  >= 0 && $_POST['time_range_minute_from']  < 60 ) {
+			$time_range_minute_from = intval($_POST['time_range_minute_from']);
+		}
+		if ( isset( $_POST['time_range_hour_to'] ) && is_numeric( $_POST['time_range_hour_to'] ) && $_POST['time_range_hour_to']  >= 0 && $_POST['time_range_hour_to']  < 24 ) {
+			$time_range_hour_to = intval($_POST['time_range_hour_to']);
+		}
+		if ( isset( $_POST['time_range_minute_to'] ) && is_numeric( $_POST['time_range_minute_to'] ) && $_POST['time_range_minute_to']  >= 0 && $_POST['time_range_minute_to']  < 60 ) {
+			$time_range_minute_to = intval($_POST['time_range_minute_to']);
+		}
+		if ( isset( $time_range_hour_from ) && !isset( $time_range_minute_from ) && isset( $time_range_hour_to ) && !isset( $time_range_minute_to ) ) {
+			$time_range_minute_from = 0;
+			$time_range_minute_to = 0;			
+		}		
+		if ( ( isset( $time_range_hour_from ) && isset( $time_range_minute_from ) && isset( $time_range_hour_to ) && isset( $time_range_minute_to ) ) && 
+			( $time_range_hour_from < $time_range_hour_to || ( $time_range_hour_from == $time_range_hour_to && $time_range_minute_from < $time_range_minute_to ) )
+		) {
+			update_post_meta( $post_id, 'time_range_hour_from', $time_range_hour_from );
+			update_post_meta( $post_id, 'time_range_minute_from', $time_range_minute_from );
+			update_post_meta( $post_id, 'time_range_hour_to', $time_range_hour_to );
+			update_post_meta( $post_id, 'time_range_minute_to', $time_range_minute_to );
+		} else {
+			delete_post_meta( $post_id, 'time_range_hour_from' );
+			delete_post_meta( $post_id, 'time_range_minute_from' );
+			delete_post_meta( $post_id, 'time_range_hour_to' );
+			delete_post_meta( $post_id, 'time_range_minute_to' );
+		}
 
+	}
 }
 add_action( 'save_post', 'wpds_meta_save' );
 

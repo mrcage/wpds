@@ -142,6 +142,22 @@ function show_post_today( $post_id ) {
     return false;
 }
 
+function show_post_at_this_time( $post_id ) {
+	$time_range_hour_from = get_post_meta( $post_id, 'time_range_hour_from' );
+	$time_range_minute_from = get_post_meta( $post_id, 'time_range_minute_from' );
+	$time_range_hour_to = get_post_meta( $post_id, 'time_range_hour_to' );
+	$time_range_minute_to = get_post_meta( $post_id, 'time_range_minute_to' );
+	if ( isset( $time_range_hour_from[0] ) && isset( $time_range_minute_from[0] ) && isset( $time_range_hour_to[0] ) && isset( $time_range_minute_to[0] ) ) {
+		$current_hour = current_time("G");
+		$current_minute = intval(current_time("i"));
+		$current_time = mktime($current_hour, $current_minute);
+		$from_time = mktime($time_range_hour_from[0], $time_range_minute_from[0]);
+		$to_time = mktime($time_range_hour_to[0], $time_range_minute_to[0]);
+		return $current_time >= $from_time && $current_time <= $to_time;
+	}
+	return true;
+}
+
 // Register Modified Date Column for both posts & pages
 function modified_column_register( $columns ) {
 	$columns['time_range_days'] = __( 'Show', 'wpds' );
@@ -168,10 +184,25 @@ function modified_column_display( $column_name, $post_id ) {
                 echo implode(', ', $days);
             } else {
                 echo '<strong>' . __('Everyday', 'wpds') . '</strong>';
-            }        
+            }
+			$time_range_hour_from = get_post_meta( $post_id, 'time_range_hour_from' );
+			$time_range_minute_from = get_post_meta( $post_id, 'time_range_minute_from' );
+			$time_range_hour_to = get_post_meta( $post_id, 'time_range_hour_to' );
+			$time_range_minute_to = get_post_meta( $post_id, 'time_range_minute_to' );
+			if ( isset( $time_range_hour_from[0] ) && isset( $time_range_minute_from[0] ) && isset( $time_range_hour_to[0] ) && isset( $time_range_minute_to[0] ) ) {
+				$from_time = mktime($time_range_hour_from[0], $time_range_minute_from[0]);
+				$to_time = mktime($time_range_hour_to[0], $time_range_minute_to[0]);
+				$time_str = date("H:i", $from_time) . ' - ' . date("H:i", $to_time);
+				echo ', ';
+				if ( show_post_at_this_time( $post_id ) ) {
+					echo '<strong>' . $time_str . '</strong>';
+				} else {
+					echo $time_str;
+				}
+			}
             break;
 		case 'active_now':
-			if ( show_post_today( $post_id ) && get_post_status ( $ID ) == 'publish' ) {
+			if ( show_post_today( $post_id ) && show_post_at_this_time( $post_id ) && get_post_status ( $ID ) == 'publish' ) {
 				$term_list = wp_get_post_terms( $post_id, 'channel');
 				if ( count( $term_list ) > 0) {
 					$reason = __( 'Active', 'wpds' );
@@ -185,6 +216,8 @@ function modified_column_display( $column_name, $post_id ) {
                     $reason = __( 'Not published', 'wpds' );
                 } else if ( ! show_post_today( $post_id ) ) {
                     $reason = __( 'Not shown today', 'wpds' );
+                } else if ( ! show_post_at_this_time( $post_id ) ) {
+                    $reason = __( 'Not shown at this time', 'wpds' );
                 } else {
                     $reason = 'Unknown';
                 }
@@ -291,7 +324,7 @@ add_action('wp_dashboard_setup', function() {
 			));
 			$active_slides = 0;
 			foreach ($slides as $slide) {
-				if ( show_post_today( $slide->ID ) && get_post_status ( $slide->ID ) == 'publish' ) {
+				if ( show_post_today( $slide->ID ) && show_post_at_this_time( $slide->ID ) && get_post_status ( $slide->ID ) == 'publish' ) {
 					$active_slides++;
 				}
 			}
@@ -924,7 +957,7 @@ function get_post_status_hash() {
 	);
 	$the_query = new WP_Query($args);
 	if ($the_query->have_posts()) : while ( $the_query->have_posts() ) : $the_query->the_post();
-		if ( show_post_today( $post->ID ) ) {
+		if ( show_post_today( $post->ID ) && show_post_at_this_time( $post->ID ) ) {
 			$data[] = $post->ID.":".$post->post_modified;
 		}
 	endwhile; endif;

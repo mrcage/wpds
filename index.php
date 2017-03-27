@@ -17,7 +17,7 @@ get_header(); ?>
 				);
 				$the_query = new WP_Query($args);
 				if ($the_query->have_posts()) : while ( $the_query->have_posts() ) : $the_query->the_post();
-                    if (show_post_today( $post->ID )) {
+                    if (show_post_today( $post->ID ) && show_post_at_this_time( $post->ID ) ) {
                         print_post_html($post);
                     }
 				endwhile; endif;
