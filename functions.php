@@ -6,9 +6,13 @@
  * Core functionality and initial theme setup
  *
  */
- 
+
+define('WPDS_DEFAULT_THEME', 'simple'); 
 define('WPDS_DEFAULT_TIMER_SPEED', 3);
-define('WPDS_DEFAULT_ANIMATION_SPEED', 300);
+define('WPDS_DEFAULT_TRANSITION_SPEED', 'default');
+define('WPDS_DEFAULT_TRANSITION_STYLE', 'fade');
+define('WPDS_DEFAULT_SHOW_SLIDE_NUMBER', false);
+define('WPDS_DEFAULT_SHOW_NET_STATUS_INFO_BOX', false);
 
 function wpds_theme_setup() {
 
@@ -341,40 +345,20 @@ add_action('wp_dashboard_setup', function() {
 //
 //***********************
 
-	add_action('admin_menu', 'my_remove_menu_pages');
-	if (!current_user_can('manage_options')) {
-		add_action( 'admin_menu', 'my_remove_menu_pages' );
-	}
+add_action('admin_menu', 'my_remove_menu_pages');
+if (!current_user_can('manage_options')) {
+	add_action( 'admin_menu', 'my_remove_menu_pages' );
+}
 function my_remove_menu_pages() {
-	//remove_menu_page( 'edit.php' ); // Posts
-	//remove_menu_page( 'upload.php' ); // Media
 	remove_menu_page( 'link-manager.php' ); // Links
 	remove_menu_page( 'edit-comments.php' ); // Comments
 	remove_menu_page( 'edit.php' ); // Posts
 	remove_menu_page( 'edit.php?post_type=page' ); // Pages
     remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=category');
     remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=post_tag');
-
-	//remove_menu_page( 'plugins.php' ); // Plugins
-	//remove_menu_page( 'themes.php' ); // Appearance
-	//remove_menu_page( 'users.php' ); // Users
 	remove_menu_page( 'tools.php' ); // Tools
-	//remove_menu_page( 'profile.php' ); // Tools
-	//remove_menu_page('options-general.php'); // Settings
-
-	//remove_submenu_page ( 'index.php', 'update-core.php' );    //Dashboard->Updates
-	//remove_submenu_page ( 'themes.php', 'themes.php' ); // Appearance-->Themes
-	//remove_submenu_page ( 'themes.php', 'widgets.php' ); // Appearance-->Widgets
 	remove_submenu_page ( 'themes.php', 'nav-menus.php' ); // Appearance-->Menus
-	//remove_submenu_page ( 'themes.php', 'theme-editor.php' ); // Appearance-->Editor
-	//remove_submenu_page ( 'options-general.php', 'options-general.php' ); // Settings->General
-	//remove_submenu_page ( 'options-general.php', 'options-writing.php' ); // Settings->writing
-	//remove_submenu_page ( 'options-general.php', 'options-reading.php' ); // Settings->Reading
-	//remove_submenu_page ( 'options-general.php', 'options-discussion.php' ); // Settings->Discussion
-	//remove_submenu_page ( 'options-general.php', 'options-media.php' ); // Settings->Media
-	//remove_submenu_page ( 'options-general.php', 'options-privacy.php' ); // Settings->Privacy
-	}
-
+}
 
 //***********************
 //
@@ -459,7 +443,7 @@ function my_remove_menu_pages() {
 		function base_extended_editor_mce_buttons($buttons) {
 			// The settings are returned in this array. Customize to suite your needs.
 			return array(
-				'bold', 'italic', 'charmap', 'removeformat'
+				'bold', 'italic', 'bullist', 'numlist', 'blockquote', 'charmap', 'removeformat'
 			);
 			/* WordPress Default
 			return array(
@@ -689,59 +673,103 @@ function wpds_theme_customizer( $wp_customize ) {
 	// Slider (Digital Signage) section
 	//
 	$wp_customize->add_section( 'signage', array(
-        	'title' => __('Slider', 'wpds'),
+        'title' => __('Slider', 'wpds'),
 	) );
 
-	// Timer speed
+	// Transition style
+	$wp_customize->add_setting( 'signage[theme]', array(
+		'default' => WPDS_DEFAULT_THEME,
+	) );
+	$wp_customize->add_control( 'signage[theme]', array(
+		'label' => __('Theme', 'wpds'),
+		'section' => 'signage',
+		'type' => 'select',
+		'choices' => wpds_get_revealjs_themes(),
+	) );
+
+	// Auto play speed
 	$wp_customize->add_setting( 'signage[timer_speed]', array(
-	    	'default' => WPDS_DEFAULT_TIMER_SPEED,
+	    'default' => WPDS_DEFAULT_TIMER_SPEED,
 	) );
 	$wp_customize->add_control( 'signage[timer_speed]', array(
 		'label' => __('Timer speed (s)', 'wpds'),
 		'section' => 'signage',
 		'type' => 'number',
 	) );
-	
-	// Animation speed
-	$wp_customize->add_setting( 'signage[animation_speed]', array(
-	    	'default' => WPDS_DEFAULT_ANIMATION_SPEED,
+
+	// Transition style
+	$wp_customize->add_setting( 'signage[transition_style]', array(
+	    'default' => WPDS_DEFAULT_TRANSITION_STYLE,
 	) );
-	$wp_customize->add_control( 'signage[animation_speed]', array(
-		'label' => __('Animation speed (ms)', 'wpds'),
+	$wp_customize->add_control( 'signage[transition_style]', array(
+		'label' => __('Transition style', 'wpds'),
 		'section' => 'signage',
-		'type' => 'number',
+		'type' => 'radio',
+		'choices' => array(
+			'none' => __('None', 'wpds'),
+			'fade' =>  __('Fade', 'wpds'),
+			'slide' =>  __('Slide', 'wpds'),
+			'convex' =>  __('Convex', 'wpds'),
+			'concave' =>  __('Concave', 'wpds'),
+			'zoom' =>  __('Zoom', 'wpds'),
+		),
+	) );
+
+	// Transition speed
+	$wp_customize->add_setting( 'signage[transition_speed]', array(
+	    'default' => WPDS_DEFAULT_TRANSITION_SPEED,
+	) );
+	$wp_customize->add_control( 'signage[transition_speed]', array(
+		'label' => __('Transition speed', 'wpds'),
+		'section' => 'signage',
+		'type' => 'radio',
+		'choices' => array(
+			'default' => __('Default', 'wpds'),
+			'fast' =>  __('Fast', 'wpds'),
+			'slow' =>  __('Slow', 'wpds'),
+		),
 	) );
 
 	// Page reload interval
 	$wp_customize->add_setting( 'signage[reload_interval]', array(
-	    	'default' => '0',
+		'default' => '0',
 	) );
 	$wp_customize->add_control( 'signage[reload_interval]', array(
-    		'label' => __('Reload interval (min)', 'wpds'),
+		'label' => __('Reload interval (min)', 'wpds'),
 		'section' => 'signage',
 		'type' => 'number',
 	) );
 	
 	// Content change check interval
 	$wp_customize->add_setting( 'signage[content_change_check_interval]', array(
-	    	'default' => '10',
+		'default' => '10',
 	) );
 	$wp_customize->add_control( 'signage[content_change_check_interval]', array(
-    		'label' => __('Content change check interval (s)', 'wpds'),
+		'label' => __('Content change check interval (s)', 'wpds'),
 		'section' => 'signage',
 		'type' => 'number',
 	) );
 
+	// Show network status box
+	$wp_customize->add_setting( 'signage[show_slide_number]', array(
+		'default' => WPDS_DEFAULT_SHOW_SLIDE_NUMBER,
+	) );
+	$wp_customize->add_control( 'signage[show_slide_number]', array(
+		'label'   => __('Show slide number', 'wpds'),
+		'section' => 'signage',
+		'type' => 'checkbox',
+	) );
+	
 	//
 	// Layout section
 	//
 	$wp_customize->add_section( 'layout', array(
-        	'title' => __('Layout', 'wpds'),
+		'title' => __('Layout', 'wpds'),
 	) );
 	
 	// Show dock
 	$wp_customize->add_setting( 'layout[show-dock]', array(
-    		'default' => true,
+    	'default' => true,
 	) );
 	$wp_customize->add_control( 'layout[show-dock]', array(
 		'label'   => __('Show dock', 'wpds'),
@@ -751,7 +779,7 @@ function wpds_theme_customizer( $wp_customize ) {
 
 	// Show network status box
 	$wp_customize->add_setting( 'layout[show-net-status-infobox]', array(
-    		'default' => true,
+    	'default' => WPDS_DEFAULT_SHOW_NET_STATUS_INFO_BOX,
 	) );
 	$wp_customize->add_control( 'layout[show-net-status-infobox]', array(
 		'label'   => __('Show network status infobox', 'wpds'),
@@ -763,7 +791,7 @@ function wpds_theme_customizer( $wp_customize ) {
 	// Colors section
 	//
 	$wp_customize->add_section( 'colors', array(
-        	'title' => __('Colors', 'wpds'),
+        'title' => __('Colors', 'wpds'),
 	) );
 
 	// Background color
@@ -833,6 +861,63 @@ function wpds_theme_customizer( $wp_customize ) {
 }
 add_action( 'customize_register', 'wpds_theme_customizer', 11 );
 
+function wpds_get_revealjs_themes() {
+	$themes = array();
+	$theme_dir = get_template_directory() . '/reveal.js/css/theme';
+	foreach (scandir($theme_dir) as $file) {
+		if (is_file($theme_dir . '/' . $file) && preg_match('/(.*).css$/', $file, $m)) {
+			$themes[$m[1]] = ucfirst($m[1]);
+		}
+	}
+	asort($themes);
+	return $themes;
+}
+
+
+function wpds_get_auto_play_speed() {
+	$signage_opts = get_theme_mod( 'signage', [] );
+	return 1000 * (
+		(!empty($signage_opts['timer_speed']) && intval($signage_opts['timer_speed']) > 0)
+			? intval($signage_opts['timer_speed']) 
+			: WPDS_DEFAULT_TIMER_SPEED
+	);
+}
+
+function wpds_get_transition_style() {
+	$signage_opts = get_theme_mod( 'signage', [] );
+	return !empty($signage_opts['transition_style'])
+			? $signage_opts['transition_style'] 
+			: WPDS_DEFAULT_TRANSITION_STYLE;
+}
+
+function wpds_get_transition_speed() {
+	$signage_opts = get_theme_mod( 'signage', [] );
+	return !empty($signage_opts['transition_speed'])
+			? $signage_opts['transition_speed'] 
+			: WPDS_DEFAULT_TRANSITION_SPEED;
+}
+
+function wpds_show_slide_number() {
+	$signage_opts = get_theme_mod( 'signage', [] );
+	return isset($signage_opts['show_slide_number']) 
+			? $signage_opts['show_slide_number']
+			: WPDS_DEFAULT_SHOW_SLIDE_NUMBER;
+}
+
+function wpds_get_theme() {
+	$signage_opts = get_theme_mod( 'signage', [] );
+	return !empty($signage_opts['theme'])
+			? $signage_opts['theme'] 
+			: WPDS_DEFAULT_THEME;
+}
+
+function wpds_show_net_status_info_box() {
+	$opts = get_theme_mod( 'layout', [] );
+	return isset($opts['show-net-status-infobox']) 
+			? $opts['show-net-status-infobox']
+			: WPDS_DEFAULT_SHOW_NET_STATUS_INFO_BOX;
+}
+
 /**
 * Load style
 */
@@ -845,18 +930,15 @@ add_action( 'wp_enqueue_scripts', 'wpds_theme_enqueue_styles' );
 * Load scripts
 */
 function wpds_load_scripts() {
-	wp_register_style( 'slick-css', get_template_directory_uri() . '/slick/slick.css' );
-	wp_enqueue_style( 'slick-css' );
+	wp_enqueue_style( 'reveal.js_css', get_template_directory_uri() . '/reveal.js/css/reveal.css' );
+	wp_enqueue_style( 'reveal.js_theme', get_template_directory_uri() . '/reveal.js/css/theme/' . wpds_get_theme() .'.css' );
 
 	wp_register_script( 'modernizr', get_template_directory_uri() . '/javascripts/vendor/custom.modernizr.js' );
 	wp_enqueue_script( 'modernizr' );
+
+	wp_register_script( 'reveal.js', get_template_directory_uri() . '/reveal.js/js/reveal.js' );
+	wp_enqueue_script( 'reveal.js', false, array('jquery'), false, true );
 	
-	wp_register_script( 'bootstrap', get_template_directory_uri() . '/javascripts/vendor/bootstrap.min.js' );
-	wp_enqueue_script( 'bootstrap', false, array('jquery'), false, true );
-
-	wp_register_script( 'slick-js', get_template_directory_uri() . '/slick/slick.min.js' );
-	wp_enqueue_script( 'slick-js', false, array('jquery'), false, true );
-
 	wp_register_script( 'app-js', get_template_directory_uri() . '/javascripts/app.js' );
 	wp_enqueue_script( 'app-js', false, array('jquery'), false, true );
 }
@@ -884,55 +966,63 @@ function get_color_option($post_id, $key) {
 }
 
 function print_style($args) {
-	if (count($args) > 0) {
-		$style = [];
-		foreach ($args as $k => $v) {
-			$style[] = $k . ':' . $v;
+        if (count($args) > 0) {
+                $style = [];
+                foreach ($args as $k => $v) {
+                        $style[] = $k . ':' . $v;
+                }
+                return ' style="' . implode(';', $style) . '"';
+        }
+        return '';
+}
+
+function print_data_attrs($data) {
+	if (count($data) > 0) {
+		$attrs = [];
+		foreach ($data as $k => $v) {
+			$attrs[] = $k . '="' . $v . '"';
 		}
-		return ' style="' . implode(';', $style) . '"';
+		return ' ' . implode(' ', $attrs);
 	}
 	return '';
 }
 
 function print_post_html($post) {
-	$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large');
+
+	// Colors and backogrund image
 	$background_image = get_post_meta($post->ID, 'background-image', true);
 	$background_color = get_color_option($post->ID, 'background-color');
 	$head_color = get_color_option($post->ID, 'headline-color');
 	$subhead_color = get_color_option($post->ID, 'subhead-color');
 	$copy_color = get_color_option($post->ID, 'copy-color');
 
-	$thumb = get_the_post_thumbnail($post->ID, 'large', array('class' => 'img-responsive'));
-	$article_style = [];
+	// Thumbnail
+	$thumb = get_the_post_thumbnail($post->ID, 'large');
+	
+	// Get the content
+	ob_start(); the_content(); $content = ob_get_clean();
+
+	// Layout block with featured image
+	if (!empty($thumb)) {
+		$content = '<div class="layout-container">' .
+			'<div class="feature-img-container">' . $thumb . '</div>' .
+			'<div class="content-container">' . $content . '</div>' .
+			'</div>';
+	}
+	
+	// Data attributes
+	$data_attrs = [];
 	if (!empty($background_color)) {
-		$article_style['background-color'] = '#' . $background_color;
+		$data_attrs['data-background-color'] = '#' . $background_color;
 	}
 	if (!empty($background_image)) {
-		$article_style['background-image'] = 'url(' . $background_image . ')';
+		$data_attrs['data-background-image'] = $background_image;
 	}
-	echo "\n" . '<article class="container-fluid"' . print_style($article_style) . '>',
-				'<h1' . ( !empty($head_color) ? ' style="color:#' . $head_color . ';"' : '' ) . '>' . get_the_title() . '</h1>' . "\n",
-				'<h2' . ( !empty($subhead_color) ? ' style="color:#' . $subhead_color . ';"' : '' ) . '>' . get_post_meta($post->ID, 'subtitle', true) . '</h2>' . "\n",
-				'<div class="row">',
-			!empty($thumb) ? '<div class="col-md-4 col-sm-4 col-xs-4">' . $thumb . '</div>' : '',
-			'<p class="' . ( !empty($thumb) ? 'col-md-8 col-sm-8 col-xs-8' : 'col-md-12 col-sm-12 col-xs-12') . ' lead"' . ( !empty($copy_color) ? ' style="color:#' . $copy_color . ';"' : '' ) . '>' . do_shortcode( nl2br(get_the_content()) ) . '</p>',
-				'</div>',
-				'</article>' ."\n";
-}
-
-function get_slider_args_html() {
-	$options = [];
-	$signage_opts = get_theme_mod( 'signage', [] );
-	$options['autoplaySpeed'] = 1000 * (
-		(!empty($signage_opts['timer_speed']) && intval($signage_opts['timer_speed']) > 0)
-			? intval($signage_opts['timer_speed']) 
-			: WPDS_DEFAULT_TIMER_SPEED
-	);
-	$options['speed'] = 
-		(!empty($signage_opts['animation_speed']) && intval($signage_opts['animation_speed']) > 0) 
-			? intval($signage_opts['animation_speed'])
-			: WPDS_DEFAULT_ANIMATION_SPEED;
-	return ( !empty($options) ? ' data-slick=\'' . json_encode($options) . '\'' : '');
+	echo "\n" . '<section ' . print_data_attrs($data_attrs) . '>',
+				'<h2' . ( !empty($head_color) ? ' style="color:#' . $head_color . ';"' : '' ) . '>' . get_the_title() . '</h2>' . "\n",
+				'<h3' . ( !empty($subhead_color) ? ' style="color:#' . $subhead_color . ';"' : '' ) . '>' . get_post_meta($post->ID, 'subtitle', true) . '</h3>' . "\n",
+				'<div' . ( !empty($copy_color) ? ' style="color:#' . $copy_color . ';"' : '' ) . '>' . $content . '</div>',
+				'</section>' ."\n";
 }
 
 // WPDS status page

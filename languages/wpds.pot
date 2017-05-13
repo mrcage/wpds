@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Digital Signage\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-27 21:16+0000\n"
+"POT-Creation-Date: 2017-05-13 18:18+0000\n"
 "POT-Revision-Date: Wed Jun 15 2016 01:08:55 GMT+0200 (W. Europe Standard "
 "Time)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -25,228 +25,276 @@ msgstr ""
 "X-Loco-Target-Locale: de_DE\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#: functions.php:42
+#: functions.php:45
 msgctxt "Post Type General Name"
 msgid "Slides"
 msgstr ""
 
-#: functions.php:43
+#: functions.php:46
 msgctxt "Post Type Singular Name"
 msgid "Slide"
 msgstr ""
 
-#: functions.php:44 functions.php:60 functions.php:331
+#: functions.php:47 functions.php:63 functions.php:334
 msgid "Slides"
 msgstr ""
 
-#: functions.php:45
+#: functions.php:48
 msgid "Parent Slide"
 msgstr ""
 
-#: functions.php:46
+#: functions.php:49
 msgid "All Slides"
 msgstr ""
 
-#: functions.php:47
+#: functions.php:50
 msgid "View Slide"
 msgstr ""
 
-#: functions.php:48
+#: functions.php:51
 msgid "Add New Slide"
 msgstr ""
 
-#: functions.php:49
+#: functions.php:52
 msgid "Add New"
 msgstr ""
 
-#: functions.php:50
+#: functions.php:53
 msgid "Edit Slide"
 msgstr ""
 
-#: functions.php:51
+#: functions.php:54
 msgid "Update Slide"
 msgstr ""
 
-#: functions.php:52
+#: functions.php:55
 msgid "Search Slide"
 msgstr ""
 
-#: functions.php:53
+#: functions.php:56
 msgid "Not Found"
 msgstr ""
 
-#: functions.php:54
+#: functions.php:57
 msgid "Not found in Trash"
 msgstr ""
 
-#: functions.php:85 functions.php:93 functions.php:302
+#: functions.php:88 functions.php:96 functions.php:305
 msgid "Channels"
 msgstr ""
 
-#: functions.php:86 functions.php:106
+#: functions.php:89 functions.php:109
 msgid "Channel"
 msgstr ""
 
-#: functions.php:87
+#: functions.php:90
 msgid "Search Channels"
 msgstr ""
 
-#: functions.php:88
+#: functions.php:91
 msgid "All Channels"
 msgstr ""
 
-#: functions.php:89
+#: functions.php:92
 msgid "Edit Channel"
 msgstr ""
 
-#: functions.php:90
+#: functions.php:93
 msgid "Update Channel"
 msgstr ""
 
-#: functions.php:91
+#: functions.php:94
 msgid "Add new Channel"
 msgstr ""
 
-#: functions.php:92
+#: functions.php:95
 msgid "New Channel name"
 msgstr ""
 
-#: functions.php:94
+#: functions.php:97
 msgid "View Channel"
 msgstr ""
 
-#: functions.php:95
+#: functions.php:98
 msgid "Popular Channels"
 msgstr ""
 
-#: functions.php:96
+#: functions.php:99
 msgid "Separate Channels with commas"
 msgstr ""
 
-#: functions.php:97
+#: functions.php:100
 msgid "Add or remove Channels"
 msgstr ""
 
-#: functions.php:98
+#: functions.php:101
 msgid "Choose from the most used Channels"
 msgstr ""
 
-#: functions.php:99
+#: functions.php:102
 msgid "No Channels found"
 msgstr ""
 
-#: functions.php:163
+#: functions.php:166
 msgid "Show"
 msgstr ""
 
-#: functions.php:164
+#: functions.php:167
 msgid "Active now"
 msgstr ""
 
-#: functions.php:186
+#: functions.php:189
 msgid "Everyday"
 msgstr ""
 
-#: functions.php:208
+#: functions.php:211
 msgid "Active"
 msgstr ""
 
-#: functions.php:211
+#: functions.php:214
 msgid "Published, but not assigned to any channel"
 msgstr ""
 
-#: functions.php:216
+#: functions.php:219
 msgid "Not published"
 msgstr ""
 
-#: functions.php:218
+#: functions.php:221
 msgid "Not shown today"
 msgstr ""
 
-#: functions.php:220
+#: functions.php:223
 msgid "Not shown at this time"
 msgstr ""
 
-#: functions.php:259
+#: functions.php:262
 msgid "Statistics"
 msgstr ""
 
-#: functions.php:488
+#: functions.php:491
 #, php-format
 msgid ""
 "Developed by <a href=\"%s\" target=\"_blank\">%s</a> based on work by <a "
 "href=\"%s\" target=\"_blank\">%s</a>."
 msgstr ""
 
-#: functions.php:526
+#: functions.php:529
 msgid "Invalid sidebar ID"
 msgstr ""
 
-#: functions.php:552
+#: functions.php:555
 msgid "Dock"
 msgstr ""
 
-#: functions.php:553
+#: functions.php:556
 msgid "Widget area at the bottom of the page."
 msgstr ""
 
-#: functions.php:692
+#: functions.php:695
 msgid "Slider"
 msgstr ""
 
-#: functions.php:700
+#: functions.php:703
+msgid "Theme"
+msgstr ""
+
+#: functions.php:714
 msgid "Timer speed (s)"
 msgstr ""
 
-#: functions.php:710
-msgid "Animation speed (ms)"
+#: functions.php:724
+msgid "Transition style"
 msgstr ""
 
-#: functions.php:720
-msgid "Reload interval (min)"
+#: functions.php:728
+msgid "None"
+msgstr ""
+
+#: functions.php:729
+msgid "Fade"
 msgstr ""
 
 #: functions.php:730
-msgid "Content change check interval (s)"
+msgid "Slide"
 msgstr ""
 
-#: functions.php:739
-msgid "Layout"
+#: functions.php:731
+msgid "Convex"
+msgstr ""
+
+#: functions.php:732
+msgid "Concave"
+msgstr ""
+
+#: functions.php:733
+msgid "Zoom"
+msgstr ""
+
+#: functions.php:742
+msgid "Transition speed"
+msgstr ""
+
+#: functions.php:746
+msgid "Default"
 msgstr ""
 
 #: functions.php:747
-msgid "Show dock"
+msgid "Fast"
+msgstr ""
+
+#: functions.php:748
+msgid "Slow"
 msgstr ""
 
 #: functions.php:757
+msgid "Reload interval (min)"
+msgstr ""
+
+#: functions.php:767
+msgid "Content change check interval (s)"
+msgstr ""
+
+#: functions.php:777
+msgid "Show slide number"
+msgstr ""
+
+#: functions.php:786
+msgid "Layout"
+msgstr ""
+
+#: functions.php:794
+msgid "Show dock"
+msgstr ""
+
+#: functions.php:804
 msgid "Show network status infobox"
 msgstr ""
 
-#: functions.php:766
+#: functions.php:813
 msgid "Colors"
 msgstr ""
 
-#: functions.php:776 inc/post-details.php:104
+#: functions.php:823 inc/post-details.php:104
 msgid "Background Color"
 msgstr ""
 
-#: functions.php:787 inc/post-details.php:119
+#: functions.php:834 inc/post-details.php:119
 msgid "Headline Color"
 msgstr ""
 
-#: functions.php:798 inc/post-details.php:134
+#: functions.php:845 inc/post-details.php:134
 msgid "Sub-headline Color"
 msgstr ""
 
-#: functions.php:809 inc/post-details.php:149
+#: functions.php:856 inc/post-details.php:149
 msgid "Copy Color"
 msgstr ""
 
-#: functions.php:818
+#: functions.php:865
 msgid "Dock Background Color"
 msgstr ""
 
-#: functions.php:829
+#: functions.php:876
 msgid "Dock Foreground Color"
 msgstr ""
 
@@ -331,7 +379,7 @@ msgstr ""
 msgid "Upload a background image (if you are using one)"
 msgstr ""
 
-#: inc/post-details.php:170 inc/post-details.php:315
+#: inc/post-details.php:170 inc/post-details.php:317
 msgid "Choose or Upload an Image"
 msgstr ""
 
@@ -343,7 +391,7 @@ msgstr ""
 msgid "Only show on certain time"
 msgstr ""
 
-#: inc/post-details.php:316
+#: inc/post-details.php:318
 msgid "Use this image"
 msgstr ""
 

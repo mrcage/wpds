@@ -7,26 +7,32 @@
  * @package WordPress
  */
 ?>
-	</div>
+			</div>
+		</div>
 
-	<?php get_sidebar( 'dock' ); ?>
+		<?php get_sidebar( 'dock' ); ?>
 
-	<?php if ( !isset( get_theme_mod( 'layout', [] )['show-net-status-infobox'] ) || get_theme_mod( 'layout', [] )['show-net-status-infobox'] ): ?>
-		<div class="net-status-infobox"></div>
-	<?php endif; ?>
-    
-	<?php
-		$signage_opts = get_theme_mod( 'signage', [] );
-		if (isset($signage_opts['reload_interval']) && is_numeric($signage_opts['reload_interval'])) {
-			echo '<script>var defaultReloadTimeout = 1000 * 60 * ' . $signage_opts['reload_interval'] . ';</script>';
-		}
-		if (isset($signage_opts['content_change_check_interval']) && is_numeric($signage_opts['content_change_check_interval'])) {
-			echo '<script>var defaultContentChangeCheckInterval = 1000 * ' . $signage_opts['content_change_check_interval'] . ';</script>';
-		}
-		echo '<script>var postModified=\'' . get_post_status_hash() . '\';</script>';
-	?>
-
-	<?php wp_footer(); ?>
+		<?php if ( wpds_show_net_status_info_box() ): ?>
+			<div class="net-status-infobox"></div>
+		<?php endif; ?>
+		
+		<?php
+			$signage_opts = get_theme_mod( 'signage', [] );
+			if (isset($signage_opts['reload_interval']) && is_numeric($signage_opts['reload_interval'])) {
+				echo '<script>var defaultReloadTimeout = 1000 * 60 * ' . $signage_opts['reload_interval'] . ';</script>';
+			}
+			if (isset($signage_opts['content_change_check_interval']) && is_numeric($signage_opts['content_change_check_interval'])) {
+				echo '<script>var defaultContentChangeCheckInterval = 1000 * ' . $signage_opts['content_change_check_interval'] . ';</script>';
+			}
+		?>
+		<script>
+				var postModified='<?=get_post_status_hash()?>';
+				var autoPlaySpeed=<?=wpds_get_auto_play_speed()?>;
+				var transitionStyle='<?=wpds_get_transition_style()?>';
+				var transitionSpeed='<?=wpds_get_transition_speed()?>';
+				var showSlideNumber=<?=wpds_show_slide_number() ? 'true' : 'false'?>;
+		</script>
+		<?php wp_footer(); ?>
 
 	</body>
 </html>

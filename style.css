@@ -10,61 +10,32 @@ Tags: signage, digital signage, kiosk, carousel, slider, responsive
 Text Domain: wpds
 */
 
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,900);
-@import url('stylesheets/bootstrap.min.css');
-
-body {
-	font-family: 'Roboto', sans-serif;
-	font-weight: 300;
-}
-
 /**
-* Article background
+* Featured post image on slide
 */
-article {
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center center;
+.reveal .slides > section .layout-container {
+	display:table;
+	width:100%;
+}
+.reveal .slides > section .feature-img-container {
+	display:table-cell;
+	width:40%;
+	vertical-align:top;
 }
 
-article.container-fluid, footer > div.container-fluid {
-	padding-right: 40px;
-	padding-right: 2.1vw;
-	padding-left: 40px;
-	padding-left: 2.1vw;
+.reveal .slides > section .feature-img-container img {
+	height: auto;
 }
-
-article h1 {
-	font-size: 150px;
-	font-size: 7.8vw;
-	font-weight: 900;
-}
-
-article h2 {
-	font-size: 64px;
-	font-size: 3.35vw;
-	font-weight: 300;
-	text-transform: uppercase;
-}
-
-article img.wp-post-image {
-	margin-top: 14px;
-	margin-top: 0.7vw;
-}
-
-article > .row {
-	margin-top: 56px;
-	margin-top: 2.9vw;
-}
-
-article .lead {
-	font-size: 42px;
-	font-size: 2.2vw;
+.reveal .slides > section .content-container {
+	text-align: left;
+	padding-left: 5%;
+	display:table-cell;
 }
 
 /**
 * Fixed footer
 */
+
 footer {
 	position: fixed;
 	height: 200px;
@@ -124,7 +95,9 @@ footer .textwidget {
 .net-status-infobox {
     position: fixed;
     bottom: 5px;
-    right: 5px;
+    left: 5px;
     z-index: 100;
-    color: #777;
+    color: #999;
+	font-family: sans-serif;
+	font-size: 7pt;
 }

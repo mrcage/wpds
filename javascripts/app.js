@@ -1,20 +1,14 @@
 jQuery(document).ready(function ($) {
-	$('#slider').slick({
-		autoplay: true,
-		arrows: false,
-		fade: true,
-		pauseOnFocus: false,
-		pauseOnHover: false
-	});
-	$('#slider article').height($(window).height());
-	$(window).resize(function(){
-		$('#slider article').height($(window).height());
-	});
-	$('#slider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-	  console.log(new Date().toLocaleTimeString() + ": change to next slide: " + nextSlide);
-	});
-	$('#slider').on('afterChange', function(event, slick, currentSlide){
-	  console.log(new Date().toLocaleTimeString() + ": shown slide: " + currentSlide);
+	Reveal.initialize({
+		controls: false,
+		progress: false,
+		slideNumber: showSlideNumber,
+		center: false,
+		loop: true,
+		autoSlide: autoPlaySpeed,
+		autoSlideStoppable: true,
+		transition: transitionStyle,
+		transitionSpeed: transitionSpeed
 	});
 });
 

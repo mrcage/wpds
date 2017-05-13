@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Digital Signage\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-27 21:16+0000\n"
-"PO-Revision-Date: 2017-03-27 21:17+0000\n"
+"POT-Creation-Date: 2017-05-13 18:18+0000\n"
+"PO-Revision-Date: 2017-05-13 18:20+0000\n"
 "Last-Translator: nicolas <mail@nicu.ch>\n"
 "Language-Team: German\n"
 "Language: de-DE\n"
@@ -22,157 +22,205 @@ msgstr ""
 "X-Loco-Target-Locale: de_DE\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#: functions.php:220
-msgid "Not shown at this time"
-msgstr "Zu dieser Zeit nicht angezeigt"
+#: functions.php:703
+msgid "Theme"
+msgstr "Thema"
 
-#: inc/post-details.php:193
-msgid "Only show on certain time"
-msgstr "Nur zu einer bestimmten Zeit anzeigen"
+#: functions.php:724
+msgid "Transition style"
+msgstr "Übergangsstil"
 
-#: functions.php:42
+#: functions.php:728
+msgid "None"
+msgstr "Nichts"
+
+#: functions.php:729
+msgid "Fade"
+msgstr "Überblendung"
+
+#: functions.php:730
+msgid "Slide"
+msgstr "Gleiten"
+
+#: functions.php:731
+msgid "Convex"
+msgstr "Konvex"
+
+#: functions.php:732
+msgid "Concave"
+msgstr "Konkav"
+
+#: functions.php:733
+msgid "Zoom"
+msgstr "Zoom"
+
+#: functions.php:742
+msgid "Transition speed"
+msgstr "Übergangsgeschwindigkeit"
+
+#: functions.php:746
+msgid "Default"
+msgstr "Standard"
+
+#: functions.php:747
+msgid "Fast"
+msgstr "Schnell"
+
+#: functions.php:748
+msgid "Slow"
+msgstr "Langsam"
+
+#: functions.php:777
+msgid "Show slide number"
+msgstr "Foliennummer anzeigen"
+
+#: functions.php:45
 msgctxt "Post Type General Name"
 msgid "Slides"
 msgstr "Folien"
 
-#: functions.php:43
+#: functions.php:46
 msgctxt "Post Type Singular Name"
 msgid "Slide"
 msgstr "Folie"
 
-#: functions.php:44 functions.php:60 functions.php:331
+#: functions.php:47 functions.php:63 functions.php:334
 msgid "Slides"
 msgstr "Folien"
 
-#: functions.php:45
+#: functions.php:48
 msgid "Parent Slide"
 msgstr "Elternfolie"
 
-#: functions.php:46
+#: functions.php:49
 msgid "All Slides"
 msgstr "Alle Folien"
 
-#: functions.php:47
+#: functions.php:50
 msgid "View Slide"
 msgstr "Folie anzeigen"
 
-#: functions.php:48
+#: functions.php:51
 msgid "Add New Slide"
 msgstr "Neue Folie hinzufügen"
 
-#: functions.php:49
+#: functions.php:52
 msgid "Add New"
 msgstr "Hinzufügen"
 
-#: functions.php:50
+#: functions.php:53
 msgid "Edit Slide"
 msgstr "Folie bearbeiten"
 
-#: functions.php:51
+#: functions.php:54
 msgid "Update Slide"
 msgstr "Folie aktualisieren"
 
-#: functions.php:52
+#: functions.php:55
 msgid "Search Slide"
 msgstr "Folie suchen"
 
-#: functions.php:53
+#: functions.php:56
 msgid "Not Found"
 msgstr "Nicht gefuden"
 
-#: functions.php:54
+#: functions.php:57
 msgid "Not found in Trash"
 msgstr "Nicht im Papierkorb gefunden"
 
-#: functions.php:85 functions.php:93 functions.php:302
+#: functions.php:88 functions.php:96 functions.php:305
 msgid "Channels"
 msgstr "Kanäle"
 
-#: functions.php:86 functions.php:106
+#: functions.php:89 functions.php:109
 msgid "Channel"
 msgstr "Kanal"
 
-#: functions.php:87
+#: functions.php:90
 msgid "Search Channels"
 msgstr "Kanal suchen"
 
-#: functions.php:88
+#: functions.php:91
 msgid "All Channels"
 msgstr "Alle Kanäle"
 
-#: functions.php:89
+#: functions.php:92
 msgid "Edit Channel"
 msgstr "Kanal bearbeiten"
 
-#: functions.php:90
+#: functions.php:93
 msgid "Update Channel"
 msgstr "Kanal aktualisieren"
 
-#: functions.php:91
+#: functions.php:94
 msgid "Add new Channel"
 msgstr "Neuer Kanal"
 
-#: functions.php:92
+#: functions.php:95
 msgid "New Channel name"
 msgstr "Neuer Kanalname"
 
-#: functions.php:94
+#: functions.php:97
 msgid "View Channel"
 msgstr "Kanal anzeigen"
 
-#: functions.php:95
+#: functions.php:98
 msgid "Popular Channels"
 msgstr "Beliebte Kanäle"
 
-#: functions.php:96
+#: functions.php:99
 msgid "Separate Channels with commas"
 msgstr "Trenne Kanäle mit Kommas"
 
-#: functions.php:97
+#: functions.php:100
 msgid "Add or remove Channels"
 msgstr "Kanäle hinzufügen oder entfernen"
 
-#: functions.php:98
+#: functions.php:101
 msgid "Choose from the most used Channels"
 msgstr "Wählen Sie aus den meistbenutzten Kanälen"
 
-#: functions.php:99
+#: functions.php:102
 msgid "No Channels found"
 msgstr "Keine Kanäle gefunden"
 
-#: functions.php:163
+#: functions.php:166
 msgid "Show"
 msgstr "Anzeigen"
 
-#: functions.php:164
+#: functions.php:167
 msgid "Active now"
 msgstr "Jetzt aktiv"
 
-#: functions.php:186
+#: functions.php:189
 msgid "Everyday"
 msgstr "Jeden Tag"
 
-#: functions.php:208
+#: functions.php:211
 msgid "Active"
 msgstr "Aktiv"
 
-#: functions.php:211
+#: functions.php:214
 msgid "Published, but not assigned to any channel"
 msgstr "Veröffentlicht, aber keinem Kanal zugeordnet"
 
-#: functions.php:216
+#: functions.php:219
 msgid "Not published"
 msgstr "Nicht veröffentlicht"
 
-#: functions.php:218
+#: functions.php:221
 msgid "Not shown today"
 msgstr "Heute nicht angezeigt"
 
-#: functions.php:259
+#: functions.php:223
+msgid "Not shown at this time"
+msgstr "Zu dieser Zeit nicht angezeigt"
+
+#: functions.php:262
 msgid "Statistics"
 msgstr "Statistik"
 
-#: functions.php:488
+#: functions.php:491
 #, php-format
 msgid ""
 "Developed by <a href=\"%s\" target=\"_blank\">%s</a> based on work by <a "
@@ -181,75 +229,71 @@ msgstr ""
 "Entwickelt von <a href=\"%s\" target=\"_blank\">%s</a> basierend auf "
 "Arbeiten von <a href=\"%s\" target=\"_blank\">%s</a>."
 
-#: functions.php:526
+#: functions.php:529
 msgid "Invalid sidebar ID"
 msgstr "Ungültige Seitenleisten-ID"
 
-#: functions.php:552
+#: functions.php:555
 msgid "Dock"
 msgstr "Dock"
 
-#: functions.php:553
+#: functions.php:556
 msgid "Widget area at the bottom of the page."
 msgstr "Widget-Bereich unten auf der Seite."
 
-#: functions.php:692
+#: functions.php:695
 msgid "Slider"
 msgstr "Slider"
 
-#: functions.php:700
+#: functions.php:714
 msgid "Timer speed (s)"
 msgstr "Anzeigedauer (s)"
 
-#: functions.php:710
-msgid "Animation speed (ms)"
-msgstr "Animationsgeschwindigkeit (ms)"
-
-#: functions.php:720
+#: functions.php:757
 msgid "Reload interval (min)"
 msgstr "Aktualisierungs-Intervall (min)"
 
-#: functions.php:730
+#: functions.php:767
 msgid "Content change check interval (s)"
 msgstr "Interval zur Überprüfung auf neuen Inhalt (s)"
 
-#: functions.php:739
+#: functions.php:786
 msgid "Layout"
 msgstr "Layout"
 
-#: functions.php:747
+#: functions.php:794
 msgid "Show dock"
 msgstr "Dock anzeigen"
 
-#: functions.php:757
+#: functions.php:804
 msgid "Show network status infobox"
 msgstr "Netzwerkstatus-Infobox anzeigen"
 
-#: functions.php:766
+#: functions.php:813
 msgid "Colors"
 msgstr "Farben"
 
-#: functions.php:776 inc/post-details.php:104
+#: functions.php:823 inc/post-details.php:104
 msgid "Background Color"
 msgstr "Hintergrundfarbe"
 
-#: functions.php:787 inc/post-details.php:119
+#: functions.php:834 inc/post-details.php:119
 msgid "Headline Color"
 msgstr "Farbe der Überschrift"
 
-#: functions.php:798 inc/post-details.php:134
+#: functions.php:845 inc/post-details.php:134
 msgid "Sub-headline Color"
 msgstr "Farbe des Untertitels"
 
-#: functions.php:809 inc/post-details.php:149
+#: functions.php:856 inc/post-details.php:149
 msgid "Copy Color"
 msgstr "Textfarbe"
 
-#: functions.php:818
+#: functions.php:865
 msgid "Dock Background Color"
 msgstr "Hintergrundfarbe des Docks"
 
-#: functions.php:829
+#: functions.php:876
 msgid "Dock Foreground Color"
 msgstr "Vordergrundfarbe des Docks"
 
@@ -336,7 +380,7 @@ msgstr "(Standard verwenden)"
 msgid "Upload a background image (if you are using one)"
 msgstr "Hintergrundbild heraufladen (falls Sie eines verwenden)"
 
-#: inc/post-details.php:170 inc/post-details.php:315
+#: inc/post-details.php:170 inc/post-details.php:317
 msgid "Choose or Upload an Image"
 msgstr "Wählen oder laden Sie ein Bild hoch"
 
@@ -344,7 +388,11 @@ msgstr "Wählen oder laden Sie ein Bild hoch"
 msgid "Only show on certain days"
 msgstr "Nur an bestimmten Tagen anzeigen"
 
-#: inc/post-details.php:316
+#: inc/post-details.php:193
+msgid "Only show on certain time"
+msgstr "Nur zu einer bestimmten Zeit anzeigen"
+
+#: inc/post-details.php:318
 msgid "Use this image"
 msgstr "Dieses Bild verwenden"
 
