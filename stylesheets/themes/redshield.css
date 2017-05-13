@@ -22,10 +22,6 @@ body {
   font-size: 26px;
   font-weight: 300;
   color: #222; }
-
-.reveal .slides {
-	text-align: left;
-}
   
 ::selection {
   color: #fff;

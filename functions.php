@@ -15,6 +15,7 @@ define('WPDS_DEFAULT_SHOW_SLIDE_NUMBER', false);
 define('WPDS_DEFAULT_SHOW_NET_STATUS_INFO_BOX', false);
 define('WPDS_DEFAULT_WIDTH', 960);
 define('WPDS_DEFAULT_MARGIN', 4);
+define('WPDS_DEFAULT_TEXT_ALIGN', 'center');
 
 define('WPDS_THEME_DIR_REVEAL_JS', 'reveal.js/css/theme');
 define('WPDS_THEME_DIR_CUSTOM', 'stylesheets/themes');
@@ -681,7 +682,7 @@ function wpds_theme_customizer( $wp_customize ) {
         'title' => __('Slider', 'wpds'),
 	) );
 
-	// Transition style
+	// Themes
 	$wp_customize->add_setting( 'signage[theme]', array(
 		'default' => WPDS_DEFAULT_THEME,
 	) );
@@ -692,6 +693,21 @@ function wpds_theme_customizer( $wp_customize ) {
 		'choices' => wpds_get_revealjs_themes(),
 	) );
 
+	// Text alignment
+	$wp_customize->add_setting( 'signage[text_align]', array(
+	    'default' => WPDS_DEFAULT_TEXT_ALIGN,
+	) );
+	$wp_customize->add_control( 'signage[text_align]', array(
+		'label' => __('Text align', 'wpds'),
+		'section' => 'signage',
+		'type' => 'radio',
+		'choices' => array(
+			'left' => __('Left', 'wpds'),
+			'center' =>  __('Center', 'wpds'),
+			'right' =>  __('Right', 'wpds'),
+		),
+	) );
+	
 	// Auto play speed
 	$wp_customize->add_setting( 'signage[timer_speed]', array(
 	    'default' => WPDS_DEFAULT_TIMER_SPEED,
@@ -959,6 +975,13 @@ function wpds_get_theme_css() {
 		return $custom_theme_file;
 	}
 	return WPDS_THEME_DIR_REVEAL_JS . '/'. $theme . '.css';
+}
+
+function wpds_get_text_algin() {
+	$signage_opts = get_theme_mod( 'signage', [] );
+	return !empty($signage_opts['text_align'])
+			? $signage_opts['text_align'] 
+			: WPDS_DEFAULT_TEXT_ALIGN;
 }
 
 function wpds_show_net_status_info_box() {
