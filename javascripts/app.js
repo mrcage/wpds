@@ -3,7 +3,7 @@ jQuery(document).ready(function ($) {
 		controls: false,
 		progress: false,
 		slideNumber: showSlideNumber,
-		center: false,
+		center: centerVertically,
 		loop: true,
 		autoSlide: autoPlaySpeed,
 		autoSlideStoppable: false,

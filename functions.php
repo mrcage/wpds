@@ -16,6 +16,7 @@ define('WPDS_DEFAULT_SHOW_NET_STATUS_INFO_BOX', false);
 define('WPDS_DEFAULT_WIDTH', 960);
 define('WPDS_DEFAULT_MARGIN', 4);
 define('WPDS_DEFAULT_TEXT_ALIGN', 'center');
+define('WPDS_DEFAULT_VERTICAL_CENTER', false);
 
 define('WPDS_THEME_DIR_REVEAL_JS', 'reveal.js/css/theme');
 define('WPDS_THEME_DIR_CUSTOM', 'stylesheets/themes');
@@ -708,6 +709,17 @@ function wpds_theme_customizer( $wp_customize ) {
 		),
 	) );
 	
+	// Center content vertically
+	$wp_customize->add_setting( 'signage[vertical_center]', array(
+		'default' => WPDS_DEFAULT_VERTICAL_CENTER,
+	) );
+	$wp_customize->add_control( 'signage[vertical_center]', array(
+		'label'   => __('Center content vertically', 'wpds'),
+		'section' => 'signage',
+		'type' => 'checkbox',
+	) );
+	
+	
 	// Auto play speed
 	$wp_customize->add_setting( 'signage[timer_speed]', array(
 	    'default' => WPDS_DEFAULT_TIMER_SPEED,
@@ -771,7 +783,7 @@ function wpds_theme_customizer( $wp_customize ) {
 		'type' => 'number',
 	) );
 
-	// Show network status box
+	// Show slide number
 	$wp_customize->add_setting( 'signage[show_slide_number]', array(
 		'default' => WPDS_DEFAULT_SHOW_SLIDE_NUMBER,
 	) );
@@ -963,6 +975,13 @@ function wpds_show_slide_number() {
 	return isset($signage_opts['show_slide_number']) 
 			? $signage_opts['show_slide_number']
 			: WPDS_DEFAULT_SHOW_SLIDE_NUMBER;
+}
+
+function wpds_center_vertically() {
+	$signage_opts = get_theme_mod( 'signage', [] );
+	return isset($signage_opts['vertical_center']) 
+			? $signage_opts['vertical_center']
+			: WPDS_DEFAULT_VERTICAL_CENTER;
 }
 
 function wpds_get_theme_css() {

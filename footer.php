@@ -33,6 +33,7 @@
 				var transitionStyle='<?=wpds_get_transition_style()?>';
 				var transitionSpeed='<?=wpds_get_transition_speed()?>';
 				var showSlideNumber=<?=wpds_show_slide_number() ? 'true' : 'false'?>;
+				var centerVertically=<?=wpds_center_vertically() ? 'true' : 'false'?>;
 		</script>
 		<?php wp_footer(); ?>
 
