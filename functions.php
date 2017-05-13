@@ -1018,6 +1018,12 @@ function print_post_html($post) {
 	if (!empty($background_image)) {
 		$data_attrs['data-background-image'] = $background_image;
 	}
+
+	$slide_duration = get_post_meta($post->ID, 'slide_duration', true);
+	if (!empty($slide_duration)) {
+		$data_attrs['data-autoslide'] = $slide_duration * 1000;
+	}
+	
 	echo "\n" . '<section ' . print_data_attrs($data_attrs) . '>',
 				'<h2' . ( !empty($head_color) ? ' style="color:#' . $head_color . ';"' : '' ) . '>' . get_the_title() . '</h2>' . "\n",
 				'<h3' . ( !empty($subhead_color) ? ' style="color:#' . $subhead_color . ';"' : '' ) . '>' . get_post_meta($post->ID, 'subtitle', true) . '</h3>' . "\n",

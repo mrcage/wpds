@@ -201,6 +201,13 @@ function wpds_meta_callback_time_range( $post ) {
 			<input type="number" name="time_range_hour_to" value="<?=$time_range_hour_to?>" min="0" max="23" style="width: 50px;" /> : <input type="number" name="time_range_minute_to" value="<?=$time_range_minute_to?>" min="0" max="59" size="2"  style="width: 50px;" /><br/>
 		
 	</p>
+    <p><?=__('Override slide duration', 'wpds')?> (<span style="white-space: nowrap;"><?=round(wpds_get_auto_play_speed()/1000)?>  <?=__('seconds', 'wpds')?></span>):<br/>
+		<?php
+			$slide_duration = isset( $wpds_stored_meta['slide_duration'] ) ? intval($wpds_stored_meta['slide_duration'][0]) : '';
+		?>
+			<input type="number" name="slide_duration" value="<?=$slide_duration?>" min="1" step="1" style="width: 50px;" /> <?=__('seconds', 'wpds')?>
+		
+	</p>
     <?php
 }
 
@@ -252,7 +259,6 @@ function wpds_meta_save( $post_id ) {
 			}
 		}
 		
-		
 		if ( isset( $_POST['time_range_hour_from'] ) && is_numeric( $_POST['time_range_hour_from'] ) && $_POST['time_range_hour_from']  >= 0 && $_POST['time_range_hour_from']  < 24 ) {
 			$time_range_hour_from = intval($_POST['time_range_hour_from']);
 		}
@@ -283,6 +289,13 @@ function wpds_meta_save( $post_id ) {
 			delete_post_meta( $post_id, 'time_range_minute_from' );
 			delete_post_meta( $post_id, 'time_range_hour_to' );
 			delete_post_meta( $post_id, 'time_range_minute_to' );
+		}
+
+		if ( isset( $_POST['slide_duration'] ) && is_numeric( $_POST['slide_duration'] ) && $_POST['slide_duration']  >= 1 ) {
+			$slide_duration = intval($_POST['slide_duration']);
+			update_post_meta( $post_id, 'slide_duration', $slide_duration );
+		} else {
+			delete_post_meta( $post_id, 'slide_duration' );
 		}
 
 	}
