@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Digital Signage\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-13 18:41+0000\n"
+"POT-Creation-Date: 2017-05-13 20:21+0000\n"
 "POT-Revision-Date: Wed Jun 15 2016 01:08:55 GMT+0200 (W. Europe Standard "
 "Time)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -274,19 +274,19 @@ msgstr ""
 msgid "Colors"
 msgstr ""
 
-#: functions.php:804 inc/post-details.php:104
+#: functions.php:804
 msgid "Background Color"
 msgstr ""
 
-#: functions.php:815 inc/post-details.php:119
+#: functions.php:815
 msgid "Headline Color"
 msgstr ""
 
-#: functions.php:826 inc/post-details.php:134
+#: functions.php:826
 msgid "Sub-headline Color"
 msgstr ""
 
-#: functions.php:837 inc/post-details.php:149
+#: functions.php:837
 msgid "Copy Color"
 msgstr ""
 
@@ -314,92 +314,46 @@ msgid "Subtitle"
 msgstr ""
 
 #: inc/post-details.php:18
-msgid "Details"
+msgid "Style"
 msgstr ""
 
 #: inc/post-details.php:19
 msgid "Display settings"
 msgstr ""
 
-#: inc/post-details.php:33
-msgid "Color reference"
+#: inc/post-details.php:31
+msgid "Background Image"
 msgstr ""
 
-#: inc/post-details.php:49 inc/post-details.php:107 inc/post-details.php:122
-#: inc/post-details.php:137 inc/post-details.php:152
-msgid "Orange"
-msgstr ""
-
-#: inc/post-details.php:52 inc/post-details.php:108 inc/post-details.php:123
-#: inc/post-details.php:138 inc/post-details.php:153
-msgid "Red"
-msgstr ""
-
-#: inc/post-details.php:55 inc/post-details.php:109 inc/post-details.php:124
-#: inc/post-details.php:139 inc/post-details.php:154
-msgid "Yellow"
-msgstr ""
-
-#: inc/post-details.php:71 inc/post-details.php:110 inc/post-details.php:125
-#: inc/post-details.php:140 inc/post-details.php:155
-msgid "Blue"
-msgstr ""
-
-#: inc/post-details.php:74 inc/post-details.php:111 inc/post-details.php:126
-#: inc/post-details.php:141 inc/post-details.php:156
-msgid "Green"
-msgstr ""
-
-#: inc/post-details.php:77 inc/post-details.php:112 inc/post-details.php:127
-#: inc/post-details.php:142 inc/post-details.php:157
-msgid "Dark Gray"
-msgstr ""
-
-#: inc/post-details.php:93 inc/post-details.php:113 inc/post-details.php:128
-#: inc/post-details.php:143 inc/post-details.php:158
-msgid "Black Pearl"
-msgstr ""
-
-#: inc/post-details.php:96 inc/post-details.php:114 inc/post-details.php:129
-#: inc/post-details.php:144 inc/post-details.php:159
-msgid "Light Gray"
-msgstr ""
-
-#: inc/post-details.php:99 inc/post-details.php:115 inc/post-details.php:130
-#: inc/post-details.php:145 inc/post-details.php:160
-msgid "White"
-msgstr ""
-
-#: inc/post-details.php:106 inc/post-details.php:121 inc/post-details.php:136
-#: inc/post-details.php:151
-msgid "(use default)"
-msgstr ""
-
-#: inc/post-details.php:168
-msgid "Upload a background image (if you are using one)"
-msgstr ""
-
-#: inc/post-details.php:170 inc/post-details.php:330
+#: inc/post-details.php:32 inc/post-details.php:214
 msgid "Choose or Upload an Image"
 msgstr ""
 
-#: inc/post-details.php:181
+#: inc/post-details.php:35
+msgid "Remove background image"
+msgstr ""
+
+#: inc/post-details.php:38
+msgid "Background video (URL)"
+msgstr ""
+
+#: inc/post-details.php:62
 msgid "Only show on certain days"
 msgstr ""
 
-#: inc/post-details.php:193
+#: inc/post-details.php:74
 msgid "Only show on certain time"
 msgstr ""
 
-#: inc/post-details.php:204
+#: inc/post-details.php:85
 msgid "Override slide duration"
 msgstr ""
 
-#: inc/post-details.php:204 inc/post-details.php:208
+#: inc/post-details.php:85 inc/post-details.php:89
 msgid "seconds"
 msgstr ""
 
-#: inc/post-details.php:331
+#: inc/post-details.php:215
 msgid "Use this image"
 msgstr ""
 

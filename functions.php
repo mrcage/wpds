@@ -873,7 +873,6 @@ function wpds_get_revealjs_themes() {
 	return $themes;
 }
 
-
 function wpds_get_auto_play_speed() {
 	$signage_opts = get_theme_mod( 'signage', [] );
 	return 1000 * (
@@ -988,21 +987,12 @@ function print_data_attrs($data) {
 }
 
 function print_post_html($post) {
-
-	// Colors and backogrund image
-	$background_image = get_post_meta($post->ID, 'background-image', true);
-	$background_color = get_color_option($post->ID, 'background-color');
-	$head_color = get_color_option($post->ID, 'headline-color');
-	$subhead_color = get_color_option($post->ID, 'subhead-color');
-	$copy_color = get_color_option($post->ID, 'copy-color');
-
-	// Thumbnail
-	$thumb = get_the_post_thumbnail($post->ID, 'large');
 	
 	// Get the content
 	ob_start(); the_content(); $content = ob_get_clean();
 
 	// Layout block with featured image
+	$thumb = get_the_post_thumbnail($post->ID, 'large');
 	if (!empty($thumb)) {
 		$content = '<div class="layout-container">' .
 			'<div class="feature-img-container">' . $thumb . '</div>' .
@@ -1012,22 +1002,40 @@ function print_post_html($post) {
 	
 	// Data attributes
 	$data_attrs = [];
+	
+	// Background color
+	$background_color = get_color_option($post->ID, 'background-color');
 	if (!empty($background_color)) {
-		$data_attrs['data-background-color'] = '#' . $background_color;
+		$data_attrs['data-background-color'] = $background_color;
 	}
+
+	// Background image
+	$background_image = get_post_meta($post->ID, 'background-image', true);
 	if (!empty($background_image)) {
 		$data_attrs['data-background-image'] = $background_image;
 	}
+	
+	// Background video
+	$background_video = get_post_meta($post->ID, 'background-video', true);
+	if (!empty($background_video)) {
+		$data_attrs['data-background-video'] = $background_video;
+	}
 
+	// Slide duration
 	$slide_duration = get_post_meta($post->ID, 'slide_duration', true);
 	if (!empty($slide_duration)) {
 		$data_attrs['data-autoslide'] = $slide_duration * 1000;
 	}
+
+	// Text colors
+	$head_color = get_color_option($post->ID, 'headline-color');
+	$subhead_color = get_color_option($post->ID, 'subhead-color');
+	$copy_color = get_color_option($post->ID, 'copy-color');
 	
 	echo "\n" . '<section ' . print_data_attrs($data_attrs) . '>',
-				'<h2' . ( !empty($head_color) ? ' style="color:#' . $head_color . ';"' : '' ) . '>' . get_the_title() . '</h2>' . "\n",
-				'<h3' . ( !empty($subhead_color) ? ' style="color:#' . $subhead_color . ';"' : '' ) . '>' . get_post_meta($post->ID, 'subtitle', true) . '</h3>' . "\n",
-				'<div' . ( !empty($copy_color) ? ' style="color:#' . $copy_color . ';"' : '' ) . '>' . $content . '</div>',
+				'<h2' . ( !empty($head_color) ? ' style="color:' . $head_color . ';"' : '' ) . '>' . get_the_title() . '</h2>' . "\n",
+				'<h3' . ( !empty($subhead_color) ? ' style="color:' . $subhead_color . ';"' : '' ) . '>' . get_post_meta($post->ID, 'subtitle', true) . '</h3>' . "\n",
+				'<div' . ( !empty($copy_color) ? ' style="color:' . $copy_color . ';"' : '' ) . '>' . $content . '</div>',
 				'</section>' ."\n";
 }
 

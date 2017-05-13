@@ -15,7 +15,7 @@ function myprefix_edit_form_after_title($post) {
  * Adds a meta box to the post editing screen
  */
 function wpds_custom_meta() {
-	add_meta_box( 'wpds', __( 'Details', 'wpds' ), 'wpds_meta_callback', 'slide' );
+	add_meta_box( 'wpds', __( 'Style', 'wpds' ), 'wpds_meta_callback', 'slide' );
     add_meta_box( 'wpds_time_range', __( 'Display settings', 'wpds' ), 'wpds_meta_callback_time_range', 'slide', 'side', 'high' );
 }
 add_action( 'add_meta_boxes', 'wpds_custom_meta' );
@@ -27,151 +27,32 @@ function wpds_meta_callback( $post ) {
 	wp_nonce_field( basename( __FILE__ ), 'wpds_nonce' );
 	$wpds_stored_meta = get_post_meta( $post->ID );
 	?>
-<table class="colors">
-	<tr>
-		<td colspan="3">
-			<p><?=__('Color reference', 'wpds')?></p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<div class="orange square" title="#ff823c"></div>
-		</td>
-		<td>
-			<div class="red square" title="#e13938"></div>
-		</td>
-		<td>
-			<div class="yellow square" title="#f4cd3c"></div>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<?=__('Orange', 'wpds')?>
-		</td>
-		<td>
-			<?=__('Red', 'wpds')?>
-		</td>
-		<td>
-			<?=__('Yellow', 'wpds')?>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<div class="blue square" title="#00ccff"></div>
-		</td>
-		<td>
-			<div class="green square" title="#8dc73f"></div>
-		</td>
-		<td>
-			<div class="dark-gray square" title="#898989"></div>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<?=__('Blue', 'wpds')?>
-		</td>
-		<td>
-			<?=__('Green', 'wpds')?>
-		</td>
-		<td>
-			<?=__('Dark Gray', 'wpds')?>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<div class="black-pearl square" title="#04151A"></div>
-		</td>
-		<td>
-			<div class="light-gray square" title="#ebebeb"></div>
-		</td>
-		<td>
-			<div class="white square" title="#FFFFFF"></div>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<?=__('Black Pearl', 'wpds')?>
-		</td>
-		<td>
-			<?=__('Light Gray', 'wpds')?>
-		</td>
-		<td>
-			<?=__('White', 'wpds')?>
-		</td>
-	</tr>
-</table>
 	<p>
-		<label for="background-color" class="wpds-row-title"><?php _e( 'Background Color', 'wpds' )?></label>
-		<select name="background-color" id="background-color">
-			<option value="" <?php if ( isset ( $wpds_stored_meta['background-color'] ) ) selected( $wpds_stored_meta['background-color'][0], '' ); ?>><?php _e( '(use default)', 'wpds' )?></option>';
-			<option value="ff823c" <?php if ( isset ( $wpds_stored_meta['background-color'] ) ) selected( $wpds_stored_meta['background-color'][0], 'ff823c' ); ?>><?php _e( 'Orange', 'wpds' )?></option>';
-			<option value="e13938" <?php if ( isset ( $wpds_stored_meta['background-color'] ) ) selected( $wpds_stored_meta['background-color'][0], 'e12938' ); ?>><?php _e( 'Red', 'wpds' )?></option>';
-			<option value="f4cd3c" <?php if ( isset ( $wpds_stored_meta['background-color'] ) ) selected( $wpds_stored_meta['background-color'][0], 'f4cd3c' ); ?>><?php _e( 'Yellow', 'wpds' )?></option>';
-			<option value="00ccff" <?php if ( isset ( $wpds_stored_meta['background-color'] ) ) selected( $wpds_stored_meta['background-color'][0], '00ccff' ); ?>><?php _e( 'Blue', 'wpds' )?></option>';
-			<option value="8dc73f" <?php if ( isset ( $wpds_stored_meta['background-color'] ) ) selected( $wpds_stored_meta['background-color'][0], '8dc73f' ); ?>><?php _e( 'Green', 'wpds' )?></option>';
-			<option value="898989" <?php if ( isset ( $wpds_stored_meta['background-color'] ) ) selected( $wpds_stored_meta['background-color'][0], '898989' ); ?>><?php _e( 'Dark Gray', 'wpds' )?></option>';
-			<option value="04151A" <?php if ( isset ( $wpds_stored_meta['background-color'] ) ) selected( $wpds_stored_meta['background-color'][0], '04151A' ); ?>><?php _e( 'Black Pearl', 'wpds' )?></option>';
-			<option value="ebebeb" <?php if ( isset ( $wpds_stored_meta['background-color'] ) ) selected( $wpds_stored_meta['background-color'][0], 'ebebeb' ); ?>><?php _e( 'Light Gray', 'wpds' )?></option>';
-			<option value="FFFFFF" <?php if ( isset ( $wpds_stored_meta['background-color'] ) ) selected( $wpds_stored_meta['background-color'][0], 'FFFFFF' ); ?>><?php _e( 'White', 'wpds' )?></option>';
-		</select>
-	</p>
-<p>
-	<label for="headline-color" class="wpds-row-title"><?php _e( 'Headline Color', 'wpds' )?></label>
-	<select name="headline-color" id="headline-color">
-		<option value="" <?php if ( isset ( $wpds_stored_meta['headline-color'] ) ) selected( $wpds_stored_meta['headline-color'][0], '' ); ?>><?php _e( '(use default)', 'wpds' )?></option>';
-		<option value="ff823c" <?php if ( isset ( $wpds_stored_meta['headline-color'] ) ) selected( $wpds_stored_meta['headline-color'][0], 'ff823c' ); ?>><?php _e( 'Orange', 'wpds' )?></option>';
-		<option value="e12938" <?php if ( isset ( $wpds_stored_meta['headline-color'] ) ) selected( $wpds_stored_meta['headline-color'][0], 'e12938' ); ?>><?php _e( 'Red', 'wpds' )?></option>';
-		<option value="f4cd3c" <?php if ( isset ( $wpds_stored_meta['headline-color'] ) ) selected( $wpds_stored_meta['headline-color'][0], 'f4cd3c' ); ?>><?php _e( 'Yellow', 'wpds' )?></option>';
-		<option value="00ccff" <?php if ( isset ( $wpds_stored_meta['headline-color'] ) ) selected( $wpds_stored_meta['headline-color'][0], '00ccff' ); ?>><?php _e( 'Blue', 'wpds' )?></option>';
-		<option value="8dc73f" <?php if ( isset ( $wpds_stored_meta['headline-color'] ) ) selected( $wpds_stored_meta['headline-color'][0], '8dc73f' ); ?>><?php _e( 'Green', 'wpds' )?></option>';
-		<option value="898989" <?php if ( isset ( $wpds_stored_meta['headline-color'] ) ) selected( $wpds_stored_meta['headline-color'][0], '898989' ); ?>><?php _e( 'Dark Gray', 'wpds' )?></option>';
-		<option value="04151A" <?php if ( isset ( $wpds_stored_meta['headline-color'] ) ) selected( $wpds_stored_meta['headline-color'][0], '04151A' ); ?>><?php _e( 'Black Pearl', 'wpds' )?></option>';
-		<option value="ebebeb" <?php if ( isset ( $wpds_stored_meta['headline-color'] ) ) selected( $wpds_stored_meta['headline-color'][0], 'ebebeb' ); ?>><?php _e( 'Light Gray', 'wpds' )?></option>';
-		<option value="FFFFFF" <?php if ( isset ( $wpds_stored_meta['headline-color'] ) ) selected( $wpds_stored_meta['headline-color'][0], 'FFFFFF' ); ?>><?php _e( 'White', 'wpds' )?></option>';
-	</select>
-</p>
-<p>
-	<label for="subhead-color" class="wpds-row-title"><?php _e( 'Sub-headline Color', 'wpds' )?></label>
-	<select name="subhead-color" id="subhead-color">
-		<option value="" <?php if ( isset ( $wpds_stored_meta['subhead-color'] ) ) selected( $wpds_stored_meta['subhead-color'][0], '' ); ?>><?php _e( '(use default)', 'wpds' )?></option>';
-		<option value="ff823c" <?php if ( isset ( $wpds_stored_meta['subhead-color'] ) ) selected( $wpds_stored_meta['subhead-color'][0], 'ff823c' ); ?>><?php _e( 'Orange', 'wpds' )?></option>';
-		<option value="e12938" <?php if ( isset ( $wpds_stored_meta['subhead-color'] ) ) selected( $wpds_stored_meta['subhead-color'][0], 'e12938' ); ?>><?php _e( 'Red', 'wpds' )?></option>';
-		<option value="f4cd3c" <?php if ( isset ( $wpds_stored_meta['subhead-color'] ) ) selected( $wpds_stored_meta['subhead-color'][0], 'f4cd3c' ); ?>><?php _e( 'Yellow', 'wpds' )?></option>';
-		<option value="00ccff" <?php if ( isset ( $wpds_stored_meta['subhead-color'] ) ) selected( $wpds_stored_meta['subhead-color'][0], '00ccff' ); ?>><?php _e( 'Blue', 'wpds' )?></option>';
-		<option value="8dc73f" <?php if ( isset ( $wpds_stored_meta['subhead-color'] ) ) selected( $wpds_stored_meta['subhead-color'][0], '8dc73f' ); ?>><?php _e( 'Green', 'wpds' )?></option>';
-		<option value="898989" <?php if ( isset ( $wpds_stored_meta['subhead-color'] ) ) selected( $wpds_stored_meta['subhead-color'][0], '898989' ); ?>><?php _e( 'Dark Gray', 'wpds' )?></option>';
-		<option value="04151A" <?php if ( isset ( $wpds_stored_meta['subhead-color'] ) ) selected( $wpds_stored_meta['subhead-color'][0], '04151A' ); ?>><?php _e( 'Black Pearl', 'wpds' )?></option>';
-		<option value="ebebeb" <?php if ( isset ( $wpds_stored_meta['subhead-color'] ) ) selected( $wpds_stored_meta['subhead-color'][0], 'ebebeb' ); ?>><?php _e( 'Light Gray', 'wpds' )?></option>';
-		<option value="FFFFFF" <?php if ( isset ( $wpds_stored_meta['subhead-color'] ) ) selected( $wpds_stored_meta['subhead-color'][0], 'FFFFFF' ); ?>><?php _e( 'White', 'wpds' )?></option>';
-	</select>
-</p>
-<p>
-	<label for="copy-color" class="wpds-row-title"><?php _e( 'Copy Color', 'wpds' )?></label>
-	<select name="copy-color" id="copy-color">
-		<option value="" <?php if ( isset ( $wpds_stored_meta['copy-color'] ) ) selected( $wpds_stored_meta['copy-color'][0], '' ); ?>><?php _e( '(use default)', 'wpds' )?></option>';
-		<option value="ff823c" <?php if ( isset ( $wpds_stored_meta['copy-color'] ) ) selected( $wpds_stored_meta['copy-color'][0], 'ff823c' ); ?>><?php _e( 'Orange', 'wpds' )?></option>';
-		<option value="e12938" <?php if ( isset ( $wpds_stored_meta['copy-color'] ) ) selected( $wpds_stored_meta['copy-color'][0], 'e12938' ); ?>><?php _e( 'Red', 'wpds' )?></option>';
-		<option value="f4cd3c" <?php if ( isset ( $wpds_stored_meta['copy-color'] ) ) selected( $wpds_stored_meta['copy-color'][0], 'f4cd3c' ); ?>><?php _e( 'Yellow', 'wpds' )?></option>';
-		<option value="00ccff" <?php if ( isset ( $wpds_stored_meta['copy-color'] ) ) selected( $wpds_stored_meta['copy-color'][0], '00ccff' ); ?>><?php _e( 'Blue', 'wpds' )?></option>';
-		<option value="8dc73f" <?php if ( isset ( $wpds_stored_meta['copy-color'] ) ) selected( $wpds_stored_meta['copy-color'][0], '8dc73f' ); ?>><?php _e( 'Green', 'wpds' )?></option>';
-		<option value="898989" <?php if ( isset ( $wpds_stored_meta['copy-color'] ) ) selected( $wpds_stored_meta['copy-color'][0], '898989' ); ?>><?php _e( 'Dark Gray', 'wpds' )?></option>';
-		<option value="04151A" <?php if ( isset ( $wpds_stored_meta['copy-color'] ) ) selected( $wpds_stored_meta['copy-color'][0], '04151A' ); ?>><?php _e( 'Black Pearl', 'wpds' )?></option>';
-		<option value="ebebeb" <?php if ( isset ( $wpds_stored_meta['copy-color'] ) ) selected( $wpds_stored_meta['copy-color'][0], 'ebebeb' ); ?>><?php _e( 'Light Gray', 'wpds' )?></option>';
-		<option value="FFFFFF" <?php if ( isset ( $wpds_stored_meta['copy-color'] ) ) selected( $wpds_stored_meta['copy-color'][0], 'FFFFFF' ); ?>><?php _e( 'White', 'wpds' )?></option>';
-	</select>
-</p>
-
-
-
-
-	<p id="bgimage">
-		<label for="background-image" class="wpds-row-title"><?php _e( 'Upload a background image (if you are using one)', 'wpds' )?></label>
-		<input type="text" name="background-image" id="background-image" value="<?php if ( isset ( $wpds_stored_meta['background-image'] ) ) echo $wpds_stored_meta['background-image'][0]; ?>" />
+		<label class="customize-control-title" for="background-image"><?php _e( 'Background Image', 'wpds' )?></label>
 		<input type="button" id="background-image-button" class="button" value="<?php _e( 'Choose or Upload an Image', 'wpds' )?>" />
+		<input class="background-image-url" type="hidden" name="background-image" id="background-image" value="<?php if ( isset ( $wpds_stored_meta['background-image'] ) ) echo $wpds_stored_meta['background-image'][0]; ?>" />
+		<div class="background-image-preview" id="background-image-preview"></div>
+		<span class="background-image-remove" id="background-image-remove"><a href="javascript:;"><?=__('Remove background image', 'wpds')?></a></span>
 	</p>
-
-
-	<?php
+	<p>
+		<label class="customize-control-title" for="background-video"><?php _e( 'Background video (URL)', 'wpds' )?></label>
+		<input class="background-video-url" type="text" name="background-video" id="background-video" value="<?php if ( isset ( $wpds_stored_meta['background-video'] ) ) echo $wpds_stored_meta['background-video'][0]; ?>" />
+	</p>
+	<?php	
+	$color_controls = array(
+		'background-color' => 'Background Color',
+		'headline-color' => 'Headline Color',
+		'subhead-color' => 'Sub-headline Color',
+		'copy-color' => 'Copy Color',
+	);
+	foreach ($color_controls as $key => $title) {
+		?>
+		<p>
+			<label class="customize-control-title" for="<?=$key?>"><?php _e( $title, 'wpds' )?></label>
+			<input type="text" class="color-field" name="<?=$key?>" id="<?=$key?>" value="<?= isset ( $wpds_stored_meta[$key] ) ? $wpds_stored_meta[$key][0] : '' ?>" />
+		</p>
+		<?php
+	}
 }
 
 function wpds_meta_callback_time_range( $post ) {
@@ -248,6 +129,9 @@ function wpds_meta_save( $post_id ) {
 	// Checks for input and saves if needed
 	if( isset( $_POST[ 'background-image' ] ) ) {
 		update_post_meta( $post_id, 'background-image', $_POST[ 'background-image' ] );
+	}
+	if( isset( $_POST[ 'background-video' ] ) ) {
+		update_post_meta( $post_id, 'background-video', $_POST[ 'background-video' ] );
 	}
 
     // Time range
@@ -335,3 +219,19 @@ function wpds_image_enqueue() {
 	}
 }
 add_action( 'admin_enqueue_scripts', 'wpds_image_enqueue' );
+
+add_action( 'admin_enqueue_scripts', 'wpds_add_color_picker' );
+function wpds_add_color_picker( $hook ) {
+ 
+    if( is_admin() ) { 
+     
+        // Add the color picker css file       
+        wp_enqueue_style( 'wp-color-picker' ); 
+         
+        // Include our custom jQuery file with WordPress Color Picker dependency
+        wp_enqueue_script( 'custom-script-handle', plugins_url( 'custom-script.js', __FILE__ ), array( 'wp-color-picker' ), false, true ); 
+		
+		wp_enqueue_script( 'admin-color-picker', get_template_directory_uri() . '/javascripts/admin/admin-color-picker.js', array( 'jquery' ) );
+		
+    }
+}
