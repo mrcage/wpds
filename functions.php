@@ -516,10 +516,10 @@ function count_sidebar_widgets( $sidebar_id) {
 
 function get_grid_number_from_widgets( $sidebar_id ) {
 	if (count_sidebar_widgets( $sidebar_id ) > 0){
-		return (int) (12 / count_sidebar_widgets( $sidebar_id ));
+		return (int) (100 / count_sidebar_widgets( $sidebar_id ));
 	}
 	else {
-		return 12;
+		return 100;
 	}
 }
 
@@ -530,13 +530,13 @@ function get_grid_number_from_widgets( $sidebar_id ) {
 //
 //***********************
 function wpds_widgets_init() {
-	$widget_count = get_grid_number_from_widgets( 'dock' );
+	$widget_width = get_grid_number_from_widgets( 'dock' );
 	register_sidebar(array(
 		'id' => 'dock',
 		'name'=> __('Dock', 'wpds'),
 		'description' => __('Widget area at the bottom of the page.', 'wpds'),
-		'before_widget' => '<div class="col-md-' . $widget_count . ' col-sm-' . $widget_count . ' col-xs-' . $widget_count . '  vertical-align"><div>',
-		'after_widget' => '</div></div>'."\n",
+		'before_widget' => $widget_count . '<div id="%1$s" class="dock-element %2$s" style="width:' . $widget_width . '%%">',
+		'after_widget' => '</div>'."\n",
 		'before_title' => '<h3>',
 		'after_title' => '</h3>'
 	));

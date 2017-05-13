@@ -11,9 +11,9 @@
 			}
 		?>
 		<footer class="footer"<?php echo print_style($dock_style);?>>
-			<div class="container-fluid">
+			<div class="dock">
 				<?php if ( is_active_sidebar( 'dock' ) ) : ?>
-				<div class="row">
+				<div class="dock-container">
 					<?php dynamic_sidebar("dock"); ?>
 				</div>
 				<?php else : ?>
