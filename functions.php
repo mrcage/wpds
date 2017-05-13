@@ -13,6 +13,11 @@ define('WPDS_DEFAULT_TRANSITION_SPEED', 'default');
 define('WPDS_DEFAULT_TRANSITION_STYLE', 'fade');
 define('WPDS_DEFAULT_SHOW_SLIDE_NUMBER', false);
 define('WPDS_DEFAULT_SHOW_NET_STATUS_INFO_BOX', false);
+define('WPDS_DEFAULT_WIDTH', 960);
+define('WPDS_DEFAULT_MARGIN', 4);
+
+define('WPDS_THEME_DIR_REVEAL_JS', 'reveal.js/css/theme');
+define('WPDS_THEME_DIR_CUSTOM', 'stylesheets/themes');
 
 function wpds_theme_setup() {
 
@@ -767,6 +772,26 @@ function wpds_theme_customizer( $wp_customize ) {
 		'title' => __('Layout', 'wpds'),
 	) );
 	
+	// Width
+	$wp_customize->add_setting( 'layout[width]', array(
+	    'default' => WPDS_DEFAULT_WIDTH,
+	) );
+	$wp_customize->add_control( 'layout[width]', array(
+		'label' => __('Custom width (px)', 'wpds'),
+		'section' => 'layout',
+		'type' => 'number',
+	) );
+	
+	// Margin
+	$wp_customize->add_setting( 'layout[margin]', array(
+	    'default' => WPDS_DEFAULT_MARGIN,
+	) );
+	$wp_customize->add_control( 'layout[margin]', array(
+		'label' => __('Margin', 'wpds'),
+		'section' => 'layout',
+		'type' => 'number',
+	) );
+	
 	// Show dock
 	$wp_customize->add_setting( 'layout[show-dock]', array(
     	'default' => true,
@@ -787,6 +812,7 @@ function wpds_theme_customizer( $wp_customize ) {
 		'type' => 'checkbox',
 	) );
 
+	
 	//
 	// Colors section
 	//
@@ -862,15 +888,35 @@ function wpds_theme_customizer( $wp_customize ) {
 add_action( 'customize_register', 'wpds_theme_customizer', 11 );
 
 function wpds_get_revealjs_themes() {
+	$themes = wpds_scan_dir_for_themes(get_template_directory() . '/' . WPDS_THEME_DIR_REVEAL_JS);
+	$custom_themes = wpds_scan_dir_for_themes(get_template_directory() . '/' . WPDS_THEME_DIR_CUSTOM);
+	$themes = array_merge($themes, $custom_themes);
+	asort($themes);
+	return $themes;
+}
+
+function wpds_scan_dir_for_themes($theme_dir) {
 	$themes = array();
-	$theme_dir = get_template_directory() . '/reveal.js/css/theme';
 	foreach (scandir($theme_dir) as $file) {
 		if (is_file($theme_dir . '/' . $file) && preg_match('/(.*).css$/', $file, $m)) {
 			$themes[$m[1]] = ucfirst($m[1]);
 		}
 	}
-	asort($themes);
 	return $themes;
+}
+
+function wpds_get_layout_width() {
+	$opts = get_theme_mod( 'layout', [] );
+	return (!empty($opts['width']) && intval($opts['width']) > 0)
+			? intval($opts['width']) 
+			: WPDS_DEFAULT_WIDTH;
+}
+
+function wpds_get_layout_margin() {
+	$opts = get_theme_mod( 'layout', [] );
+	return ((isset($opts['margin']) && intval($opts['margin']) >= 0)
+			? intval($opts['margin'])
+			: WPDS_DEFAULT_MARGIN) / 100;
 }
 
 function wpds_get_auto_play_speed() {
@@ -903,11 +949,16 @@ function wpds_show_slide_number() {
 			: WPDS_DEFAULT_SHOW_SLIDE_NUMBER;
 }
 
-function wpds_get_theme() {
+function wpds_get_theme_css() {
 	$signage_opts = get_theme_mod( 'signage', [] );
-	return !empty($signage_opts['theme'])
+	$theme = !empty($signage_opts['theme'])
 			? $signage_opts['theme'] 
 			: WPDS_DEFAULT_THEME;
+	$custom_theme_file = WPDS_THEME_DIR_CUSTOM . '/'. $theme . '.css';
+	if (is_file(get_template_directory() . '/' . $custom_theme_file)) {
+		return $custom_theme_file;
+	}
+	return WPDS_THEME_DIR_REVEAL_JS . '/'. $theme . '.css';
 }
 
 function wpds_show_net_status_info_box() {
@@ -930,7 +981,7 @@ add_action( 'wp_enqueue_scripts', 'wpds_theme_enqueue_styles' );
 */
 function wpds_load_scripts() {
 	wp_enqueue_style( 'reveal.js_css', get_template_directory_uri() . '/reveal.js/css/reveal.css' );
-	wp_enqueue_style( 'reveal.js_theme', get_template_directory_uri() . '/reveal.js/css/theme/' . wpds_get_theme() .'.css' );
+	wp_enqueue_style( 'reveal.js_theme', get_template_directory_uri() . '/'. wpds_get_theme_css() );
 
 	wp_register_script( 'modernizr', get_template_directory_uri() . '/javascripts/vendor/custom.modernizr.js' );
 	wp_enqueue_script( 'modernizr' );
@@ -1033,8 +1084,8 @@ function print_post_html($post) {
 	$copy_color = get_color_option($post->ID, 'copy-color');
 	
 	echo "\n" . '<section ' . print_data_attrs($data_attrs) . '>',
-				'<h2' . ( !empty($head_color) ? ' style="color:' . $head_color . ';"' : '' ) . '>' . get_the_title() . '</h2>' . "\n",
-				'<h3' . ( !empty($subhead_color) ? ' style="color:' . $subhead_color . ';"' : '' ) . '>' . get_post_meta($post->ID, 'subtitle', true) . '</h3>' . "\n",
+				'<h1' . ( !empty($head_color) ? ' style="color:' . $head_color . ';"' : '' ) . '>' . get_the_title() . '</h1>' . "\n",
+				'<h2' . ( !empty($subhead_color) ? ' style="color:' . $subhead_color . ';"' : '' ) . '>' . get_post_meta($post->ID, 'subtitle', true) . '</h2>' . "\n",
 				'<div' . ( !empty($copy_color) ? ' style="color:' . $copy_color . ';"' : '' ) . '>' . $content . '</div>',
 				'</section>' ."\n";
 }

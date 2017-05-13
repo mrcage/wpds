@@ -27,6 +27,8 @@
 		?>
 		<script>
 				var postModified='<?=get_post_status_hash()?>';
+				var layoutWidth=<?=wpds_get_layout_width()?>;
+				var layoutMargin=<?=wpds_get_layout_margin()?>;
 				var autoPlaySpeed=<?=wpds_get_auto_play_speed()?>;
 				var transitionStyle='<?=wpds_get_transition_style()?>';
 				var transitionSpeed='<?=wpds_get_transition_speed()?>';

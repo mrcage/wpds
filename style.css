@@ -31,6 +31,9 @@ Text Domain: wpds
 	padding-left: 5%;
 	display:table-cell;
 }
+.reveal .slides > section .content-container > p:first-child {
+	margin-top: 0;
+}
 
 /**
 * Fixed footer (Dock)
@@ -44,7 +47,7 @@ footer {
 	width: 100%;
 	background-color: rgba(79, 75, 75, 0.43);
 	color: #fff;
-	font-family: sans-serif;
+	font-family: inherit, sans-serif;
 }
 
 .dock {

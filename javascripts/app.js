@@ -6,9 +6,11 @@ jQuery(document).ready(function ($) {
 		center: false,
 		loop: true,
 		autoSlide: autoPlaySpeed,
-		autoSlideStoppable: true,
+		autoSlideStoppable: false,
 		transition: transitionStyle,
-		transitionSpeed: transitionSpeed
+		transitionSpeed: transitionSpeed,
+		margin: layoutMargin,
+		width: layoutWidth,
 	});
 });
 
