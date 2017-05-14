@@ -2,11 +2,11 @@ jQuery(document).ready(function ($) {
 	Reveal.initialize({
 		controls: false,
 		progress: false,
+		loop: true,
 		slideNumber: showSlideNumber,
 		center: centerVertically,
-		loop: true,
 		autoSlide: autoPlaySpeed,
-		autoSlideStoppable: false,
+		autoSlideStoppable: autoplayStoppable,
 		transition: transitionStyle,
 		transitionSpeed: transitionSpeed,
 		margin: layoutMargin,
