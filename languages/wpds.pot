@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Digital Signage\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-14 10:00+0000\n"
+"POT-Creation-Date: 2017-05-14 10:11+0000\n"
 "POT-Revision-Date: Wed Jun 15 2016 01:08:55 GMT+0200 (W. Europe Standard "
 "Time)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -213,39 +213,63 @@ msgstr ""
 msgid "Display settings"
 msgstr ""
 
-#: inc/post-details.php:31
+#: inc/post-details.php:32
+msgid "Background"
+msgstr ""
+
+#: inc/post-details.php:34
 msgid "Background Image"
 msgstr ""
 
-#: inc/post-details.php:32 inc/post-details.php:214
+#: inc/post-details.php:35 inc/post-details.php:235
 msgid "Choose or Upload an Image"
 msgstr ""
 
-#: inc/post-details.php:35
+#: inc/post-details.php:38
 msgid "Remove background image"
 msgstr ""
 
-#: inc/post-details.php:38
+#: inc/post-details.php:41
 msgid "Background video (URL)"
 msgstr ""
 
-#: inc/post-details.php:62
+#: inc/post-details.php:46
+msgid "Background Color"
+msgstr ""
+
+#: inc/post-details.php:54
+msgid "Foreground"
+msgstr ""
+
+#: inc/post-details.php:57
+msgid "Headline Color"
+msgstr ""
+
+#: inc/post-details.php:58
+msgid "Sub-headline Color"
+msgstr ""
+
+#: inc/post-details.php:59
+msgid "Copy Color"
+msgstr ""
+
+#: inc/post-details.php:83
 msgid "Only show on certain days"
 msgstr ""
 
-#: inc/post-details.php:74
+#: inc/post-details.php:95
 msgid "Only show on certain time"
 msgstr ""
 
-#: inc/post-details.php:85
+#: inc/post-details.php:106
 msgid "Override slide duration"
 msgstr ""
 
-#: inc/post-details.php:85 inc/post-details.php:89
+#: inc/post-details.php:106 inc/post-details.php:110
 msgid "seconds"
 msgstr ""
 
-#: inc/post-details.php:215
+#: inc/post-details.php:236
 msgid "Use this image"
 msgstr ""
 

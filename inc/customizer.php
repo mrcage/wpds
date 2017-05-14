@@ -25,11 +25,13 @@ define('WPDS_THEME_DIR_REVEAL_JS', 'reveal.js/css/theme');
 define('WPDS_THEME_DIR_CUSTOM', 'stylesheets/themes');
 
 
+/*
 // Uncomment to reset theme settings
 function reset_mytheme_options() { 
     remove_theme_mods();
 }
 add_action( 'after_setup_theme', 'reset_mytheme_options' );
+*/
 
 function wpds_theme_customizer( $wp_customize ) {
 

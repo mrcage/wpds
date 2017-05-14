@@ -12,6 +12,11 @@ jQuery(document).ready(function ($) {
 		margin: layoutMargin,
 		width: layoutWidth,
 	});
+    
+    // Set dock font
+    jQuery('.dock')
+        .css('font-family', jQuery('.reveal').css('font-family'))
+        .css('font-weight', jQuery('.reveal').css('font-weight'));
 });
 
 // Periodic page reload (disabled by default)

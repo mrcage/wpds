@@ -27,32 +27,53 @@ function wpds_meta_callback( $post ) {
 	wp_nonce_field( basename( __FILE__ ), 'wpds_nonce' );
 	$wpds_stored_meta = get_post_meta( $post->ID );
 	?>
-	<p>
-		<label class="customize-control-title" for="background-image"><?php _e( 'Background Image', 'wpds' )?></label>
-		<input type="button" id="background-image-button" class="button" value="<?php _e( 'Choose or Upload an Image', 'wpds' )?>" />
-		<input class="background-image-url" type="hidden" name="background-image" id="background-image" value="<?php if ( isset ( $wpds_stored_meta['background-image'] ) ) echo $wpds_stored_meta['background-image'][0]; ?>" />
-		<div class="background-image-preview" id="background-image-preview"></div>
-		<span class="background-image-remove" id="background-image-remove"><a href="javascript:;"><?=__('Remove background image', 'wpds')?></a></span>
-	</p>
-	<p>
-		<label class="customize-control-title" for="background-video"><?php _e( 'Background video (URL)', 'wpds' )?></label>
-		<input class="background-video-url" type="text" name="background-video" id="background-video" value="<?php if ( isset ( $wpds_stored_meta['background-video'] ) ) echo $wpds_stored_meta['background-video'][0]; ?>" />
-	</p>
-	<?php	
-	$color_controls = array(
-		'background-color' => 'Background Color',
-		'headline-color' => 'Headline Color',
-		'subhead-color' => 'Sub-headline Color',
-		'copy-color' => 'Copy Color',
-	);
-	foreach ($color_controls as $key => $title) {
-		?>
-		<p>
-			<label class="customize-control-title" for="<?=$key?>"><?php _e( $title, 'wpds' )?></label>
-			<input type="text" class="color-field" name="<?=$key?>" id="<?=$key?>" value="<?= isset ( $wpds_stored_meta[$key] ) ? $wpds_stored_meta[$key][0] : '' ?>" />
-		</p>
-		<?php
-	}
+    <div style="display:table; width: 100%">
+        <div style="display: table-cell; width: 45%; vertical-align: top; padding-right: 5%">
+            <h3><?=__('Background', 'wpds')?></h3>
+            <p>
+                <label class="customize-control-title" for="background-image"><?php _e( 'Background Image', 'wpds' )?></label>
+                <input type="button" id="background-image-button" class="button" value="<?php _e( 'Choose or Upload an Image', 'wpds' )?>" />
+                <input class="background-image-url" type="hidden" name="background-image" id="background-image" value="<?php if ( isset ( $wpds_stored_meta['background-image'] ) ) echo $wpds_stored_meta['background-image'][0]; ?>" />
+                <div class="background-image-preview" id="background-image-preview"></div>
+                <span class="background-image-remove" id="background-image-remove"><a href="javascript:;"><?=__('Remove background image', 'wpds')?></a></span>
+            </p>
+            <p>
+                <label class="customize-control-title" for="background-video"><?php _e( 'Background video (URL)', 'wpds' )?></label>
+                <input class="background-video-url" type="text" name="background-video" id="background-video" value="<?php if ( isset ( $wpds_stored_meta['background-video'] ) ) echo $wpds_stored_meta['background-video'][0]; ?>" />
+            </p>
+            <?php	
+                $color_controls = array(
+                    'background-color' => __( 'Background Color', 'wpds' ),
+                );
+                foreach ($color_controls as $key => $title) {
+                    wpds_display_color_select($key, $title);
+                }
+            ?>
+        </div>
+        <div style="display: table-cell; width: 45%; vertical-align: top; padding-left: 5%">
+            <h3><?=__('Foreground', 'wpds')?></h3>
+            <?php	
+                $color_controls = array(
+                    'headline-color' => __( 'Headline Color', 'wpds' ),
+                    'subhead-color' => __( 'Sub-headline Color', 'wpds' ),
+                    'copy-color' => __( 'Copy Color', 'wpds' ),
+                );
+                foreach ($color_controls as $key => $title) {
+                    wpds_display_color_select($key, $title);
+                }
+            ?>
+        </div>
+    </div>
+    <?php
+}
+
+function wpds_display_color_select($key, $title) {
+    ?>
+    <p>
+        <label class="customize-control-title" for="<?=$key?>"><?=$title?></label>
+        <input type="text" class="color-field" name="<?=$key?>" id="<?=$key?>" value="<?= isset ( $wpds_stored_meta[$key] ) ? $wpds_stored_meta[$key][0] : '' ?>" />
+    </p>
+    <?php
 }
 
 function wpds_meta_callback_time_range( $post ) {

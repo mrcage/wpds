@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Digital Signage\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-14 10:00+0000\n"
-"PO-Revision-Date: 2017-05-14 10:00+0000\n"
+"POT-Creation-Date: 2017-05-14 10:11+0000\n"
+"PO-Revision-Date: 2017-05-14 10:11+0000\n"
 "Last-Translator: nicolas <mail@nicu.ch>\n"
 "Language-Team: German\n"
 "Language: de-DE\n"
@@ -22,9 +22,13 @@ msgstr ""
 "X-Loco-Target-Locale: de_DE\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#: inc/customizer.php:117
-msgid "Layout & Style"
-msgstr "Layout & Stil"
+#: inc/post-details.php:32
+msgid "Background"
+msgstr "Hintergrund"
+
+#: inc/post-details.php:54
+msgid "Foreground"
+msgstr "Vordergrund"
 
 #: functions.php:42
 msgctxt "Post Type General Name"
@@ -218,39 +222,55 @@ msgstr "Stil"
 msgid "Display settings"
 msgstr "Anzeigeeinstellungen"
 
-#: inc/post-details.php:31
+#: inc/post-details.php:34
 msgid "Background Image"
 msgstr "Hintergrundbild"
 
-#: inc/post-details.php:32 inc/post-details.php:214
+#: inc/post-details.php:35 inc/post-details.php:235
 msgid "Choose or Upload an Image"
 msgstr "Wählen oder laden Sie ein Bild hoch"
 
-#: inc/post-details.php:35
+#: inc/post-details.php:38
 msgid "Remove background image"
 msgstr "Hintergrundbild entfernen"
 
-#: inc/post-details.php:38
+#: inc/post-details.php:41
 msgid "Background video (URL)"
 msgstr "Hintergrundvideo (URL)"
 
-#: inc/post-details.php:62
+#: inc/post-details.php:46
+msgid "Background Color"
+msgstr "Hintergrundfarbe"
+
+#: inc/post-details.php:57
+msgid "Headline Color"
+msgstr "Farbe der Überschrift"
+
+#: inc/post-details.php:58
+msgid "Sub-headline Color"
+msgstr "Farbe des Untertitels"
+
+#: inc/post-details.php:59
+msgid "Copy Color"
+msgstr "Textfarbe"
+
+#: inc/post-details.php:83
 msgid "Only show on certain days"
 msgstr "Nur an bestimmten Tagen anzeigen"
 
-#: inc/post-details.php:74
+#: inc/post-details.php:95
 msgid "Only show on certain time"
 msgstr "Nur zu einer bestimmten Zeit anzeigen"
 
-#: inc/post-details.php:85
+#: inc/post-details.php:106
 msgid "Override slide duration"
 msgstr "Folienanzeigedauer übersteuern"
 
-#: inc/post-details.php:85 inc/post-details.php:89
+#: inc/post-details.php:106 inc/post-details.php:110
 msgid "seconds"
 msgstr "Sekunden"
 
-#: inc/post-details.php:215
+#: inc/post-details.php:236
 msgid "Use this image"
 msgstr "Dieses Bild verwenden"
 
@@ -313,6 +333,10 @@ msgstr "Langsam"
 #: inc/customizer.php:108
 msgid "Content change check interval (s)"
 msgstr "Interval zur Überprüfung auf neuen Inhalt (s)"
+
+#: inc/customizer.php:117
+msgid "Layout & Style"
+msgstr "Layout & Stil"
 
 #: inc/customizer.php:125
 msgid "Theme"
