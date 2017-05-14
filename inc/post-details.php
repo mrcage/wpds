@@ -26,7 +26,7 @@ add_action( 'add_meta_boxes', 'wpds_custom_meta' );
 function wpds_meta_callback( $post ) {
 	wp_nonce_field( basename( __FILE__ ), 'wpds_nonce' );
 	$wpds_stored_meta = get_post_meta( $post->ID );
-	?>
+    ?>
     <div style="display:table; width: 100%">
         <div style="display: table-cell; width: 45%; vertical-align: top; padding-right: 5%">
             <h3><?=__('Background', 'wpds')?></h3>

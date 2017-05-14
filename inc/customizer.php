@@ -20,6 +20,8 @@ define('WPDS_DEFAULT_VERTICAL_CENTER', false);
 define('WPDS_DEFAULT_DOCK_BACKGROUND_COLOR', 'rgba(79, 75, 75, 0.43)');
 define('WPDS_DEFAULT_DOCK_FOREGROUND_COLOR', '#ffffff');
 define('WPDS_DEFAULT_SHOW_DOCK', false);
+define('WPDS_DEFAULT_CONTENT_CHANGE_CHECK_INTERVAL', 10);
+define('DEFAULT_RELOAD_INTERVAL', 0);
 
 define('WPDS_THEME_DIR_REVEAL_JS', 'reveal.js/css/theme');
 define('WPDS_THEME_DIR_CUSTOM', 'stylesheets/themes');
@@ -104,7 +106,7 @@ function wpds_theme_customizer( $wp_customize ) {
 
 	// Content change check interval
 	$wp_customize->add_setting( 'signage[content_change_check_interval]', array(
-		'default' => '10',
+		'default' => WPDS_DEFAULT_CONTENT_CHANGE_CHECK_INTERVAL,
 	) );
 	$wp_customize->add_control( 'signage[content_change_check_interval]', array(
 		'label' => __('Content change check interval (s)', 'wpds'),
@@ -241,7 +243,7 @@ function wpds_theme_customizer( $wp_customize ) {
 
 	// Page reload interval
 	$wp_customize->add_setting( 'signage[reload_interval]', array(
-		'default' => '0',
+		'default' => DEFAULT_RELOAD_INTERVAL,
 	) );
 	$wp_customize->add_control( 'signage[reload_interval]', array(
 		'label' => __('Reload interval (min)', 'wpds'),
@@ -294,6 +296,20 @@ function wpds_get_auto_play_speed() {
 	);
 }
 
+function wpds_get_content_change_check_interval() {
+	$opts = get_theme_mod( 'signage', [] );
+	return ((isset($opts['content_change_check_interval']) && intval($opts['content_change_check_interval']) >= 0)
+			? intval($opts['content_change_check_interval'])
+			: WPDS_DEFAULT_CONTENT_CHANGE_CHECK_INTERVAL);
+}
+
+function wpds_get_reload_interval() {
+	$opts = get_theme_mod( 'signage', [] );
+	return ((isset($opts['reload_interval']) && intval($opts['reload_interval']) >= 0)
+			? intval($opts['reload_interval'])
+			: DEFAULT_RELOAD_INTERVAL);
+}
+
 function wpds_get_transition_style() {
 	$signage_opts = get_theme_mod( 'signage', [] );
 	return !empty($signage_opts['transition_style'])
@@ -329,11 +345,15 @@ function wpds_center_vertically() {
 			: WPDS_DEFAULT_VERTICAL_CENTER;
 }
 
-function wpds_get_theme_css() {
-	$signage_opts = get_theme_mod( 'signage', [] );
-	$theme = !empty($signage_opts['theme'])
+function wpds_get_theme() {
+    $signage_opts = get_theme_mod( 'signage', [] );
+	return !empty($signage_opts['theme'])
 			? $signage_opts['theme'] 
 			: WPDS_DEFAULT_THEME;
+}
+
+function wpds_get_theme_css() {
+	$theme = wpds_get_theme();
 	$custom_theme_file = WPDS_THEME_DIR_CUSTOM . '/'. $theme . '.css';
 	if (is_file(get_template_directory() . '/' . $custom_theme_file)) {
 		return $custom_theme_file;

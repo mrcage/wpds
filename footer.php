@@ -17,12 +17,13 @@
 		<?php endif; ?>
 		
 		<?php
-			$signage_opts = get_theme_mod( 'signage', [] );
-			if (isset($signage_opts['reload_interval']) && is_numeric($signage_opts['reload_interval'])) {
-				echo '<script>var defaultReloadTimeout = 1000 * 60 * ' . $signage_opts['reload_interval'] . ';</script>';
+            $reload_interval = wpds_get_reload_interval();
+            if ($reload_interval > 0) {
+                echo '<script>var defaultReloadTimeout = ' . ( 1000 * 60 * $reload_interval ) . ';</script>';
 			}
-			if (isset($signage_opts['content_change_check_interval']) && is_numeric($signage_opts['content_change_check_interval'])) {
-				echo '<script>var defaultContentChangeCheckInterval = 1000 * ' . $signage_opts['content_change_check_interval'] . ';</script>';
+            $content_change_check_interval = wpds_get_content_change_check_interval();
+			if ($content_change_check_interval > 0) {
+				echo '<script>var defaultContentChangeCheckInterval = ' . ( 1000 * $content_change_check_interval ) . ';</script>';
 			}
 		?>
 		<script>

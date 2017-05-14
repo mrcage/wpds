@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Digital Signage\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-14 10:11+0000\n"
-"PO-Revision-Date: 2017-05-14 10:11+0000\n"
+"POT-Creation-Date: 2017-05-14 10:46+0000\n"
+"PO-Revision-Date: 2017-05-14 10:46+0000\n"
 "Last-Translator: nicolas <mail@nicu.ch>\n"
 "Language-Team: German\n"
 "Language: de-DE\n"
@@ -22,13 +22,17 @@ msgstr ""
 "X-Loco-Target-Locale: de_DE\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#: inc/post-details.php:32
-msgid "Background"
-msgstr "Hintergrund"
+#: functions.php:342
+msgid "Important Settings"
+msgstr "Wichtige Einstellungen"
 
-#: inc/post-details.php:54
-msgid "Foreground"
-msgstr "Vordergrund"
+#: functions.php:349
+msgid "Yes"
+msgstr "Ja"
+
+#: functions.php:349
+msgid "No"
+msgstr "Nein"
 
 #: functions.php:42
 msgctxt "Post Type General Name"
@@ -176,7 +180,23 @@ msgstr "Zu dieser Zeit nicht angezeigt"
 msgid "Statistics"
 msgstr "Statistik"
 
-#: functions.php:456
+#: functions.php:345 inc/customizer.php:58
+msgid "Timer speed (s)"
+msgstr "Anzeigedauer (s)"
+
+#: functions.php:346 inc/customizer.php:111
+msgid "Content change check interval (s)"
+msgstr "Interval zur Überprüfung auf neuen Inhalt (s)"
+
+#: functions.php:348 inc/customizer.php:128
+msgid "Theme"
+msgstr "Thema"
+
+#: functions.php:349 inc/customizer.php:211
+msgid "Show dock"
+msgstr "Dock anzeigen"
+
+#: functions.php:477
 #, php-format
 msgid ""
 "Developed by <a href=\"%s\" target=\"_blank\">%s</a> based on work by <a "
@@ -185,15 +205,15 @@ msgstr ""
 "Entwickelt von <a href=\"%s\" target=\"_blank\">%s</a> basierend auf "
 "Arbeiten von <a href=\"%s\" target=\"_blank\">%s</a>."
 
-#: functions.php:494
+#: functions.php:515
 msgid "Invalid sidebar ID"
 msgstr "Ungültige Seitenleisten-ID"
 
-#: functions.php:520 inc/customizer.php:200
+#: functions.php:541 inc/customizer.php:203
 msgid "Dock"
 msgstr "Dock"
 
-#: functions.php:521
+#: functions.php:542
 msgid "Widget area at the bottom of the page."
 msgstr "Widget-Bereich unten auf der Seite."
 
@@ -222,6 +242,10 @@ msgstr "Stil"
 msgid "Display settings"
 msgstr "Anzeigeeinstellungen"
 
+#: inc/post-details.php:32
+msgid "Background"
+msgstr "Hintergrund"
+
 #: inc/post-details.php:34
 msgid "Background Image"
 msgstr "Hintergrundbild"
@@ -241,6 +265,10 @@ msgstr "Hintergrundvideo (URL)"
 #: inc/post-details.php:46
 msgid "Background Color"
 msgstr "Hintergrundfarbe"
+
+#: inc/post-details.php:54
+msgid "Foreground"
+msgstr "Vordergrund"
 
 #: inc/post-details.php:57
 msgid "Headline Color"
@@ -274,131 +302,115 @@ msgstr "Sekunden"
 msgid "Use this image"
 msgstr "Dieses Bild verwenden"
 
-#: inc/customizer.php:47
+#: inc/customizer.php:50
 msgid "Slider"
 msgstr "Slider"
 
-#: inc/customizer.php:55
-msgid "Timer speed (s)"
-msgstr "Anzeigedauer (s)"
-
-#: inc/customizer.php:65
+#: inc/customizer.php:68
 msgid "Allow user to stop autoplay"
 msgstr "Erlaube dem Benutzer, die Präsentation anzuhalten"
 
-#: inc/customizer.php:75
+#: inc/customizer.php:78
 msgid "Transition style"
 msgstr "Übergangsstil"
 
-#: inc/customizer.php:79
+#: inc/customizer.php:82
 msgid "None"
 msgstr "Nichts"
 
-#: inc/customizer.php:80
+#: inc/customizer.php:83
 msgid "Fade"
 msgstr "Überblendung"
 
-#: inc/customizer.php:81
+#: inc/customizer.php:84
 msgid "Slide"
 msgstr "Gleiten"
 
-#: inc/customizer.php:82
+#: inc/customizer.php:85
 msgid "Convex"
 msgstr "Konvex"
 
-#: inc/customizer.php:83
+#: inc/customizer.php:86
 msgid "Concave"
 msgstr "Konkav"
 
-#: inc/customizer.php:84
+#: inc/customizer.php:87
 msgid "Zoom"
 msgstr "Zoom"
 
-#: inc/customizer.php:93
+#: inc/customizer.php:96
 msgid "Transition speed"
 msgstr "Übergangsgeschwindigkeit"
 
-#: inc/customizer.php:97
+#: inc/customizer.php:100
 msgid "Default"
 msgstr "Standard"
 
-#: inc/customizer.php:98
+#: inc/customizer.php:101
 msgid "Fast"
 msgstr "Schnell"
 
-#: inc/customizer.php:99
+#: inc/customizer.php:102
 msgid "Slow"
 msgstr "Langsam"
 
-#: inc/customizer.php:108
-msgid "Content change check interval (s)"
-msgstr "Interval zur Überprüfung auf neuen Inhalt (s)"
-
-#: inc/customizer.php:117
+#: inc/customizer.php:120
 msgid "Layout & Style"
 msgstr "Layout & Stil"
 
-#: inc/customizer.php:125
-msgid "Theme"
-msgstr "Thema"
-
-#: inc/customizer.php:136
+#: inc/customizer.php:139
 msgid "Text align"
 msgstr "Textausrichtung"
 
-#: inc/customizer.php:140
+#: inc/customizer.php:143
 msgid "Left"
 msgstr "Links"
 
-#: inc/customizer.php:141
+#: inc/customizer.php:144
 msgid "Center"
 msgstr "Zentriert"
 
-#: inc/customizer.php:142
+#: inc/customizer.php:145
 msgid "Right"
 msgstr "Rechts"
 
-#: inc/customizer.php:151
+#: inc/customizer.php:154
 msgid "Center content vertically"
 msgstr "Inhalt vertikal zentrieren"
 
-#: inc/customizer.php:161
+#: inc/customizer.php:164
 msgid "Custom width (px)"
 msgstr "Benutzerdefinierte Breite (Pixel)"
 
-#: inc/customizer.php:171
+#: inc/customizer.php:174
 msgid "Margin"
 msgstr "Randabstand"
 
-#: inc/customizer.php:181
+#: inc/customizer.php:184
 msgid "Show slide number"
 msgstr "Foliennummer anzeigen"
 
-#: inc/customizer.php:191
+#: inc/customizer.php:194
 msgid "Show network status infobox"
 msgstr "Netzwerkstatus-Infobox anzeigen"
 
-#: inc/customizer.php:208
-msgid "Show dock"
-msgstr "Dock anzeigen"
-
-#: inc/customizer.php:218
+#: inc/customizer.php:221
 msgid "Dock Background Color"
 msgstr "Hintergrundfarbe des Docks"
 
-#: inc/customizer.php:229
+#: inc/customizer.php:232
 msgid "Dock Foreground Color"
 msgstr "Vordergrundfarbe des Docks"
 
-#: inc/customizer.php:237
+#: inc/customizer.php:240
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: inc/customizer.php:245
+#: inc/customizer.php:248
 msgid "Reload interval (min)"
 msgstr "Aktualisierungs-Intervall (min)"
 
-#: inc/customizer.php:248
+#: inc/customizer.php:251
 msgid ""
 "If the value is greater than 0, the site will auto-reload after this "
 "definied time."

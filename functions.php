@@ -335,6 +335,27 @@ add_action('wp_dashboard_setup', function() {
 
 });
 
+// Settings dashboard widget
+// wp_dashboard_setup is the action hook
+add_action('wp_dashboard_setup', function() { 
+	// add dashboard widget
+    wp_add_dashboard_widget('custom_settings_widget', __('Important Settings', 'wpds'), function() {
+        //echo '<p><strong>' . __( 'Slider', 'wpds' ) . '</strong></p>';
+		echo '<table style="width:100%">';
+        echo wpds_dashboard_settings_item( __('Timer speed (s)', 'wpds'), round(wpds_get_auto_play_speed()/1000, 2), 'signage[timer_speed]' );
+        echo wpds_dashboard_settings_item( __('Content change check interval (s)', 'wpds'), wpds_get_content_change_check_interval(), 'signage[content_change_check_interval]' );
+        $themes = wpds_get_revealjs_themes();
+        echo wpds_dashboard_settings_item( __('Theme', 'wpds'), isset($themes[wpds_get_theme()]) ? $themes[wpds_get_theme()] : '-', 'signage[theme]' );
+        echo wpds_dashboard_settings_item( __('Show dock', 'wpds'), wpds_show_dock() ? __( 'Yes', 'wpds' ) : __( 'No', 'wpds' ), 'layout[show-dock]' );
+		echo '</table>';
+	});
+
+});
+
+function wpds_dashboard_settings_item($label, $value, $control_name) {
+    return '<tr><td><a href="' . admin_url( 'customize.php?autofocus[control]=' . $control_name ) . '">' . $label . '</a></td><td>' . $value . '</td></tr>';    
+}
+
 //***********************
 //
 // SIMPLIFY UI
