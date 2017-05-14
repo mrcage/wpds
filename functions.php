@@ -589,13 +589,9 @@ add_action( 'wp_enqueue_scripts', 'wpds_load_scripts' );
 * Get a color option, either from post meta data or from theme options
 */
 function get_color_option($post_id, $key) {
-	$colors = get_theme_mod( 'colors', [] );
 	$page_color = get_post_meta($post_id, $key, true);
 	if (!empty($page_color)) {
 		return $page_color;
-	}
-	if (!empty($colors[$key])) {
-		return $colors[$key];
 	}
 	return '';
 }
@@ -606,7 +602,7 @@ function print_style($args) {
                 foreach ($args as $k => $v) {
                         $style[] = $k . ':' . $v;
                 }
-                return ' style="' . implode(';', $style) . '"';
+                return ' style="' . implode('; ', $style) . '"';
         }
         return '';
 }

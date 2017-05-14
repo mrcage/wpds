@@ -1,14 +1,9 @@
 
-	<?php if ( !isset( get_theme_mod( 'layout', [] )['show-dock'] ) || get_theme_mod( 'layout', [] )['show-dock'] ): ?>
+	<?php if ( wpds_show_dock() ): ?>
 		<?php
 			$dock_style = [];
-			$color_opts = get_theme_mod( 'colors', [] );
-			if (!empty($color_opts['dock-foreground-color'])) {
-				$dock_style['color'] = '#' . $color_opts['dock-foreground-color'];
-			}
-			if (!empty($color_opts['dock-background-color'])) {
-				$dock_style['background-color'] = $color_opts['dock-background-color'];
-			}
+			$dock_style['color'] = wpds_get_dock_foreground_color();
+			$dock_style['background-color'] = wpds_get_dock_background_color();
 		?>
 		<footer class="footer"<?php echo print_style($dock_style);?>>
 			<div class="dock">

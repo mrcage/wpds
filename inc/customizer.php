@@ -17,16 +17,19 @@ define('WPDS_DEFAULT_WIDTH', 960);
 define('WPDS_DEFAULT_MARGIN', 4);
 define('WPDS_DEFAULT_TEXT_ALIGN', 'center');
 define('WPDS_DEFAULT_VERTICAL_CENTER', false);
+define('WPDS_DEFAULT_DOCK_BACKGROUND_COLOR', 'rgba(79, 75, 75, 0.43)');
+define('WPDS_DEFAULT_DOCK_FOREGROUND_COLOR', '#ffffff');
+define('WPDS_DEFAULT_SHOW_DOCK', false);
 
 define('WPDS_THEME_DIR_REVEAL_JS', 'reveal.js/css/theme');
 define('WPDS_THEME_DIR_CUSTOM', 'stylesheets/themes');
 
-/* Uncomment to reset theme settings
+
+// Uncomment to reset theme settings
 function reset_mytheme_options() { 
     remove_theme_mods();
 }
 add_action( 'after_setup_theme', 'reset_mytheme_options' );
-*/
 
 function wpds_theme_customizer( $wp_customize ) {
 
@@ -111,7 +114,7 @@ function wpds_theme_customizer( $wp_customize ) {
 	// Layout section
 	//
 	$wp_customize->add_section( 'layout', array(
-		'title' => __('Layout', 'wpds'),
+		'title' => __('Layout & Style', 'wpds'),
 	) );
 
 	// Themes
@@ -179,16 +182,6 @@ function wpds_theme_customizer( $wp_customize ) {
 		'section' => 'layout',
 		'type' => 'checkbox',
 	) );
-	
-	// Show dock
-	$wp_customize->add_setting( 'layout[show-dock]', array(
-    	'default' => true,
-	) );
-	$wp_customize->add_control( 'layout[show-dock]', array(
-		'label'   => __('Show dock', 'wpds'),
-		'section' => 'layout',
-		'type' => 'checkbox',
-	) );
 
 	// Show network status box
 	$wp_customize->add_setting( 'layout[show-net-status-infobox]', array(
@@ -200,76 +193,41 @@ function wpds_theme_customizer( $wp_customize ) {
 		'type' => 'checkbox',
 	) );
 
-	
 	//
-	// Colors section
+	// Dock
 	//
-	$wp_customize->add_section( 'colors', array(
-        'title' => __('Colors', 'wpds'),
+	$wp_customize->add_section( 'dock', array(
+        'title' => __('Dock', 'wpds'),
 	) );
-
-	// Background color
-	$wp_customize->add_setting( 'colors[background-color]', array(
-    		'default' => '#ffffff',
-		'sanitize_callback'    => 'sanitize_hex_color_no_hash',
-		'sanitize_js_callback' => 'maybe_hash_hex_color',
+    	
+	// Show dock
+	$wp_customize->add_setting( 'layout[show-dock]', array(
+    	'default' => WPDS_DEFAULT_SHOW_DOCK,
 	) );
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[background-color]', array(
-		'label'   => __('Background Color', 'wpds'),
-		'section' => 'colors',
-	) ) );
-
-	// Headline color
-	$wp_customize->add_setting( 'colors[headline-color]', array(
-    		'default' => '#000000',
-		'sanitize_callback'    => 'sanitize_hex_color_no_hash',
-		'sanitize_js_callback' => 'maybe_hash_hex_color',
+	$wp_customize->add_control( 'layout[show-dock]', array(
+		'label'   => __('Show dock', 'wpds'),
+		'section' => 'dock',
+		'type' => 'checkbox',
 	) );
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[headline-color]', array(
-		'label'   => __('Headline Color', 'wpds'),
-		'section' => 'colors',
-	) ) );
-
-	// Subhead color
-	$wp_customize->add_setting( 'colors[subhead-color]', array(
-    		'default' => '#000000',
-		'sanitize_callback'    => 'sanitize_hex_color_no_hash',
-		'sanitize_js_callback' => 'maybe_hash_hex_color',
-	) );
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[subhead-color]', array(
-		'label'   => __('Sub-headline Color', 'wpds'),
-		'section' => 'colors',
-	) ) );
-
-	// Copy color
-	$wp_customize->add_setting( 'colors[copy-color]', array(
-    		'default' => '#000000',
-		'sanitize_callback'    => 'sanitize_hex_color_no_hash',
-		'sanitize_js_callback' => 'maybe_hash_hex_color',
-	) );
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[copy-color]', array(
-		'label'   => __('Copy Color', 'wpds'),
-		'section' => 'colors',
-	) ) );
-
+    
 	// Dock background color
 	$wp_customize->add_setting( 'colors[dock-background-color]', array(
-		'default' => 'rgba(79, 75, 75, 0.43)',
+		'default' => WPDS_DEFAULT_DOCK_BACKGROUND_COLOR,
 	) );
 	$wp_customize->add_control( new Customize_Alpha_Color_Control( $wp_customize, 'colors[dock-background-color]', array(
 		'label'   => __('Dock Background Color', 'wpds'),
-		'section' => 'colors',
+		'section' => 'dock',
 	) ) );
 
 	// Dock foreground color
 	$wp_customize->add_setting( 'colors[dock-foreground-color]', array(
-    		'default' => '#ffffff',
+        'default' => WPDS_DEFAULT_DOCK_FOREGROUND_COLOR,
 		'sanitize_callback'    => 'sanitize_hex_color_no_hash',
 		'sanitize_js_callback' => 'maybe_hash_hex_color',
 	) );
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[dock-foreground-color]', array(
 		'label'   => __('Dock Foreground Color', 'wpds'),
-		'section' => 'colors',
+		'section' => 'dock',
 	) ) );
 
 	//
@@ -393,4 +351,25 @@ function wpds_show_net_status_info_box() {
 	return isset($opts['show-net-status-infobox']) 
 			? $opts['show-net-status-infobox']
 			: WPDS_DEFAULT_SHOW_NET_STATUS_INFO_BOX;
+}
+
+function wpds_get_dock_background_color() {
+	$opts = get_theme_mod( 'colors', [] );
+	return !empty($opts['dock-background-color'])
+			? $opts['dock-background-color'] 
+			: WPDS_DEFAULT_DOCK_BACKGROUND_COLOR;
+}
+
+function wpds_get_dock_foreground_color() {
+	$opts = get_theme_mod( 'colors', [] );
+	return !empty($opts['dock-foreground-color'])
+			? '#' . $opts['dock-foreground-color'] 
+			: WPDS_DEFAULT_DOCK_FOREGROUND_COLOR;
+}
+
+function wpds_show_dock() {
+	$opts = get_theme_mod( 'layout', [] );
+	return isset($opts['show-dock']) 
+			? $opts['show-dock']
+			: WPDS_DEFAULT_SHOW_DOCK;
 }
