@@ -719,6 +719,8 @@ function get_post_status_hash() {
 		}
 	endwhile; endif;
 	wp_reset_query();
+    // Add theme settings
+    $data[] = serialize(get_theme_mods());
 	return md5(implode(";", $data));
 }
 ?>
