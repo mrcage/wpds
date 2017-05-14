@@ -6,10 +6,14 @@
  * Core functionality and initial theme setup
  *
  */
- 
-define('WPDS_DEFAULT_TIMER_SPEED', 3);
-define('WPDS_DEFAULT_ANIMATION_SPEED', 300);
 
+// Customizer
+require(get_template_directory() . '/inc/customizer.php');
+require(get_template_directory() . '/inc/plugins.php');
+
+/**
+* Theme setup
+*/
 function wpds_theme_setup() {
 
 	// Language Translations
@@ -22,15 +26,11 @@ function wpds_theme_setup() {
 	// Support for Featured Images
 	add_theme_support( 'post-thumbnails' );
 
-	// Automatic Feed Links & Post Formats
-	add_theme_support( 'automatic-feed-links' );
-
 	// Load post details extension
 	locate_template( array( 'inc/post-details.php' ), true, true );
 
 }
 add_action( 'after_setup_theme', 'wpds_theme_setup' );
-
 
 /*
 * Creating a function to create our CPT
@@ -335,46 +335,47 @@ add_action('wp_dashboard_setup', function() {
 
 });
 
+// Settings dashboard widget
+// wp_dashboard_setup is the action hook
+add_action('wp_dashboard_setup', function() { 
+	// add dashboard widget
+    wp_add_dashboard_widget('custom_settings_widget', __('Important Settings', 'wpds'), function() {
+        //echo '<p><strong>' . __( 'Slider', 'wpds' ) . '</strong></p>';
+		echo '<table style="width:100%">';
+        echo wpds_dashboard_settings_item( __('Timer speed (s)', 'wpds'), round(wpds_get_auto_play_speed()/1000, 2), 'signage[timer_speed]' );
+        echo wpds_dashboard_settings_item( __('Content change check interval (s)', 'wpds'), wpds_get_content_change_check_interval(), 'signage[content_change_check_interval]' );
+        $themes = wpds_get_revealjs_themes();
+        echo wpds_dashboard_settings_item( __('Theme', 'wpds'), isset($themes[wpds_get_theme()]) ? $themes[wpds_get_theme()] : '-', 'signage[theme]' );
+        echo wpds_dashboard_settings_item( __('Show dock', 'wpds'), wpds_show_dock() ? __( 'Yes', 'wpds' ) : __( 'No', 'wpds' ), 'layout[show-dock]' );
+		echo '</table>';
+	});
+
+});
+
+function wpds_dashboard_settings_item($label, $value, $control_name) {
+    return '<tr><td><a href="' . admin_url( 'customize.php?autofocus[control]=' . $control_name ) . '">' . $label . '</a></td><td>' . $value . '</td></tr>';    
+}
+
 //***********************
 //
 // SIMPLIFY UI
 //
 //***********************
 
-	add_action('admin_menu', 'my_remove_menu_pages');
-	if (!current_user_can('manage_options')) {
-		add_action( 'admin_menu', 'my_remove_menu_pages' );
-	}
+add_action('admin_menu', 'my_remove_menu_pages');
+if (!current_user_can('manage_options')) {
+	add_action( 'admin_menu', 'my_remove_menu_pages' );
+}
 function my_remove_menu_pages() {
-	//remove_menu_page( 'edit.php' ); // Posts
-	//remove_menu_page( 'upload.php' ); // Media
 	remove_menu_page( 'link-manager.php' ); // Links
 	remove_menu_page( 'edit-comments.php' ); // Comments
 	remove_menu_page( 'edit.php' ); // Posts
 	remove_menu_page( 'edit.php?post_type=page' ); // Pages
     remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=category');
     remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=post_tag');
-
-	//remove_menu_page( 'plugins.php' ); // Plugins
-	//remove_menu_page( 'themes.php' ); // Appearance
-	//remove_menu_page( 'users.php' ); // Users
 	remove_menu_page( 'tools.php' ); // Tools
-	//remove_menu_page( 'profile.php' ); // Tools
-	//remove_menu_page('options-general.php'); // Settings
-
-	//remove_submenu_page ( 'index.php', 'update-core.php' );    //Dashboard->Updates
-	//remove_submenu_page ( 'themes.php', 'themes.php' ); // Appearance-->Themes
-	//remove_submenu_page ( 'themes.php', 'widgets.php' ); // Appearance-->Widgets
 	remove_submenu_page ( 'themes.php', 'nav-menus.php' ); // Appearance-->Menus
-	//remove_submenu_page ( 'themes.php', 'theme-editor.php' ); // Appearance-->Editor
-	//remove_submenu_page ( 'options-general.php', 'options-general.php' ); // Settings->General
-	//remove_submenu_page ( 'options-general.php', 'options-writing.php' ); // Settings->writing
-	//remove_submenu_page ( 'options-general.php', 'options-reading.php' ); // Settings->Reading
-	//remove_submenu_page ( 'options-general.php', 'options-discussion.php' ); // Settings->Discussion
-	//remove_submenu_page ( 'options-general.php', 'options-media.php' ); // Settings->Media
-	//remove_submenu_page ( 'options-general.php', 'options-privacy.php' ); // Settings->Privacy
-	}
-
+}
 
 //***********************
 //
@@ -401,26 +402,14 @@ function my_remove_menu_pages() {
 	}
 	add_action( 'admin_menu' , 'remove_post_custom_fields' );
 
-
 	// remove some customization options for admins
 	if (current_user_can('manage_options')) {
 		add_action( 'admin_menu', 'admin_remove_menu_pages' );
 	}
 	function admin_remove_menu_pages() {
-	//
-	//remove_menu_page( 'edit.php' ); // Posts
-	//remove_menu_page( 'upload.php' ); // Media
-	remove_menu_page( 'link-manager.php' ); // Links
-	remove_menu_page( 'edit-comments.php' ); // Comments
-	//remove_menu_page( 'edit.php?post_type=page' ); // Pages
-	//remove_menu_page( 'plugins.php' ); // Plugins
-	//remove_menu_page( 'themes.php' ); // Appearance
-	//remove_menu_page( 'users.php' ); // Users
-	//remove_menu_page( 'tools.php' ); // Tools
-	//remove_menu_page('options-general.php'); // Settings
+        remove_menu_page( 'link-manager.php' ); // Links
+        remove_menu_page( 'edit-comments.php' ); // Comments
 	}
-
-
 
 	// disable default dashboard widgets
 	function disable_default_dashboard_widgets() {
@@ -459,7 +448,7 @@ function my_remove_menu_pages() {
 		function base_extended_editor_mce_buttons($buttons) {
 			// The settings are returned in this array. Customize to suite your needs.
 			return array(
-				'bold', 'italic', 'charmap', 'removeformat'
+				'bold', 'italic', 'strikethrough', 'separator', 'bullist', 'numlist', 'blockquote', 'separator', 'charmap', 'removeformat'
 			);
 			/* WordPress Default
 			return array(
@@ -532,10 +521,10 @@ function count_sidebar_widgets( $sidebar_id) {
 
 function get_grid_number_from_widgets( $sidebar_id ) {
 	if (count_sidebar_widgets( $sidebar_id ) > 0){
-		return (int) (12 / count_sidebar_widgets( $sidebar_id ));
+		return (int) (100 / count_sidebar_widgets( $sidebar_id ));
 	}
 	else {
-		return 12;
+		return 100;
 	}
 }
 
@@ -546,13 +535,13 @@ function get_grid_number_from_widgets( $sidebar_id ) {
 //
 //***********************
 function wpds_widgets_init() {
-	$widget_count = get_grid_number_from_widgets( 'dock' );
+	$widget_width = get_grid_number_from_widgets( 'dock' );
 	register_sidebar(array(
 		'id' => 'dock',
 		'name'=> __('Dock', 'wpds'),
 		'description' => __('Widget area at the bottom of the page.', 'wpds'),
-		'before_widget' => '<div class="col-md-' . $widget_count . ' col-sm-' . $widget_count . ' col-xs-' . $widget_count . '  vertical-align"><div>',
-		'after_widget' => '</div></div>'."\n",
+		'before_widget' => $widget_count . '<div id="%1$s" class="dock-element %2$s" style="width:' . $widget_width . '%%">',
+		'after_widget' => '</div>'."\n",
 		'before_title' => '<h3>',
 		'after_title' => '</h3>'
 	));
@@ -585,254 +574,6 @@ function wpds_remove_admin_bar_links() {
 }
 add_action( 'wp_before_admin_bar_render', 'wpds_remove_admin_bar_links' );
 
-
-//***********************
-//
-// REQUIRE PLUGINS
-//
-//***********************
-
-require_once dirname( __FILE__ ) . '/lib/tgm/class-tgm-plugin-activation.php';
-
-add_action( 'tgmpa_register', 'wpds_register_required_plugins' );
-function wpds_register_required_plugins() {
-
-    $plugins = array(
-
-        array(
-            'name'               => 'WPDS Clock Widget', // The plugin name.
-            'slug'               => 'wpds-clock', // The plugin slug (typically the folder name).
-            'source'             => get_stylesheet_directory() . '/lib/wpds-clock.zip', // The plugin source.
-            'required'           => true, // If false, the plugin is only 'recommended' instead of required.
-            'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
-            'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-            'force_deactivation' => true, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-            'external_url'       => '', // If set, overrides default API URL and points to an external URL.
-        ),
-        array(
-            'name'               => 'WPDS Weather Widget', // The plugin name.
-            'slug'               => 'wpds-weather', // The plugin slug (typically the folder name).
-            'source'             => get_stylesheet_directory() . '/lib/wpds-weather.zip', // The plugin source.
-            'required'           => true, // If false, the plugin is only 'recommended' instead of required.
-            'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
-            'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-            'force_deactivation' => true, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-            'external_url'       => '', // If set, overrides default API URL and points to an external URL.
-        ),
-        array(
-            'name'               => 'WPDS Image Widget', // The plugin name.
-            'slug'               => 'wpds-image', // The plugin slug (typically the folder name).
-            'source'             => get_stylesheet_directory() . '/lib/wpds-image.zip', // The plugin source.
-            'required'           => true, // If false, the plugin is only 'recommended' instead of required.
-            'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
-            'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-            'force_deactivation' => true, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-            'external_url'       => '', // If set, overrides default API URL and points to an external URL.
-        ),
-        array(
-            'name'      => 'Post Expirator',
-            'slug'      => 'post-expirator',
-            'required'  => false,
-        ),
-    );
-
-    $config = array(
-        'default_path' => '',                      // Default absolute path to pre-packaged plugins.
-        'menu'         => 'tgmpa-install-plugins', // Menu slug.
-        'has_notices'  => true,                    // Show admin notices or not.
-        'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
-        'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
-        'is_automatic' => true,                   // Automatically activate plugins after installation or not.
-        'message'      => '',                      // Message to output right before the plugins table.
-        'strings'      => array(
-            'page_title'                      => __( 'Install Required Plugins', 'tgmpa' ),
-            'menu_title'                      => __( 'Install Plugins', 'tgmpa' ),
-            'installing'                      => __( 'Installing Plugin: %s', 'tgmpa' ), // %s = plugin name.
-            'oops'                            => __( 'Something went wrong with the plugin API.', 'tgmpa' ),
-            'notice_can_install_required'     => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.' ), // %1$s = plugin name(s).
-            'notice_can_install_recommended'  => _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.' ), // %1$s = plugin name(s).
-            'notice_cannot_install'           => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.' ), // %1$s = plugin name(s).
-            'notice_can_activate_required'    => _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s).
-            'notice_can_activate_recommended' => _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s).
-            'notice_cannot_activate'          => _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.' ), // %1$s = plugin name(s).
-            'notice_ask_to_update'            => _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.' ), // %1$s = plugin name(s).
-            'notice_cannot_update'            => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.' ), // %1$s = plugin name(s).
-            'install_link'                    => _n_noop( 'Begin installing plugin', 'Begin installing plugins' ),
-            'activate_link'                   => _n_noop( 'Begin activating plugin', 'Begin activating plugins' ),
-            'return'                          => __( 'Return to Required Plugins Installer', 'tgmpa' ),
-            'plugin_activated'                => __( 'Plugin activated successfully.', 'tgmpa' ),
-            'complete'                        => __( 'All plugins installed and activated successfully. %s', 'tgmpa' ), // %s = dashboard link.
-            'nag_type'                        => 'updated' // Determines admin notice type - can only be 'updated', 'update-nag' or 'error'.
-        )
-    );
-
-    tgmpa( $plugins, $config );
-
-}
-
-//***********************
-//
-// Customizer
-//
-//***********************
-
-function wpds_theme_customizer( $wp_customize ) {
-
-	require_once( dirname( __FILE__ ) . '/admin/customizer/alpha-color-picker/alpha-color-picker.php' );
-
-	// Remove existing non-required stuff
-	$wp_customize->remove_control('blogdescription');
-	$wp_customize->remove_section('static_front_page');
-	$wp_customize->remove_panel('nav_menus');
-
-	//
-	// Slider (Digital Signage) section
-	//
-	$wp_customize->add_section( 'signage', array(
-        	'title' => __('Slider', 'wpds'),
-	) );
-
-	// Timer speed
-	$wp_customize->add_setting( 'signage[timer_speed]', array(
-	    	'default' => WPDS_DEFAULT_TIMER_SPEED,
-	) );
-	$wp_customize->add_control( 'signage[timer_speed]', array(
-		'label' => __('Timer speed (s)', 'wpds'),
-		'section' => 'signage',
-		'type' => 'number',
-	) );
-	
-	// Animation speed
-	$wp_customize->add_setting( 'signage[animation_speed]', array(
-	    	'default' => WPDS_DEFAULT_ANIMATION_SPEED,
-	) );
-	$wp_customize->add_control( 'signage[animation_speed]', array(
-		'label' => __('Animation speed (ms)', 'wpds'),
-		'section' => 'signage',
-		'type' => 'number',
-	) );
-
-	// Page reload interval
-	$wp_customize->add_setting( 'signage[reload_interval]', array(
-	    	'default' => '0',
-	) );
-	$wp_customize->add_control( 'signage[reload_interval]', array(
-    		'label' => __('Reload interval (min)', 'wpds'),
-		'section' => 'signage',
-		'type' => 'number',
-	) );
-	
-	// Content change check interval
-	$wp_customize->add_setting( 'signage[content_change_check_interval]', array(
-	    	'default' => '10',
-	) );
-	$wp_customize->add_control( 'signage[content_change_check_interval]', array(
-    		'label' => __('Content change check interval (s)', 'wpds'),
-		'section' => 'signage',
-		'type' => 'number',
-	) );
-
-	//
-	// Layout section
-	//
-	$wp_customize->add_section( 'layout', array(
-        	'title' => __('Layout', 'wpds'),
-	) );
-	
-	// Show dock
-	$wp_customize->add_setting( 'layout[show-dock]', array(
-    		'default' => true,
-	) );
-	$wp_customize->add_control( 'layout[show-dock]', array(
-		'label'   => __('Show dock', 'wpds'),
-		'section' => 'layout',
-		'type' => 'checkbox',
-	) );
-
-	// Show network status box
-	$wp_customize->add_setting( 'layout[show-net-status-infobox]', array(
-    		'default' => true,
-	) );
-	$wp_customize->add_control( 'layout[show-net-status-infobox]', array(
-		'label'   => __('Show network status infobox', 'wpds'),
-		'section' => 'layout',
-		'type' => 'checkbox',
-	) );
-
-	//
-	// Colors section
-	//
-	$wp_customize->add_section( 'colors', array(
-        	'title' => __('Colors', 'wpds'),
-	) );
-
-	// Background color
-	$wp_customize->add_setting( 'colors[background-color]', array(
-    		'default' => '#ffffff',
-		'sanitize_callback'    => 'sanitize_hex_color_no_hash',
-		'sanitize_js_callback' => 'maybe_hash_hex_color',
-	) );
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[background-color]', array(
-		'label'   => __('Background Color', 'wpds'),
-		'section' => 'colors',
-	) ) );
-
-	// Headline color
-	$wp_customize->add_setting( 'colors[headline-color]', array(
-    		'default' => '#000000',
-		'sanitize_callback'    => 'sanitize_hex_color_no_hash',
-		'sanitize_js_callback' => 'maybe_hash_hex_color',
-	) );
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[headline-color]', array(
-		'label'   => __('Headline Color', 'wpds'),
-		'section' => 'colors',
-	) ) );
-
-	// Subhead color
-	$wp_customize->add_setting( 'colors[subhead-color]', array(
-    		'default' => '#000000',
-		'sanitize_callback'    => 'sanitize_hex_color_no_hash',
-		'sanitize_js_callback' => 'maybe_hash_hex_color',
-	) );
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[subhead-color]', array(
-		'label'   => __('Sub-headline Color', 'wpds'),
-		'section' => 'colors',
-	) ) );
-
-	// Copy color
-	$wp_customize->add_setting( 'colors[copy-color]', array(
-    		'default' => '#000000',
-		'sanitize_callback'    => 'sanitize_hex_color_no_hash',
-		'sanitize_js_callback' => 'maybe_hash_hex_color',
-	) );
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[copy-color]', array(
-		'label'   => __('Copy Color', 'wpds'),
-		'section' => 'colors',
-	) ) );
-
-	// Dock background color
-	$wp_customize->add_setting( 'colors[dock-background-color]', array(
-		'default' => 'rgba(79, 75, 75, 0.43)',
-	) );
-	$wp_customize->add_control( new Customize_Alpha_Color_Control( $wp_customize, 'colors[dock-background-color]', array(
-		'label'   => __('Dock Background Color', 'wpds'),
-		'section' => 'colors',
-	) ) );
-
-	// Dock foreground color
-	$wp_customize->add_setting( 'colors[dock-foreground-color]', array(
-    		'default' => '#ffffff',
-		'sanitize_callback'    => 'sanitize_hex_color_no_hash',
-		'sanitize_js_callback' => 'maybe_hash_hex_color',
-	) );
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colors[dock-foreground-color]', array(
-		'label'   => __('Dock Foreground Color', 'wpds'),
-		'section' => 'colors',
-	) ) );
-
-}
-add_action( 'customize_register', 'wpds_theme_customizer', 11 );
-
 /**
 * Load style
 */
@@ -845,18 +586,15 @@ add_action( 'wp_enqueue_scripts', 'wpds_theme_enqueue_styles' );
 * Load scripts
 */
 function wpds_load_scripts() {
-	wp_register_style( 'slick-css', get_template_directory_uri() . '/slick/slick.css' );
-	wp_enqueue_style( 'slick-css' );
+	wp_enqueue_style( 'reveal.js_css', get_template_directory_uri() . '/reveal.js/css/reveal.css' );
+	wp_enqueue_style( 'reveal.js_theme', get_template_directory_uri() . '/'. wpds_get_theme_css() );
 
 	wp_register_script( 'modernizr', get_template_directory_uri() . '/javascripts/vendor/custom.modernizr.js' );
 	wp_enqueue_script( 'modernizr' );
+
+	wp_register_script( 'reveal.js', get_template_directory_uri() . '/reveal.js/js/reveal.js' );
+	wp_enqueue_script( 'reveal.js', false, array('jquery'), false, true );
 	
-	wp_register_script( 'bootstrap', get_template_directory_uri() . '/javascripts/vendor/bootstrap.min.js' );
-	wp_enqueue_script( 'bootstrap', false, array('jquery'), false, true );
-
-	wp_register_script( 'slick-js', get_template_directory_uri() . '/slick/slick.min.js' );
-	wp_enqueue_script( 'slick-js', false, array('jquery'), false, true );
-
 	wp_register_script( 'app-js', get_template_directory_uri() . '/javascripts/app.js' );
 	wp_enqueue_script( 'app-js', false, array('jquery'), false, true );
 }
@@ -872,67 +610,86 @@ add_action( 'wp_enqueue_scripts', 'wpds_load_scripts' );
 * Get a color option, either from post meta data or from theme options
 */
 function get_color_option($post_id, $key) {
-	$colors = get_theme_mod( 'colors', [] );
 	$page_color = get_post_meta($post_id, $key, true);
 	if (!empty($page_color)) {
 		return $page_color;
-	}
-	if (!empty($colors[$key])) {
-		return $colors[$key];
 	}
 	return '';
 }
 
 function print_style($args) {
-	if (count($args) > 0) {
-		$style = [];
-		foreach ($args as $k => $v) {
-			$style[] = $k . ':' . $v;
+        if (count($args) > 0) {
+                $style = [];
+                foreach ($args as $k => $v) {
+                        $style[] = $k . ':' . $v;
+                }
+                return ' style="' . implode('; ', $style) . '"';
+        }
+        return '';
+}
+
+function print_data_attrs($data) {
+	if (count($data) > 0) {
+		$attrs = [];
+		foreach ($data as $k => $v) {
+			$attrs[] = $k . '="' . $v . '"';
 		}
-		return ' style="' . implode(';', $style) . '"';
+		return ' ' . implode(' ', $attrs);
 	}
 	return '';
 }
 
 function print_post_html($post) {
-	$large_image_url = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large');
-	$background_image = get_post_meta($post->ID, 'background-image', true);
+	
+	// Get the content
+	ob_start(); the_content(); $content = ob_get_clean();
+
+	// Layout block with featured image
+	$thumb = get_the_post_thumbnail($post->ID, 'large');
+	if (!empty($thumb)) {
+		$content = '<div class="layout-container">' .
+			'<div class="feature-img-container">' . $thumb . '</div>' .
+			'<div class="content-container">' . $content . '</div>' .
+			'</div>';
+	}
+	
+	// Data attributes
+	$data_attrs = [];
+	
+	// Background color
 	$background_color = get_color_option($post->ID, 'background-color');
+	if (!empty($background_color)) {
+		$data_attrs['data-background-color'] = $background_color;
+	}
+
+	// Background image
+	$background_image = get_post_meta($post->ID, 'background-image', true);
+	if (!empty($background_image)) {
+		$data_attrs['data-background-image'] = $background_image;
+	}
+	
+	// Background video
+	$background_video = get_post_meta($post->ID, 'background-video', true);
+	if (!empty($background_video)) {
+		$data_attrs['data-background-video'] = $background_video;
+	}
+
+	// Slide duration
+	$slide_duration = get_post_meta($post->ID, 'slide_duration', true);
+	if (!empty($slide_duration)) {
+		$data_attrs['data-autoslide'] = $slide_duration * 1000;
+	}
+
+	// Text colors
 	$head_color = get_color_option($post->ID, 'headline-color');
 	$subhead_color = get_color_option($post->ID, 'subhead-color');
 	$copy_color = get_color_option($post->ID, 'copy-color');
-
-	$thumb = get_the_post_thumbnail($post->ID, 'large', array('class' => 'img-responsive'));
-	$article_style = [];
-	if (!empty($background_color)) {
-		$article_style['background-color'] = '#' . $background_color;
-	}
-	if (!empty($background_image)) {
-		$article_style['background-image'] = 'url(' . $background_image . ')';
-	}
-	echo "\n" . '<article class="container-fluid"' . print_style($article_style) . '>',
-				'<h1' . ( !empty($head_color) ? ' style="color:#' . $head_color . ';"' : '' ) . '>' . get_the_title() . '</h1>' . "\n",
-				'<h2' . ( !empty($subhead_color) ? ' style="color:#' . $subhead_color . ';"' : '' ) . '>' . get_post_meta($post->ID, 'subtitle', true) . '</h2>' . "\n",
-				'<div class="row">',
-			!empty($thumb) ? '<div class="col-md-4 col-sm-4 col-xs-4">' . $thumb . '</div>' : '',
-			'<p class="' . ( !empty($thumb) ? 'col-md-8 col-sm-8 col-xs-8' : 'col-md-12 col-sm-12 col-xs-12') . ' lead"' . ( !empty($copy_color) ? ' style="color:#' . $copy_color . ';"' : '' ) . '>' . do_shortcode( nl2br(get_the_content()) ) . '</p>',
-				'</div>',
-				'</article>' ."\n";
-}
-
-function get_slider_args_html() {
-	$options = [];
-	$signage_opts = get_theme_mod( 'signage', [] );
-	$options['autoplaySpeed'] = 1000 * (
-		(!empty($signage_opts['timer_speed']) && intval($signage_opts['timer_speed']) > 0)
-			? intval($signage_opts['timer_speed']) 
-			: WPDS_DEFAULT_TIMER_SPEED
-	);
-	$options['speed'] = 
-		(!empty($signage_opts['animation_speed']) && intval($signage_opts['animation_speed']) > 0) 
-			? intval($signage_opts['animation_speed'])
-			: WPDS_DEFAULT_ANIMATION_SPEED;
-	return ( !empty($options) ? ' data-slick=\'' . json_encode($options) . '\'' : '');
+	
+	echo "\n" . '<section ' . print_data_attrs($data_attrs) . '>',
+				'<h2' . ( !empty($head_color) ? ' style="color:' . $head_color . ';"' : '' ) . '>' . get_the_title() . '</h2>' . "\n",
+				'<h3' . ( !empty($subhead_color) ? ' style="color:' . $subhead_color . ';"' : '' ) . '>' . get_post_meta($post->ID, 'subtitle', true) . '</h3>' . "\n",
+				'<div' . ( !empty($copy_color) ? ' style="color:' . $copy_color . ';"' : '' ) . '>' . $content . '</div>',
+				'</section>' ."\n";
 }
 
 // WPDS status page
@@ -962,6 +719,8 @@ function get_post_status_hash() {
 		}
 	endwhile; endif;
 	wp_reset_query();
+    // Add theme settings
+    $data[] = serialize(get_theme_mods());
 	return md5(implode(";", $data));
 }
 ?>

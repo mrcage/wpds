@@ -17,7 +17,7 @@ jQuery(document).ready(function($){
 			meta_image_frame.open();
 			return;
 		
-}
+		}
 		// Sets up the media library frame
 		meta_image_frame = wp.media.frames.meta_image_frame = wp.media({
 			title: meta_image.title,
@@ -32,10 +32,37 @@ jQuery(document).ready(function($){
 			var media_attachment = meta_image_frame.state().get('selection').first().toJSON();
 
 			// Sends the attachment URL to our custom image input field.
-			$('#background-image').val(media_attachment.url);
+			$('#background-image').val(media_attachment.url).trigger("change");
 		});
 
 		// Opens the media library frame.
 		meta_image_frame.open();
 	});
+	
+	$( '#background-image' ).on('propertychange change keyup paste input', function() {
+		showImagePreview(  $(this).val() );
+	});
+	$( '#background-image-remove a' ).click( function(){
+		$( '#background-image' ).val('').trigger( "change" );
+	});
+	showImagePreview( $( '#background-image' ).val() );
 });
+
+function showImagePreview(url) {
+	var container = jQuery( '#background-image-preview' );
+	container.empty();
+	if (url) {
+		var img = jQuery( '<img>' )
+			.attr('src', url)
+			.attr('alt', url)
+			.click(function(){
+				jQuery('#background-image-button').click();
+			});
+		container.append(img);
+		jQuery('#background-image-remove').show();
+		jQuery('#background-image-button').hide();
+	} else {
+		jQuery('#background-image-remove').hide();
+		jQuery('#background-image-button').show();
+	}
+}

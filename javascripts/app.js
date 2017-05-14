@@ -1,21 +1,22 @@
 jQuery(document).ready(function ($) {
-	$('#slider').slick({
-		autoplay: true,
-		arrows: false,
-		fade: true,
-		pauseOnFocus: false,
-		pauseOnHover: false
+	Reveal.initialize({
+		controls: false,
+		progress: false,
+		loop: true,
+		slideNumber: showSlideNumber,
+		center: centerVertically,
+		autoSlide: autoPlaySpeed,
+		autoSlideStoppable: autoplayStoppable,
+		transition: transitionStyle,
+		transitionSpeed: transitionSpeed,
+		margin: layoutMargin,
+		width: layoutWidth,
 	});
-	$('#slider article').height($(window).height());
-	$(window).resize(function(){
-		$('#slider article').height($(window).height());
-	});
-	$('#slider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-	  console.log(new Date().toLocaleTimeString() + ": change to next slide: " + nextSlide);
-	});
-	$('#slider').on('afterChange', function(event, slick, currentSlide){
-	  console.log(new Date().toLocaleTimeString() + ": shown slide: " + currentSlide);
-	});
+    
+    // Set dock font
+    jQuery('.dock')
+        .css('font-family', jQuery('.reveal').css('font-family'))
+        .css('font-weight', jQuery('.reveal').css('font-weight'));
 });
 
 // Periodic page reload (disabled by default)

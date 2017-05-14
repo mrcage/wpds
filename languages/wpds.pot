@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Digital Signage\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-27 21:16+0000\n"
+"POT-Creation-Date: 2017-05-14 10:46+0000\n"
 "POT-Revision-Date: Wed Jun 15 2016 01:08:55 GMT+0200 (W. Europe Standard "
 "Time)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -171,86 +171,54 @@ msgstr ""
 msgid "Statistics"
 msgstr ""
 
-#: functions.php:488
+#: functions.php:342
+msgid "Important Settings"
+msgstr ""
+
+#: functions.php:345 inc/customizer.php:58
+msgid "Timer speed (s)"
+msgstr ""
+
+#: functions.php:346 inc/customizer.php:111
+msgid "Content change check interval (s)"
+msgstr ""
+
+#: functions.php:348 inc/customizer.php:128
+msgid "Theme"
+msgstr ""
+
+#: functions.php:349 inc/customizer.php:211
+msgid "Show dock"
+msgstr ""
+
+#: functions.php:349
+msgid "Yes"
+msgstr ""
+
+#: functions.php:349
+msgid "No"
+msgstr ""
+
+#: functions.php:477
 #, php-format
 msgid ""
 "Developed by <a href=\"%s\" target=\"_blank\">%s</a> based on work by <a "
 "href=\"%s\" target=\"_blank\">%s</a>."
 msgstr ""
 
-#: functions.php:526
+#: functions.php:515
 msgid "Invalid sidebar ID"
 msgstr ""
 
-#: functions.php:552
+#: functions.php:541 inc/customizer.php:203
 msgid "Dock"
 msgstr ""
 
-#: functions.php:553
+#: functions.php:542
 msgid "Widget area at the bottom of the page."
 msgstr ""
 
-#: functions.php:692
-msgid "Slider"
-msgstr ""
-
-#: functions.php:700
-msgid "Timer speed (s)"
-msgstr ""
-
-#: functions.php:710
-msgid "Animation speed (ms)"
-msgstr ""
-
-#: functions.php:720
-msgid "Reload interval (min)"
-msgstr ""
-
-#: functions.php:730
-msgid "Content change check interval (s)"
-msgstr ""
-
-#: functions.php:739
-msgid "Layout"
-msgstr ""
-
-#: functions.php:747
-msgid "Show dock"
-msgstr ""
-
-#: functions.php:757
-msgid "Show network status infobox"
-msgstr ""
-
-#: functions.php:766
-msgid "Colors"
-msgstr ""
-
-#: functions.php:776 inc/post-details.php:104
-msgid "Background Color"
-msgstr ""
-
-#: functions.php:787 inc/post-details.php:119
-msgid "Headline Color"
-msgstr ""
-
-#: functions.php:798 inc/post-details.php:134
-msgid "Sub-headline Color"
-msgstr ""
-
-#: functions.php:809 inc/post-details.php:149
-msgid "Copy Color"
-msgstr ""
-
-#: functions.php:818
-msgid "Dock Background Color"
-msgstr ""
-
-#: functions.php:829
-msgid "Dock Foreground Color"
-msgstr ""
-
-#: sidebar-dock.php:20
+#: sidebar-dock.php:15
 msgid ""
 "Please add some widgets to the dock, or disable the dock in the customizer."
 msgstr ""
@@ -266,85 +234,185 @@ msgid "Subtitle"
 msgstr ""
 
 #: inc/post-details.php:18
-msgid "Details"
+msgid "Style"
 msgstr ""
 
 #: inc/post-details.php:19
 msgid "Display settings"
 msgstr ""
 
-#: inc/post-details.php:33
-msgid "Color reference"
+#: inc/post-details.php:32
+msgid "Background"
 msgstr ""
 
-#: inc/post-details.php:49 inc/post-details.php:107 inc/post-details.php:122
-#: inc/post-details.php:137 inc/post-details.php:152
-msgid "Orange"
+#: inc/post-details.php:34
+msgid "Background Image"
 msgstr ""
 
-#: inc/post-details.php:52 inc/post-details.php:108 inc/post-details.php:123
-#: inc/post-details.php:138 inc/post-details.php:153
-msgid "Red"
-msgstr ""
-
-#: inc/post-details.php:55 inc/post-details.php:109 inc/post-details.php:124
-#: inc/post-details.php:139 inc/post-details.php:154
-msgid "Yellow"
-msgstr ""
-
-#: inc/post-details.php:71 inc/post-details.php:110 inc/post-details.php:125
-#: inc/post-details.php:140 inc/post-details.php:155
-msgid "Blue"
-msgstr ""
-
-#: inc/post-details.php:74 inc/post-details.php:111 inc/post-details.php:126
-#: inc/post-details.php:141 inc/post-details.php:156
-msgid "Green"
-msgstr ""
-
-#: inc/post-details.php:77 inc/post-details.php:112 inc/post-details.php:127
-#: inc/post-details.php:142 inc/post-details.php:157
-msgid "Dark Gray"
-msgstr ""
-
-#: inc/post-details.php:93 inc/post-details.php:113 inc/post-details.php:128
-#: inc/post-details.php:143 inc/post-details.php:158
-msgid "Black Pearl"
-msgstr ""
-
-#: inc/post-details.php:96 inc/post-details.php:114 inc/post-details.php:129
-#: inc/post-details.php:144 inc/post-details.php:159
-msgid "Light Gray"
-msgstr ""
-
-#: inc/post-details.php:99 inc/post-details.php:115 inc/post-details.php:130
-#: inc/post-details.php:145 inc/post-details.php:160
-msgid "White"
-msgstr ""
-
-#: inc/post-details.php:106 inc/post-details.php:121 inc/post-details.php:136
-#: inc/post-details.php:151
-msgid "(use default)"
-msgstr ""
-
-#: inc/post-details.php:168
-msgid "Upload a background image (if you are using one)"
-msgstr ""
-
-#: inc/post-details.php:170 inc/post-details.php:315
+#: inc/post-details.php:35 inc/post-details.php:235
 msgid "Choose or Upload an Image"
 msgstr ""
 
-#: inc/post-details.php:181
+#: inc/post-details.php:38
+msgid "Remove background image"
+msgstr ""
+
+#: inc/post-details.php:41
+msgid "Background video (URL)"
+msgstr ""
+
+#: inc/post-details.php:46
+msgid "Background Color"
+msgstr ""
+
+#: inc/post-details.php:54
+msgid "Foreground"
+msgstr ""
+
+#: inc/post-details.php:57
+msgid "Headline Color"
+msgstr ""
+
+#: inc/post-details.php:58
+msgid "Sub-headline Color"
+msgstr ""
+
+#: inc/post-details.php:59
+msgid "Copy Color"
+msgstr ""
+
+#: inc/post-details.php:83
 msgid "Only show on certain days"
 msgstr ""
 
-#: inc/post-details.php:193
+#: inc/post-details.php:95
 msgid "Only show on certain time"
 msgstr ""
 
-#: inc/post-details.php:316
+#: inc/post-details.php:106
+msgid "Override slide duration"
+msgstr ""
+
+#: inc/post-details.php:106 inc/post-details.php:110
+msgid "seconds"
+msgstr ""
+
+#: inc/post-details.php:236
 msgid "Use this image"
+msgstr ""
+
+#: inc/customizer.php:50
+msgid "Slider"
+msgstr ""
+
+#: inc/customizer.php:68
+msgid "Allow user to stop autoplay"
+msgstr ""
+
+#: inc/customizer.php:78
+msgid "Transition style"
+msgstr ""
+
+#: inc/customizer.php:82
+msgid "None"
+msgstr ""
+
+#: inc/customizer.php:83
+msgid "Fade"
+msgstr ""
+
+#: inc/customizer.php:84
+msgid "Slide"
+msgstr ""
+
+#: inc/customizer.php:85
+msgid "Convex"
+msgstr ""
+
+#: inc/customizer.php:86
+msgid "Concave"
+msgstr ""
+
+#: inc/customizer.php:87
+msgid "Zoom"
+msgstr ""
+
+#: inc/customizer.php:96
+msgid "Transition speed"
+msgstr ""
+
+#: inc/customizer.php:100
+msgid "Default"
+msgstr ""
+
+#: inc/customizer.php:101
+msgid "Fast"
+msgstr ""
+
+#: inc/customizer.php:102
+msgid "Slow"
+msgstr ""
+
+#: inc/customizer.php:120
+msgid "Layout & Style"
+msgstr ""
+
+#: inc/customizer.php:139
+msgid "Text align"
+msgstr ""
+
+#: inc/customizer.php:143
+msgid "Left"
+msgstr ""
+
+#: inc/customizer.php:144
+msgid "Center"
+msgstr ""
+
+#: inc/customizer.php:145
+msgid "Right"
+msgstr ""
+
+#: inc/customizer.php:154
+msgid "Center content vertically"
+msgstr ""
+
+#: inc/customizer.php:164
+msgid "Custom width (px)"
+msgstr ""
+
+#: inc/customizer.php:174
+msgid "Margin"
+msgstr ""
+
+#: inc/customizer.php:184
+msgid "Show slide number"
+msgstr ""
+
+#: inc/customizer.php:194
+msgid "Show network status infobox"
+msgstr ""
+
+#: inc/customizer.php:221
+msgid "Dock Background Color"
+msgstr ""
+
+#: inc/customizer.php:232
+msgid "Dock Foreground Color"
+msgstr ""
+
+#: inc/customizer.php:240
+msgid "Settings"
+msgstr ""
+
+#: inc/customizer.php:248
+msgid "Reload interval (min)"
+msgstr ""
+
+#: inc/customizer.php:251
+msgid ""
+"If the value is greater than 0, the site will auto-reload after this "
+"definied time."
 msgstr ""
 
 msgid "Digital Signage"
