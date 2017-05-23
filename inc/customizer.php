@@ -25,7 +25,7 @@ define('DEFAULT_RELOAD_INTERVAL', 0);
 
 define('WPDS_THEME_DIR_REVEAL_JS', 'reveal.js/css/theme');
 define('WPDS_THEME_DIR_CUSTOM', 'stylesheets/themes');
-
+define('WPDS_DEFAULT_HIDE_TITLE_IF_BACKGROUN_IMAGE', false);
 
 /*
 // Uncomment to reset theme settings
@@ -177,6 +177,16 @@ function wpds_theme_customizer( $wp_customize ) {
 		'type' => 'number',
 	) );
 
+	// Hide title when using background image
+	$wp_customize->add_setting( 'layout[hide_title_if_backgroun_image]', array(
+		'default' => WPDS_DEFAULT_HIDE_TITLE_IF_BACKGROUN_IMAGE,
+	) );
+	$wp_customize->add_control( 'layout[hide_title_if_backgroun_image]', array(
+		'label'   => __('Hide title when using background image', 'wpds'),
+		'section' => 'layout',
+		'type' => 'checkbox',
+	) );
+    
 	// Show slide number
 	$wp_customize->add_setting( 'signage[show_slide_number]', array(
 		'default' => WPDS_DEFAULT_SHOW_SLIDE_NUMBER,
@@ -329,6 +339,13 @@ function wpds_show_slide_number() {
 	return isset($signage_opts['show_slide_number']) 
 			? $signage_opts['show_slide_number']
 			: WPDS_DEFAULT_SHOW_SLIDE_NUMBER;
+}
+
+function wpds_hide_title_if_using_backgroun_image() {
+	$signage_opts = get_theme_mod( 'layout', [] );
+	return isset($signage_opts['hide_title_if_backgroun_image']) 
+			? $signage_opts['hide_title_if_backgroun_image']
+			: WPDS_DEFAULT_HIDE_TITLE_IF_BACKGROUN_IMAGE;
 }
 
 function wpds_autoplay_stoppable() {

@@ -685,10 +685,17 @@ function print_post_html($post) {
 	$subhead_color = get_color_option($post->ID, 'subhead-color');
 	$copy_color = get_color_option($post->ID, 'copy-color');
 	
+    if (wpds_hide_title_if_using_backgroun_image() && (!empty($background_image) || !empty($background_video))) {
+        $title = $subtitle = '';
+    } else {
+        $title = '<h2' . ( !empty($head_color) ? ' style="color:' . $head_color . ';"' : '' ) . '>' . get_the_title() . '</h2>' . "\n";
+        $subtitle = '<h3' . ( !empty($subhead_color) ? ' style="color:' . $subhead_color . ';"' : '' ) . '>' . get_post_meta($post->ID, 'subtitle', true) . '</h3>' . "\n";
+    }
+    $content_block = '<div' . ( !empty($copy_color) ? ' style="color:' . $copy_color . ';"' : '' ) . '>' . $content . '</div>';
 	echo "\n" . '<section ' . print_data_attrs($data_attrs) . '>',
-				'<h2' . ( !empty($head_color) ? ' style="color:' . $head_color . ';"' : '' ) . '>' . get_the_title() . '</h2>' . "\n",
-				'<h3' . ( !empty($subhead_color) ? ' style="color:' . $subhead_color . ';"' : '' ) . '>' . get_post_meta($post->ID, 'subtitle', true) . '</h3>' . "\n",
-				'<div' . ( !empty($copy_color) ? ' style="color:' . $copy_color . ';"' : '' ) . '>' . $content . '</div>',
+				$title,
+				$subtitle,
+				$content_block,
 				'</section>' ."\n";
 }
 
