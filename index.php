@@ -12,7 +12,7 @@ get_header(); ?>
 			$args = array(
 				'post_type' => 'slide',
 				'post_status' => 'publish',
-				'orderby' => 'modified',
+				'orderby' => wpds_get_slide_order(),
 			);
 			$the_query = new WP_Query($args);
 			if ($the_query->have_posts()) : while ( $the_query->have_posts() ) : $the_query->the_post();

@@ -21,11 +21,22 @@ define('WPDS_DEFAULT_DOCK_BACKGROUND_COLOR', 'rgba(79, 75, 75, 0.43)');
 define('WPDS_DEFAULT_DOCK_FOREGROUND_COLOR', '#ffffff');
 define('WPDS_DEFAULT_SHOW_DOCK', false);
 define('WPDS_DEFAULT_CONTENT_CHANGE_CHECK_INTERVAL', 10);
+define('WPDS_DEFAULT_SLIDE_ORDER', 'modified');
 define('DEFAULT_RELOAD_INTERVAL', 0);
 
 define('WPDS_THEME_DIR_REVEAL_JS', 'reveal.js/css/theme');
 define('WPDS_THEME_DIR_CUSTOM', 'stylesheets/themes');
 define('WPDS_DEFAULT_HIDE_TITLE_IF_BACKGROUN_IMAGE', false);
+
+function get_slide_order_opts() {
+    return array(
+        'modified' => __('Last modified', 'wpds'),
+        'date' =>  __('Creation date', 'wpds'),
+        'title' =>  __('Title', 'wpds'),
+        'menu_order' =>  __('Explicit order', 'wpds'),
+        'rand' =>  __('Random', 'wpds'),
+    );    
+}
 
 /*
 // Uncomment to reset theme settings
@@ -113,7 +124,18 @@ function wpds_theme_customizer( $wp_customize ) {
 		'section' => 'signage',
 		'type' => 'number',
 	) );
-	
+
+    // Slide order
+	$wp_customize->add_setting( 'signage[slide_order]', array(
+	    'default' => WPDS_DEFAULT_SLIDE_ORDER,
+	) );
+	$wp_customize->add_control( 'signage[slide_order]', array(
+		'label' => __('Slide order', 'wpds'),
+		'section' => 'signage',
+		'type' => 'radio',
+		'choices' => get_slide_order_opts(),
+	) );
+
 	//
 	// Layout section
 	//
@@ -332,6 +354,13 @@ function wpds_get_transition_speed() {
 	return !empty($signage_opts['transition_speed'])
 			? $signage_opts['transition_speed'] 
 			: WPDS_DEFAULT_TRANSITION_SPEED;
+}
+
+function wpds_get_slide_order() {
+	$signage_opts = get_theme_mod( 'signage', [] );
+	return !empty($signage_opts['slide_order'])
+			? $signage_opts['slide_order'] 
+			: WPDS_DEFAULT_SLIDE_ORDER;
 }
 
 function wpds_show_slide_number() {

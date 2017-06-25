@@ -54,12 +54,15 @@ add_action( 'init', function() {
 		'not_found_in_trash'  => __( 'Not found in Trash', 'wpds' ),
 	);
 	
-// Set other options for Custom Post Type
-	
+    // Set other options for Custom Post Type
+    $supports = array( 'title', 'editor', 'author', 'thumbnail', 'revisions' );
+    if ( wpds_get_slide_order() == 'menu_order' ) {
+        $supports[] = 'page-attributes';
+    }
 	$args = array(
 		'label'               => __( 'Slides', 'wpds' ),
 		'labels'              => $labels,
-		'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'revisions' ),
+		'supports'            => $supports,
 		'taxonomies'          => array( 'channel' ),
 		'hierarchical'        => false,
 		'public'              => true,
@@ -247,8 +250,8 @@ if ( is_admin() ) {
 add_action( 'pre_get_posts', function($query) {
 	if ( $query->is_main_query() && ( $query->is_home() || $query->is_search() || $query->is_archive() )  )
 	{
-		$query->set( 'orderby', 'modified' );
-		$query->set( 'order', 'desc' );
+		$query->set( 'orderby', wpds_get_slide_order() );
+		$query->set( 'order', wpds_get_slide_order() == 'modified' ? 'desc' : 'asc' );
 	}
 });
 
@@ -344,6 +347,8 @@ add_action('wp_dashboard_setup', function() {
 		echo '<table style="width:100%">';
         echo wpds_dashboard_settings_item( __('Timer speed (s)', 'wpds'), round(wpds_get_auto_play_speed()/1000, 2), 'signage[timer_speed]' );
         echo wpds_dashboard_settings_item( __('Content change check interval (s)', 'wpds'), wpds_get_content_change_check_interval(), 'signage[content_change_check_interval]' );
+        $slide_order_opts = get_slide_order_opts();
+        echo wpds_dashboard_settings_item( __('Slide order', 'wpds'), isset($slide_order_opts[wpds_get_slide_order()]) ? $slide_order_opts[wpds_get_slide_order()] : '-', 'signage[slide_order]' );
         $themes = wpds_get_revealjs_themes();
         echo wpds_dashboard_settings_item( __('Theme', 'wpds'), isset($themes[wpds_get_theme()]) ? $themes[wpds_get_theme()] : '-', 'signage[theme]' );
         echo wpds_dashboard_settings_item( __('Show dock', 'wpds'), wpds_show_dock() ? __( 'Yes', 'wpds' ) : __( 'No', 'wpds' ), 'layout[show-dock]' );
@@ -717,7 +722,7 @@ function get_post_status_hash() {
 	$args = array(
 		'post_type' => 'slide',
 		'post_status' => 'publish',
-		'orderby' => 'modified',
+		'orderby' => wpds_get_slide_order(),
 	);
 	$the_query = new WP_Query($args);
 	if ($the_query->have_posts()) : while ( $the_query->have_posts() ) : $the_query->the_post();

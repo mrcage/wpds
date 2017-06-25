@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Digital Signage\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-23 17:18+0000\n"
+"POT-Creation-Date: 2017-05-30 06:41+0000\n"
 "POT-Revision-Date: Wed Jun 15 2016 01:08:55 GMT+0200 (W. Europe Standard "
 "Time)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -35,7 +35,7 @@ msgctxt "Post Type Singular Name"
 msgid "Slide"
 msgstr ""
 
-#: functions.php:44 functions.php:60 functions.php:331
+#: functions.php:44 functions.php:63 functions.php:334
 msgid "Slides"
 msgstr ""
 
@@ -79,142 +79,146 @@ msgstr ""
 msgid "Not found in Trash"
 msgstr ""
 
-#: functions.php:85 functions.php:93 functions.php:302
+#: functions.php:88 functions.php:96 functions.php:305
 msgid "Channels"
 msgstr ""
 
-#: functions.php:86 functions.php:106
+#: functions.php:89 functions.php:109
 msgid "Channel"
 msgstr ""
 
-#: functions.php:87
+#: functions.php:90
 msgid "Search Channels"
 msgstr ""
 
-#: functions.php:88
+#: functions.php:91
 msgid "All Channels"
 msgstr ""
 
-#: functions.php:89
+#: functions.php:92
 msgid "Edit Channel"
 msgstr ""
 
-#: functions.php:90
+#: functions.php:93
 msgid "Update Channel"
 msgstr ""
 
-#: functions.php:91
+#: functions.php:94
 msgid "Add new Channel"
 msgstr ""
 
-#: functions.php:92
+#: functions.php:95
 msgid "New Channel name"
 msgstr ""
 
-#: functions.php:94
+#: functions.php:97
 msgid "View Channel"
 msgstr ""
 
-#: functions.php:95
+#: functions.php:98
 msgid "Popular Channels"
 msgstr ""
 
-#: functions.php:96
+#: functions.php:99
 msgid "Separate Channels with commas"
 msgstr ""
 
-#: functions.php:97
+#: functions.php:100
 msgid "Add or remove Channels"
 msgstr ""
 
-#: functions.php:98
+#: functions.php:101
 msgid "Choose from the most used Channels"
 msgstr ""
 
-#: functions.php:99
+#: functions.php:102
 msgid "No Channels found"
 msgstr ""
 
-#: functions.php:163
+#: functions.php:166
 msgid "Show"
 msgstr ""
 
-#: functions.php:164
+#: functions.php:167
 msgid "Active now"
 msgstr ""
 
-#: functions.php:186
+#: functions.php:189
 msgid "Everyday"
 msgstr ""
 
-#: functions.php:208
+#: functions.php:211
 msgid "Active"
 msgstr ""
 
-#: functions.php:211
+#: functions.php:214
 msgid "Published, but not assigned to any channel"
 msgstr ""
 
-#: functions.php:216
+#: functions.php:219
 msgid "Not published"
 msgstr ""
 
-#: functions.php:218
+#: functions.php:221
 msgid "Not shown today"
 msgstr ""
 
-#: functions.php:220
+#: functions.php:223
 msgid "Not shown at this time"
 msgstr ""
 
-#: functions.php:259
+#: functions.php:262
 msgid "Statistics"
 msgstr ""
 
-#: functions.php:342
+#: functions.php:345
 msgid "Important Settings"
 msgstr ""
 
-#: functions.php:345 inc/customizer.php:59
+#: functions.php:348 inc/customizer.php:70
 msgid "Timer speed (s)"
 msgstr ""
 
-#: functions.php:346 inc/customizer.php:112
+#: functions.php:349 inc/customizer.php:123
 msgid "Content change check interval (s)"
 msgstr ""
 
-#: functions.php:348 inc/customizer.php:129
+#: functions.php:351 inc/customizer.php:133
+msgid "Slide order"
+msgstr ""
+
+#: functions.php:353 inc/customizer.php:151
 msgid "Theme"
 msgstr ""
 
-#: functions.php:349 inc/customizer.php:222
+#: functions.php:354 inc/customizer.php:244
 msgid "Show dock"
 msgstr ""
 
-#: functions.php:349
+#: functions.php:354
 msgid "Yes"
 msgstr ""
 
-#: functions.php:349
+#: functions.php:354
 msgid "No"
 msgstr ""
 
-#: functions.php:477
+#: functions.php:482
 #, php-format
 msgid ""
 "Developed by <a href=\"%s\" target=\"_blank\">%s</a> based on work by <a "
 "href=\"%s\" target=\"_blank\">%s</a>."
 msgstr ""
 
-#: functions.php:515
+#: functions.php:520
 msgid "Invalid sidebar ID"
 msgstr ""
 
-#: functions.php:541 inc/customizer.php:214
+#: functions.php:546 inc/customizer.php:236
 msgid "Dock"
 msgstr ""
 
-#: functions.php:542
+#: functions.php:547
 msgid "Widget area at the bottom of the page."
 msgstr ""
 
@@ -301,119 +305,139 @@ msgstr ""
 msgid "Use this image"
 msgstr ""
 
-#: inc/customizer.php:51
+#: inc/customizer.php:33
+msgid "Last modified"
+msgstr ""
+
+#: inc/customizer.php:34
+msgid "Creation date"
+msgstr ""
+
+#: inc/customizer.php:35
+msgid "Title"
+msgstr ""
+
+#: inc/customizer.php:36
+msgid "Explicit order"
+msgstr ""
+
+#: inc/customizer.php:37
+msgid "Random"
+msgstr ""
+
+#: inc/customizer.php:62
 msgid "Slider"
 msgstr ""
 
-#: inc/customizer.php:69
+#: inc/customizer.php:80
 msgid "Allow user to stop autoplay"
 msgstr ""
 
-#: inc/customizer.php:79
+#: inc/customizer.php:90
 msgid "Transition style"
 msgstr ""
 
-#: inc/customizer.php:83
+#: inc/customizer.php:94
 msgid "None"
 msgstr ""
 
-#: inc/customizer.php:84
+#: inc/customizer.php:95
 msgid "Fade"
 msgstr ""
 
-#: inc/customizer.php:85
+#: inc/customizer.php:96
 msgid "Slide"
 msgstr ""
 
-#: inc/customizer.php:86
+#: inc/customizer.php:97
 msgid "Convex"
 msgstr ""
 
-#: inc/customizer.php:87
+#: inc/customizer.php:98
 msgid "Concave"
 msgstr ""
 
-#: inc/customizer.php:88
+#: inc/customizer.php:99
 msgid "Zoom"
 msgstr ""
 
-#: inc/customizer.php:97
+#: inc/customizer.php:108
 msgid "Transition speed"
 msgstr ""
 
-#: inc/customizer.php:101
+#: inc/customizer.php:112
 msgid "Default"
 msgstr ""
 
-#: inc/customizer.php:102
+#: inc/customizer.php:113
 msgid "Fast"
 msgstr ""
 
-#: inc/customizer.php:103
+#: inc/customizer.php:114
 msgid "Slow"
 msgstr ""
 
-#: inc/customizer.php:121
+#: inc/customizer.php:143
 msgid "Layout & Style"
 msgstr ""
 
-#: inc/customizer.php:140
+#: inc/customizer.php:162
 msgid "Text align"
 msgstr ""
 
-#: inc/customizer.php:144
+#: inc/customizer.php:166
 msgid "Left"
 msgstr ""
 
-#: inc/customizer.php:145
+#: inc/customizer.php:167
 msgid "Center"
 msgstr ""
 
-#: inc/customizer.php:146
+#: inc/customizer.php:168
 msgid "Right"
 msgstr ""
 
-#: inc/customizer.php:155
+#: inc/customizer.php:177
 msgid "Center content vertically"
 msgstr ""
 
-#: inc/customizer.php:165
+#: inc/customizer.php:187
 msgid "Custom width (px)"
 msgstr ""
 
-#: inc/customizer.php:175
+#: inc/customizer.php:197
 msgid "Margin"
 msgstr ""
 
-#: inc/customizer.php:185
+#: inc/customizer.php:207
 msgid "Hide title when using background image"
 msgstr ""
 
-#: inc/customizer.php:195
+#: inc/customizer.php:217
 msgid "Show slide number"
 msgstr ""
 
-#: inc/customizer.php:205
+#: inc/customizer.php:227
 msgid "Show network status infobox"
 msgstr ""
 
-#: inc/customizer.php:232
+#: inc/customizer.php:254
 msgid "Dock Background Color"
 msgstr ""
 
-#: inc/customizer.php:243
+#: inc/customizer.php:265
 msgid "Dock Foreground Color"
 msgstr ""
 
-#: inc/customizer.php:251
+#: inc/customizer.php:273
 msgid "Settings"
 msgstr ""
 
-#: inc/customizer.php:259
+#: inc/customizer.php:281
 msgid "Reload interval (min)"
 msgstr ""
 
-#: inc/customizer.php:262
+#: inc/customizer.php:284
 msgid ""
 "If the value is greater than 0, the site will auto-reload after this "
 "definied time."
