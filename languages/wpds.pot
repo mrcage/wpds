@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Digital Signage\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-30 06:41+0000\n"
+"POT-Creation-Date: 2017-06-26 06:50+0000\n"
 "POT-Revision-Date: Wed Jun 15 2016 01:08:55 GMT+0200 (W. Europe Standard "
 "Time)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -214,11 +214,11 @@ msgstr ""
 msgid "Invalid sidebar ID"
 msgstr ""
 
-#: functions.php:546 inc/customizer.php:236
+#: functions.php:551 inc/customizer.php:236
 msgid "Dock"
 msgstr ""
 
-#: functions.php:547
+#: functions.php:552
 msgid "Widget area at the bottom of the page."
 msgstr ""
 
@@ -429,15 +429,20 @@ msgstr ""
 msgid "Dock Foreground Color"
 msgstr ""
 
-#: inc/customizer.php:273
+#: inc/customizer.php:275
+#, php-format
+msgid "Width of dock container %d in %%"
+msgstr ""
+
+#: inc/customizer.php:285
 msgid "Settings"
 msgstr ""
 
-#: inc/customizer.php:281
+#: inc/customizer.php:293
 msgid "Reload interval (min)"
 msgstr ""
 
-#: inc/customizer.php:284
+#: inc/customizer.php:296
 msgid ""
 "If the value is greater than 0, the site will auto-reload after this "
 "definied time."

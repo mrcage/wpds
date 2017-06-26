@@ -16,6 +16,18 @@
 		<meta name="viewport" content="width=device-width" />
 		<title><?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?></title>
 			<?php wp_head(); ?>
+        <?php
+        $widths = wpds_get_dock_widths();
+        if (count($widths) > 0 && count($widths) == count_sidebar_widgets('dock')) {
+            ?>
+            <style tyle="text/css">
+                <?php for ( $i = 0; $i < count($widths); $i++ ): ?>
+                    .dock-container > .dock-element:nth-child(<?=($i+1)?>) { width: <?=$widths[$i]?>%; }
+                <?php endfor; ?>
+            </style>
+            <?php
+        }
+        ?>
 	</head>
 	<?php
 		

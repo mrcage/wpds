@@ -266,6 +266,18 @@ function wpds_theme_customizer( $wp_customize ) {
 		'section' => 'dock',
 	) ) );
 
+	// Widths of dock containers
+	for ($i = 0; $i < count_sidebar_widgets('dock'); $i ++) {
+		$wp_customize->add_setting( 'dock[width_' . $i . ']', array(
+			'default' => '',
+		) );
+		$wp_customize->add_control( 'dock[width_' . $i . ']', array(
+			'label' => sprintf(__('Width of dock container %d in %%', 'wpds'), $i + 1),
+			'section' => 'dock',
+			'type' => 'number'
+		) );
+	}
+
 	//
 	// Settings section
 	//
@@ -440,4 +452,15 @@ function wpds_show_dock() {
 	return isset($opts['show-dock']) 
 			? $opts['show-dock']
 			: WPDS_DEFAULT_SHOW_DOCK;
+}
+
+function wpds_get_dock_widths() {
+    $opts = get_theme_mod( 'dock', [] );
+    $widths = [];
+    for ($i = 0; $i < count_sidebar_widgets('dock'); $i ++) {
+        if ( isset( $opts[ 'width_' . $i ] ) && $opts[ 'width_' . $i ] > 0 ) {
+            $widths[] = $opts[ 'width_' . $i ];
+        }
+    }
+    return $widths;
 }

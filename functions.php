@@ -540,12 +540,17 @@ function get_grid_number_from_widgets( $sidebar_id ) {
 //
 //***********************
 function wpds_widgets_init() {
-	$widget_width = get_grid_number_from_widgets( 'dock' );
+    $widths = wpds_get_dock_widths();
+    $widget_style = '';
+    if (count($widths) == 0 || count($widths) != count_sidebar_widgets('dock')) {
+        $widget_width = get_grid_number_from_widgets( 'dock' );
+        $widget_style = ' style="width:' . $widget_width . '%%"';
+    }
 	register_sidebar(array(
 		'id' => 'dock',
 		'name'=> __('Dock', 'wpds'),
 		'description' => __('Widget area at the bottom of the page.', 'wpds'),
-		'before_widget' => $widget_count . '<div id="%1$s" class="dock-element %2$s" style="width:' . $widget_width . '%%">',
+		'before_widget' => '<div id="%1$s" class="dock-element %2$s"' . $widget_style . '>',
 		'after_widget' => '</div>'."\n",
 		'before_title' => '<h3>',
 		'after_title' => '</h3>'
