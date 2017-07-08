@@ -36,6 +36,7 @@
 				var showSlideNumber=<?=wpds_show_slide_number() ? 'true' : 'false'?>;
 				var centerVertically=<?=wpds_center_vertically() ? 'true' : 'false'?>;
 				var autoplayStoppable=<?=wpds_autoplay_stoppable() ? 'true' : 'false'?>;
+				var statusUrl='<?=get_site_url(null, 'wpds-status')?>';
 		</script>
 		<?php wp_footer(); ?>
 

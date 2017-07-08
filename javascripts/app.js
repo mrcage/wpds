@@ -55,7 +55,7 @@ function wpdsCheckModifiedContent(modifiedContentCheckInterval) {
 	window.setTimeout(function(){
 		//console.log('Checking for content change...');
 		jQuery.get({
-			url  : "/wpds-status"
+			url  : statusUrl
 		})
 		.done(function(data) {
 			if (data != postModified) {
