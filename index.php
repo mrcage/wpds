@@ -9,7 +9,7 @@ get_header(); ?>
 
 	<!-- Main Content -->
 	<?php
-		if (wpds_get_index_behaviour() == 'channels') {
+		if (wpds_get_index_behaviour() == 'channels' && !is_customize_preview() ) {
 	?>
 			<div class="overview-container">
 				<h1><?=__('Digital Signage', 'wpds')?></h1>
@@ -64,7 +64,7 @@ get_header(); ?>
 				<p class="overview-login"><a href="<?=admin_url()?>"><?=__( 'Login', 'wpds' )?></a></p>
 			</div>
 			<?php
-		} else if (wpds_get_index_behaviour() == 'slides') {
+		} else if (wpds_get_index_behaviour() == 'slides' || is_customize_preview()) {
 			$args = array(
 				'post_type' => 'slide',
 				'post_status' => 'publish',

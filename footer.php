@@ -7,7 +7,7 @@
  * @package WordPress
  */
 ?>
-		<?php if (!is_front_page() || wpds_get_index_behaviour() == 'slides'): ?>
+		<?php if (!is_front_page() || is_customize_preview() || wpds_get_index_behaviour() == 'slides'): ?>
 			</div>
 		</div>
 

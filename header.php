@@ -38,7 +38,7 @@
 		}
 	?>
 	<body <?php body_class(); ?>>
-		<?php if (!is_front_page() || wpds_get_index_behaviour() == 'slides'): ?>
+		<?php if (!is_front_page() || is_customize_preview() || wpds_get_index_behaviour() == 'slides'): ?>
 		<div class="reveal">
 			<div class="slides"<?php echo print_style($slide_style);?>>
 		<?php endif; ?>
