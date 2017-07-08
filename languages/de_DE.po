@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Digital Signage\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-26 06:50+0000\n"
-"PO-Revision-Date: 2017-06-26 06:50+0000\n"
+"POT-Creation-Date: 2017-07-08 13:23+0000\n"
+"PO-Revision-Date: 2017-07-08 13:24+0000\n"
 "Last-Translator: nicolas <mail@nicu.ch>\n"
 "Language-Team: German\n"
 "Language: de-DE\n"
@@ -22,10 +22,41 @@ msgstr ""
 "X-Loco-Target-Locale: de_DE\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#: inc/customizer.php:275
-#, php-format
-msgid "Width of dock container %d in %%"
-msgstr "Breite des Dock-Containers %d in %%"
+#: index.php:20
+msgid "URL"
+msgstr "URL"
+
+#: index.php:64
+msgid "Login"
+msgstr "Login"
+
+#: inc/customizer.php:305
+msgid "Index page behaviour"
+msgstr "Verhalten der Startseite"
+
+#: inc/customizer.php:309
+msgid "Show channel overview"
+msgstr "Übersicht über alle Kanäle anzeigen"
+
+#: inc/customizer.php:310
+msgid "Show all active slides"
+msgstr "Alle aktive Folien anzeigen"
+
+#: index.php:15
+msgid "Digital Signage"
+msgstr "Digital Signage"
+
+#: index.php:19 functions.php:89 functions.php:109
+msgid "Channel"
+msgstr "Kanal"
+
+#: index.php:21 functions.php:44 functions.php:63 functions.php:334
+msgid "Slides"
+msgstr "Folien"
+
+#: index.php:59 functions.php:102
+msgid "No Channels found"
+msgstr "Keine Kanäle gefunden"
 
 #: functions.php:42
 msgctxt "Post Type General Name"
@@ -36,10 +67,6 @@ msgstr "Folien"
 msgctxt "Post Type Singular Name"
 msgid "Slide"
 msgstr "Folie"
-
-#: functions.php:44 functions.php:63 functions.php:334
-msgid "Slides"
-msgstr "Folien"
 
 #: functions.php:45
 msgid "Parent Slide"
@@ -85,10 +112,6 @@ msgstr "Nicht im Papierkorb gefunden"
 msgid "Channels"
 msgstr "Kanäle"
 
-#: functions.php:89 functions.php:109
-msgid "Channel"
-msgstr "Kanal"
-
 #: functions.php:90
 msgid "Search Channels"
 msgstr "Kanal suchen"
@@ -133,10 +156,6 @@ msgstr "Kanäle hinzufügen oder entfernen"
 msgid "Choose from the most used Channels"
 msgstr "Wählen Sie aus den meistbenutzten Kanälen"
 
-#: functions.php:102
-msgid "No Channels found"
-msgstr "Keine Kanäle gefunden"
-
 #: functions.php:166
 msgid "Show"
 msgstr "Anzeigen"
@@ -177,23 +196,23 @@ msgstr "Statistik"
 msgid "Important Settings"
 msgstr "Wichtige Einstellungen"
 
-#: functions.php:348 inc/customizer.php:70
+#: functions.php:348 inc/customizer.php:71
 msgid "Timer speed (s)"
 msgstr "Anzeigedauer (s)"
 
-#: functions.php:349 inc/customizer.php:123
+#: functions.php:349 inc/customizer.php:124
 msgid "Content change check interval (s)"
 msgstr "Interval zur Überprüfung auf neuen Inhalt (s)"
 
-#: functions.php:351 inc/customizer.php:133
+#: functions.php:351 inc/customizer.php:134
 msgid "Slide order"
 msgstr "Folein-Reihenfolge"
 
-#: functions.php:353 inc/customizer.php:151
+#: functions.php:353 inc/customizer.php:152
 msgid "Theme"
 msgstr "Thema"
 
-#: functions.php:354 inc/customizer.php:244
+#: functions.php:354 inc/customizer.php:245
 msgid "Show dock"
 msgstr "Dock anzeigen"
 
@@ -218,7 +237,7 @@ msgstr ""
 msgid "Invalid sidebar ID"
 msgstr "Ungültige Seitenleisten-ID"
 
-#: functions.php:551 inc/customizer.php:236
+#: functions.php:551 inc/customizer.php:237
 msgid "Dock"
 msgstr "Dock"
 
@@ -311,148 +330,150 @@ msgstr "Sekunden"
 msgid "Use this image"
 msgstr "Dieses Bild verwenden"
 
-#: inc/customizer.php:33
+#: inc/customizer.php:34
 msgid "Last modified"
 msgstr "Zuletzt geändert"
 
-#: inc/customizer.php:34
+#: inc/customizer.php:35
 msgid "Creation date"
 msgstr "Datum der Erstellung"
 
-#: inc/customizer.php:35
+#: inc/customizer.php:36
 msgid "Title"
 msgstr "Titel"
 
-#: inc/customizer.php:36
+#: inc/customizer.php:37
 msgid "Explicit order"
 msgstr "Explizite Reihenfolge"
 
-#: inc/customizer.php:37
+#: inc/customizer.php:38
 msgid "Random"
 msgstr "Zufall"
 
-#: inc/customizer.php:62
+#: inc/customizer.php:63
 msgid "Slider"
 msgstr "Slider"
 
-#: inc/customizer.php:80
+#: inc/customizer.php:81
 msgid "Allow user to stop autoplay"
 msgstr "Erlaube dem Benutzer, die Präsentation anzuhalten"
 
-#: inc/customizer.php:90
+#: inc/customizer.php:91
 msgid "Transition style"
 msgstr "Übergangsstil"
 
-#: inc/customizer.php:94
+#: inc/customizer.php:95
 msgid "None"
 msgstr "Nichts"
 
-#: inc/customizer.php:95
+#: inc/customizer.php:96
 msgid "Fade"
 msgstr "Überblendung"
 
-#: inc/customizer.php:96
+#: inc/customizer.php:97
 msgid "Slide"
 msgstr "Gleiten"
 
-#: inc/customizer.php:97
+#: inc/customizer.php:98
 msgid "Convex"
 msgstr "Konvex"
 
-#: inc/customizer.php:98
+#: inc/customizer.php:99
 msgid "Concave"
 msgstr "Konkav"
 
-#: inc/customizer.php:99
+#: inc/customizer.php:100
 msgid "Zoom"
 msgstr "Zoom"
 
-#: inc/customizer.php:108
+#: inc/customizer.php:109
 msgid "Transition speed"
 msgstr "Übergangsgeschwindigkeit"
 
-#: inc/customizer.php:112
+#: inc/customizer.php:113
 msgid "Default"
 msgstr "Standard"
 
-#: inc/customizer.php:113
+#: inc/customizer.php:114
 msgid "Fast"
 msgstr "Schnell"
 
-#: inc/customizer.php:114
+#: inc/customizer.php:115
 msgid "Slow"
 msgstr "Langsam"
 
-#: inc/customizer.php:143
+#: inc/customizer.php:144
 msgid "Layout & Style"
 msgstr "Layout & Stil"
 
-#: inc/customizer.php:162
+#: inc/customizer.php:163
 msgid "Text align"
 msgstr "Textausrichtung"
 
-#: inc/customizer.php:166
+#: inc/customizer.php:167
 msgid "Left"
 msgstr "Links"
 
-#: inc/customizer.php:167
+#: inc/customizer.php:168
 msgid "Center"
 msgstr "Zentriert"
 
-#: inc/customizer.php:168
+#: inc/customizer.php:169
 msgid "Right"
 msgstr "Rechts"
 
-#: inc/customizer.php:177
+#: inc/customizer.php:178
 msgid "Center content vertically"
 msgstr "Inhalt vertikal zentrieren"
 
-#: inc/customizer.php:187
+#: inc/customizer.php:188
 msgid "Custom width (px)"
 msgstr "Benutzerdefinierte Breite (Pixel)"
 
-#: inc/customizer.php:197
+#: inc/customizer.php:198
 msgid "Margin"
 msgstr "Randabstand"
 
-#: inc/customizer.php:207
+#: inc/customizer.php:208
 msgid "Hide title when using background image"
 msgstr "Titel bei Verwendung eines Hintergrundbildes nicht anzeigen"
 
-#: inc/customizer.php:217
+#: inc/customizer.php:218
 msgid "Show slide number"
 msgstr "Foliennummer anzeigen"
 
-#: inc/customizer.php:227
+#: inc/customizer.php:228
 msgid "Show network status infobox"
 msgstr "Netzwerkstatus-Infobox anzeigen"
 
-#: inc/customizer.php:254
+#: inc/customizer.php:255
 msgid "Dock Background Color"
 msgstr "Hintergrundfarbe des Docks"
 
-#: inc/customizer.php:265
+#: inc/customizer.php:266
 msgid "Dock Foreground Color"
 msgstr "Vordergrundfarbe des Docks"
 
-#: inc/customizer.php:285
+#: inc/customizer.php:276
+#, php-format
+msgid "Width of dock container %d in %%"
+msgstr "Breite des Dock-Containers %d in %%"
+
+#: inc/customizer.php:286
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: inc/customizer.php:293
+#: inc/customizer.php:294
 msgid "Reload interval (min)"
 msgstr "Aktualisierungs-Intervall (min)"
 
-#: inc/customizer.php:296
+#: inc/customizer.php:297
 msgid ""
 "If the value is greater than 0, the site will auto-reload after this "
 "definied time."
 msgstr ""
 "Wenn dieser Wert grösser als 0 ist, wird die Seite nach der definierten Zeit "
 "automatisch neu geladen."
-
-msgid "Digital Signage"
-msgstr "Digital Signage"
 
 #. Theme URI of the theme
 msgid "https://github.com/mrcage/wpds"

@@ -27,6 +27,7 @@ define('DEFAULT_RELOAD_INTERVAL', 0);
 define('WPDS_THEME_DIR_REVEAL_JS', 'reveal.js/css/theme');
 define('WPDS_THEME_DIR_CUSTOM', 'stylesheets/themes');
 define('WPDS_DEFAULT_HIDE_TITLE_IF_BACKGROUN_IMAGE', false);
+define('WPDS_DEFAULT_INDEX_BEHAVIOUR', 'channels');
 
 function get_slide_order_opts() {
     return array(
@@ -296,6 +297,20 @@ function wpds_theme_customizer( $wp_customize ) {
         'description' => __('If the value is greater than 0, the site will auto-reload after this definied time.', 'wpds'),
 	) );
     
+	// Show channel overview in on index
+	$wp_customize->add_setting( 'settings[index_bevahiour]', array(
+		'default' => WPDS_DEFAULT_INDEX_BEHAVIOUR,
+	) );
+	$wp_customize->add_control( 'settings[index_bevahiour]', array(
+		'label'   => __('Index page behaviour', 'wpds'),
+		'section' => 'settings',
+		'type' => 'radio',
+		'choices' => array(
+			'channels' => __('Show channel overview', 'wpds'),
+			'slides' =>  __('Show all active slides', 'wpds'),
+		)
+	) );
+	
 }
 add_action( 'customize_register', 'wpds_theme_customizer', 11 );
 
@@ -445,6 +460,13 @@ function wpds_get_dock_foreground_color() {
 	return !empty($opts['dock-foreground-color'])
 			? '#' . $opts['dock-foreground-color'] 
 			: WPDS_DEFAULT_DOCK_FOREGROUND_COLOR;
+}
+
+function wpds_get_index_behaviour() {
+	$opts = get_theme_mod( 'settings', [] );
+	return !empty($opts['index_bevahiour'])
+			? $opts['index_bevahiour'] 
+			: WPDS_DEFAULT_INDEX_BEHAVIOUR;
 }
 
 function wpds_show_dock() {

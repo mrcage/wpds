@@ -7,6 +7,7 @@
  * @package WordPress
  */
 ?>
+		<?php if (!is_front_page() || wpds_get_index_behaviour() == 'slides'): ?>
 			</div>
 		</div>
 
@@ -38,6 +39,8 @@
 				var autoplayStoppable=<?=wpds_autoplay_stoppable() ? 'true' : 'false'?>;
 				var statusUrl='<?=get_site_url(null, 'wpds-status')?>';
 		</script>
+		<?php endif; ?>
+
 		<?php wp_footer(); ?>
 
 	</body>
