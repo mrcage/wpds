@@ -1,17 +1,19 @@
 jQuery(document).ready(function ($) {
-	Reveal.initialize({
-		controls: false,
-		progress: false,
-		loop: true,
-		slideNumber: showSlideNumber,
-		center: centerVertically,
-		autoSlide: autoPlaySpeed,
-		autoSlideStoppable: autoplayStoppable,
-		transition: transitionStyle,
-		transitionSpeed: transitionSpeed,
-		margin: layoutMargin,
-		width: layoutWidth,
-	});
+	if ($('.reveal').length) {
+		Reveal.initialize({
+			controls: false,
+			progress: false,
+			loop: true,
+			slideNumber: showSlideNumber,
+			center: centerVertically,
+			autoSlide: autoPlaySpeed,
+			autoSlideStoppable: autoplayStoppable,
+			transition: transitionStyle,
+			transitionSpeed: transitionSpeed,
+			margin: layoutMargin,
+			width: layoutWidth,
+		});
+	}
     
     // Set dock font
     jQuery('.dock')

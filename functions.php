@@ -602,11 +602,8 @@ function wpds_load_scripts() {
 	wp_register_script( 'modernizr', get_template_directory_uri() . '/javascripts/vendor/custom.modernizr.js' );
 	wp_enqueue_script( 'modernizr' );
 
-	wp_register_script( 'reveal.js', get_template_directory_uri() . '/reveal.js/js/reveal.js' );
-	wp_enqueue_script( 'reveal.js', false, array('jquery'), false, true );
-	
-	wp_register_script( 'app-js', get_template_directory_uri() . '/javascripts/app.js' );
-	wp_enqueue_script( 'app-js', false, array('jquery'), false, true );
+	wp_enqueue_script( 'reveal.js', get_template_directory_uri() . '/reveal.js/js/reveal.js', array('jquery'), false, true );
+	wp_enqueue_script( 'app-js', get_template_directory_uri() . '/javascripts/app.js', array('jquery'), false, true );
 }
 add_action( 'wp_enqueue_scripts', 'wpds_load_scripts' );
 
@@ -712,7 +709,7 @@ function print_post_html($post) {
 // WPDS status page
 add_action('init', function() {
 	$url_path = trim(parse_url(add_query_arg(array()), PHP_URL_PATH), '/');
-	if ( $url_path === 'wpds-status' ) {
+	if ( ('/' . $url_path) === (wp_make_link_relative( get_site_url()) . '/wpds-status') ) {
 		// load the file if exists
 		$load = locate_template('status.php', true);
 		if ($load) {
