@@ -1,7 +1,7 @@
 
 	<?php if ( wpds_show_dock() ): ?>
 		<?php
-			$dock_style = [];
+			$dock_style = array();
 			$dock_style['color'] = wpds_get_dock_foreground_color();
 			$dock_style['background-color'] = wpds_get_dock_background_color();
 		?>

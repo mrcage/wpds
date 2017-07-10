@@ -626,7 +626,7 @@ function get_color_option($post_id, $key) {
 
 function print_style($args) {
         if (count($args) > 0) {
-                $style = [];
+                $style = array();
                 foreach ($args as $k => $v) {
                         $style[] = $k . ':' . $v;
                 }
@@ -637,7 +637,7 @@ function print_style($args) {
 
 function print_data_attrs($data) {
 	if (count($data) > 0) {
-		$attrs = [];
+		$attrs = array();
 		foreach ($data as $k => $v) {
 			$attrs[] = $k . '="' . $v . '"';
 		}
@@ -661,7 +661,7 @@ function print_post_html($post) {
 	}
 	
 	// Data attributes
-	$data_attrs = [];
+	$data_attrs = array();
 	
 	// Background color
 	$background_color = get_color_option($post->ID, 'background-color');
@@ -720,7 +720,7 @@ add_action('init', function() {
 
 function get_post_status_hash() {
 	global $post;
-	$data = [];
+	$data = array();
 	$args = array(
 		'post_type' => 'slide',
 		'post_status' => 'publish',

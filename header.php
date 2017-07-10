@@ -31,7 +31,7 @@
 	</head>
 	<?php
 		
-		$slide_style = [];
+		$slide_style = array();
 		$text_align = wpds_get_text_algin();
 		if ($text_align != WPDS_DEFAULT_TEXT_ALIGN) {
 			$slide_style['text-align'] = $text_align;

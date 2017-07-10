@@ -333,21 +333,21 @@ function wpds_scan_dir_for_themes($theme_dir) {
 }
 
 function wpds_get_layout_width() {
-	$opts = get_theme_mod( 'layout', [] );
+	$opts = get_theme_mod( 'layout', array() );
 	return (!empty($opts['width']) && intval($opts['width']) > 0)
 			? intval($opts['width']) 
 			: WPDS_DEFAULT_WIDTH;
 }
 
 function wpds_get_layout_margin() {
-	$opts = get_theme_mod( 'layout', [] );
+	$opts = get_theme_mod( 'layout', array() );
 	return ((isset($opts['margin']) && intval($opts['margin']) >= 0)
 			? intval($opts['margin'])
 			: WPDS_DEFAULT_MARGIN) / 100;
 }
 
 function wpds_get_auto_play_speed() {
-	$signage_opts = get_theme_mod( 'signage', [] );
+	$signage_opts = get_theme_mod( 'signage', array() );
 	return 1000 * (
 		(!empty($signage_opts['timer_speed']) && intval($signage_opts['timer_speed']) > 0)
 			? intval($signage_opts['timer_speed']) 
@@ -356,70 +356,70 @@ function wpds_get_auto_play_speed() {
 }
 
 function wpds_get_content_change_check_interval() {
-	$opts = get_theme_mod( 'signage', [] );
+	$opts = get_theme_mod( 'signage', array() );
 	return ((isset($opts['content_change_check_interval']) && intval($opts['content_change_check_interval']) >= 0)
 			? intval($opts['content_change_check_interval'])
 			: WPDS_DEFAULT_CONTENT_CHANGE_CHECK_INTERVAL);
 }
 
 function wpds_get_reload_interval() {
-	$opts = get_theme_mod( 'signage', [] );
+	$opts = get_theme_mod( 'signage', array() );
 	return ((isset($opts['reload_interval']) && intval($opts['reload_interval']) >= 0)
 			? intval($opts['reload_interval'])
 			: DEFAULT_RELOAD_INTERVAL);
 }
 
 function wpds_get_transition_style() {
-	$signage_opts = get_theme_mod( 'signage', [] );
+	$signage_opts = get_theme_mod( 'signage', array() );
 	return !empty($signage_opts['transition_style'])
 			? $signage_opts['transition_style'] 
 			: WPDS_DEFAULT_TRANSITION_STYLE;
 }
 
 function wpds_get_transition_speed() {
-	$signage_opts = get_theme_mod( 'signage', [] );
+	$signage_opts = get_theme_mod( 'signage', array() );
 	return !empty($signage_opts['transition_speed'])
 			? $signage_opts['transition_speed'] 
 			: WPDS_DEFAULT_TRANSITION_SPEED;
 }
 
 function wpds_get_slide_order() {
-	$signage_opts = get_theme_mod( 'signage', [] );
+	$signage_opts = get_theme_mod( 'signage', array() );
 	return !empty($signage_opts['slide_order'])
 			? $signage_opts['slide_order'] 
 			: WPDS_DEFAULT_SLIDE_ORDER;
 }
 
 function wpds_show_slide_number() {
-	$signage_opts = get_theme_mod( 'signage', [] );
+	$signage_opts = get_theme_mod( 'signage', array() );
 	return isset($signage_opts['show_slide_number']) 
 			? $signage_opts['show_slide_number']
 			: WPDS_DEFAULT_SHOW_SLIDE_NUMBER;
 }
 
 function wpds_hide_title_if_using_backgroun_image() {
-	$signage_opts = get_theme_mod( 'layout', [] );
+	$signage_opts = get_theme_mod( 'layout', array() );
 	return isset($signage_opts['hide_title_if_backgroun_image']) 
 			? $signage_opts['hide_title_if_backgroun_image']
 			: WPDS_DEFAULT_HIDE_TITLE_IF_BACKGROUN_IMAGE;
 }
 
 function wpds_autoplay_stoppable() {
-	$signage_opts = get_theme_mod( 'signage', [] );
+	$signage_opts = get_theme_mod( 'signage', array() );
 	return isset($signage_opts['autoplay_stoppable']) 
 			? $signage_opts['autoplay_stoppable']
 			: WPDS_DEFAULT_AUTOPLAY_STOPPABLE;
 }
 
 function wpds_center_vertically() {
-	$signage_opts = get_theme_mod( 'signage', [] );
+	$signage_opts = get_theme_mod( 'signage', array() );
 	return isset($signage_opts['vertical_center']) 
 			? $signage_opts['vertical_center']
 			: WPDS_DEFAULT_VERTICAL_CENTER;
 }
 
 function wpds_get_theme() {
-    $signage_opts = get_theme_mod( 'signage', [] );
+    $signage_opts = get_theme_mod( 'signage', array() );
 	return !empty($signage_opts['theme'])
 			? $signage_opts['theme'] 
 			: WPDS_DEFAULT_THEME;
@@ -435,50 +435,50 @@ function wpds_get_theme_css() {
 }
 
 function wpds_get_text_algin() {
-	$signage_opts = get_theme_mod( 'signage', [] );
+	$signage_opts = get_theme_mod( 'signage', array() );
 	return !empty($signage_opts['text_align'])
 			? $signage_opts['text_align'] 
 			: WPDS_DEFAULT_TEXT_ALIGN;
 }
 
 function wpds_show_net_status_info_box() {
-	$opts = get_theme_mod( 'layout', [] );
+	$opts = get_theme_mod( 'layout', array() );
 	return isset($opts['show-net-status-infobox']) 
 			? $opts['show-net-status-infobox']
 			: WPDS_DEFAULT_SHOW_NET_STATUS_INFO_BOX;
 }
 
 function wpds_get_dock_background_color() {
-	$opts = get_theme_mod( 'colors', [] );
+	$opts = get_theme_mod( 'colors', array() );
 	return !empty($opts['dock-background-color'])
 			? $opts['dock-background-color'] 
 			: WPDS_DEFAULT_DOCK_BACKGROUND_COLOR;
 }
 
 function wpds_get_dock_foreground_color() {
-	$opts = get_theme_mod( 'colors', [] );
+	$opts = get_theme_mod( 'colors', array() );
 	return !empty($opts['dock-foreground-color'])
 			? '#' . $opts['dock-foreground-color'] 
 			: WPDS_DEFAULT_DOCK_FOREGROUND_COLOR;
 }
 
 function wpds_get_index_behaviour() {
-	$opts = get_theme_mod( 'settings', [] );
+	$opts = get_theme_mod( 'settings', array() );
 	return !empty($opts['index_bevahiour'])
 			? $opts['index_bevahiour'] 
 			: WPDS_DEFAULT_INDEX_BEHAVIOUR;
 }
 
 function wpds_show_dock() {
-	$opts = get_theme_mod( 'layout', [] );
+	$opts = get_theme_mod( 'layout', array() );
 	return isset($opts['show-dock']) 
 			? $opts['show-dock']
 			: WPDS_DEFAULT_SHOW_DOCK;
 }
 
 function wpds_get_dock_widths() {
-    $opts = get_theme_mod( 'dock', [] );
-    $widths = [];
+    $opts = get_theme_mod( 'dock', array() );
+    $widths = array();
     for ($i = 0; $i < count_sidebar_widgets('dock'); $i ++) {
         if ( isset( $opts[ 'width_' . $i ] ) && $opts[ 'width_' . $i ] > 0 ) {
             $widths[] = $opts[ 'width_' . $i ];
