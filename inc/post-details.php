@@ -46,7 +46,7 @@ function wpds_meta_callback( $post ) {
                     'background-color' => __( 'Background Color', 'wpds' ),
                 );
                 foreach ($color_controls as $key => $title) {
-                    wpds_display_color_select($key, $title);
+                    wpds_display_color_select($key, $title, $post->ID);
                 }
             ?>
         </div>
@@ -59,7 +59,7 @@ function wpds_meta_callback( $post ) {
                     'copy-color' => __( 'Copy Color', 'wpds' ),
                 );
                 foreach ($color_controls as $key => $title) {
-                    wpds_display_color_select($key, $title);
+                    wpds_display_color_select($key, $title, $post->ID);
                 }
             ?>
         </div>
@@ -67,7 +67,8 @@ function wpds_meta_callback( $post ) {
     <?php
 }
 
-function wpds_display_color_select($key, $title) {
+function wpds_display_color_select($key, $title, $post_id) {
+	$wpds_stored_meta = get_post_meta( $post_id );
     ?>
     <p>
         <label class="customize-control-title" for="<?=$key?>"><?=$title?></label>
