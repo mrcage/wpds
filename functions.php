@@ -691,8 +691,11 @@ function print_post_html($post) {
 	$head_color = get_color_option($post->ID, 'headline-color');
 	$subhead_color = get_color_option($post->ID, 'subhead-color');
 	$copy_color = get_color_option($post->ID, 'copy-color');
-	
-    if (wpds_hide_title_if_using_backgroun_image() && (!empty($background_image) || !empty($background_video))) {
+
+	// Hide title
+	$hide_title = get_post_meta($post->ID, 'hide_title', true);
+
+    if ((wpds_hide_title_if_using_backgroun_image() && (!empty($background_image) || !empty($background_video))) || $hide_title) {
         $title = $subtitle = '';
     } else {
         $title = '<h2' . ( !empty($head_color) ? ' style="color:' . $head_color . ';"' : '' ) . '>' . get_the_title() . '</h2>' . "\n";

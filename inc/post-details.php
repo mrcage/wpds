@@ -62,7 +62,10 @@ function wpds_meta_callback( $post ) {
                     wpds_display_color_select($key, $title, $post->ID);
                 }
             ?>
-        </div>
+
+			<p><label><input type="checkbox" name="hide_title" value="1" <?php if (isset($wpds_stored_meta['hide_title']) && $wpds_stored_meta['hide_title']): ?> checked="checked"<?php endif;?> /><?=__('Hide title', 'wpds')?></label></p>
+
+		</div>
     </div>
     <?php
 }
@@ -155,7 +158,14 @@ function wpds_meta_save( $post_id ) {
 	if( isset( $_POST[ 'background-video' ] ) ) {
 		update_post_meta( $post_id, 'background-video', $_POST[ 'background-video' ] );
 	}
-
+	
+	// Hide title
+	if( isset( $_POST[ 'hide_title' ] ) ) {
+		add_post_meta( $post_id, 'hide_title', true );
+	} else {
+		delete_post_meta( $post_id, 'hide_title' );
+	}
+	
     // Time range
 	if ( isset( $_POST['time_range_day_option_showed'] ) ) { // solves iussue with quick-edit
 		delete_post_meta( $post_id, 'time_range_day' );
