@@ -453,7 +453,10 @@ function my_remove_menu_pages() {
 		function base_extended_editor_mce_buttons($buttons) {
 			// The settings are returned in this array. Customize to suite your needs.
 			return array(
-				'bold', 'italic', 'strikethrough', 'separator', 'bullist', 'numlist', 'blockquote', 'separator', 'charmap', 'removeformat'
+				'bold', 'italic', 'strikethrough', '|', 
+				'bullist', 'numlist', 'blockquote', '|', 
+				'alignleft', 'aligncenter', 'alignright', '|',
+				'charmap', 'removeformat'
 			);
 			/* WordPress Default
 			return array(
